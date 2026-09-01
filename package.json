@@ -1,0 +1,12 @@
+{
+  "name": "doodle-figma-node",
+  "version": "1.0.0",
+  "description": "Node.js recreation of the Doodle Recognizer Figma UI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

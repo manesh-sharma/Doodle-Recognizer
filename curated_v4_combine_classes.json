@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "purpose": "Application-level probability aggregation for DoodleRecognizer predictions",
+  "rule": "For a normal group, sum the softmax probabilities of all member classes and display the representative target class. The model itself is unchanged.",
+  "normal_groups": [
+    {
+      "target_class": "house",
+      "member_classes": [
+        "house",
+        "barn"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "microwave",
+      "member_classes": [
+        "microwave",
+        "oven"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "hurricane",
+      "member_classes": [
+        "hurricane",
+        "tornado"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "ball",
+      "member_classes": [
+        "baseball",
+        "basketball",
+        "soccer ball"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "bicycle",
+      "member_classes": [
+        "bicycle",
+        "motorbike"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "cake",
+      "member_classes": [
+        "cake",
+        "birthday cake"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "blackberry",
+      "member_classes": [
+        "blackberry",
+        "blueberry"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "bracelet",
+      "member_classes": [
+        "bracelet",
+        "circle"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "tree",
+      "member_classes": [
+        "tree",
+        "broccoli"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "bus",
+      "member_classes": [
+        "bus",
+        "school bus"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "spreadsheet",
+      "member_classes": [
+        "calendar",
+        "spreadsheet"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "compass",
+      "member_classes": [
+        "clock",
+        "compass"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "cup",
+      "member_classes": [
+        "cup",
+        "coffee cup",
+        "mug"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "bucket",
+      "member_classes": [
+        "bucket",
+        "paint can"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "pencil",
+      "member_classes": [
+        "crayon",
+        "pencil",
+        "marker"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "cruise ship",
+      "member_classes": [
+        "cruise ship",
+        "aircraft carrier"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "crab",
+      "member_classes": [
+        "crab",
+        "scorpion"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "fish",
+      "member_classes": [
+        "shark",
+        "fish",
+        "dolphin"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "fork",
+      "member_classes": [
+        "fork",
+        "rake"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "hockey stick",
+      "member_classes": [
+        "golf club",
+        "hockey stick"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "squirrel",
+      "member_classes": [
+        "squirrel",
+        "kangaroo"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "peanut",
+      "member_classes": [
+        "peanut",
+        "steak"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "pickup truck",
+      "member_classes": [
+        "truck",
+        "pickup truck"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "roller coaster",
+      "member_classes": [
+        "mountain",
+        "roller coaster"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "shovel",
+      "member_classes": [
+        "spoon",
+        "shovel"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "smiley face",
+      "member_classes": [
+        "face",
+        "smiley face"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "picture frame",
+      "member_classes": [
+        "picture frame",
+        "square"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "teddy-bear",
+      "member_classes": [
+        "teddy-bear",
+        "panda"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "tent",
+      "member_classes": [
+        "tent",
+        "triangle"
+      ],
+      "combine": "sum_member_probabilities"
+    }
+  ],
+  "dynamic_support_groups": [
+    {
+      "target_family": "specific bird prediction",
+      "support_class": "bird",
+      "specific_classes": [
+        "owl",
+        "parrot",
+        "swan",
+        "penguin",
+        "flamingo"
+      ],
+      "combine_rule": "Find the highest-probability specific bird class. Add the probability of the generic bird class to that specific class. Keep the specific bird name as the output.",
+      "example": {
+        "owl": 0.55,
+        "parrot": 0.2,
+        "bird": 0.15,
+        "other": 0.1,
+        "result": "owl",
+        "combined_confidence": 0.7
+      }
+    }
+  ],
+  "notes": [
+    "The bird class is NOT merged into one generic Bird output.",
+    "If owl is the highest specific bird prediction, calculate owl + bird.",
+    "If parrot is the highest specific bird prediction, calculate parrot + bird.",
+    "The same generic-support idea can be extended to other explicitly defined parent/support classes later, but no extra groups are added here."
+  ]
+}

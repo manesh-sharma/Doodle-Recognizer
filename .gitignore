@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build artifacts
+dist/
+frontend/dist/
+
+# Python cache
+__pycache__/
+backend/**/__pycache__/
+*.py[cod]
+
+# Logs & temp
+*.log
+.DS_Store
+*.tmp
+
+# SQLite journal
+*.db-journal
+*.db-wal
+*.db-shm

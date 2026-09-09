@@ -6,44 +6,6 @@ Players can practice freely in **Normal Mode**, race against time in **Single Pl
 
 ---
 
-## 🌟 What's New in Version 3.0 (V3)
-
-### 1. 🗂️ Curated Classes V4 & Noise Removal
-* **345 Total QuickDraw Classes** classified and calibrated into:
-  * **Easy (80 classes)**: Iconic shapes (e.g. *apple, clock, eyeglasses, tree, bicycle*).
-  * **Medium (104 classes)**: Moderate complexity (e.g. *helicopter, octopus, sailboat, windmill, donut*).
-  * **Hard (31 classes)**: Detailed subjects (e.g. *camouflage, animal migration, roller coaster*).
-  * **Removed (130 classes)**: Highly ambiguous, abstract, or visually noisy classes (e.g. *hurricane, tornado, zigzag, stitches, line, matches, elbow*) are strictly excluded from game prompts and completely filtered out from real-time model predictions.
-
-### 2. 🧠 Application-Level Class Combination Engine (`curated_v4_combine_classes.json`)
-Solves visual ambiguity in human doodles without requiring retraining of the 345-class CNN:
-* **27 Normal Combination Groups**: Logically merges visually synonymous or subsumed classes into a single canonical class.
-  * *Example*: Drawing a house often triggers high confidence for both `barn` and `house`. The engine automatically sums the confidence of `barn` into `house` and suppresses the removed `barn` from top predictions.
-  * *Example*: Balls (`baseball`, `basketball`, `soccer ball`, `tennis ball`) combine into canonical `ball`.
-  * *Example*: Drinkware (`cup`, `coffee cup`, `mug`) combine into canonical `cup`.
-  * *Example*: Bodies of water (`pond`, `pool`, `sea`) combine into canonical `pond`.
-  * *Example*: Aerial vehicles (`airplane`, `flying saucer`) combine into canonical `airplane`.
-* **Dynamic Support Groups (Generic → Specific Resolution)**:
-  * Generic `bird` dynamically transfers its probability to whichever specific avian species is ranked highest in the current sketch (`owl`, `parrot`, `duck`, `flamingo`, `swan`, or `penguin`), boosting the user's score for drawing the specific bird requested.
-
-### 3. 🛡️ "Are You Sure?" Confirmation Modals (`ConfirmModal.jsx`)
-* Replaced abrupt native browser dialogs with animated, accessible confirmation modals.
-* Protects players from accidental round skips or premature match exits:
-  * **Single Player Mode**: Confirmation before advancing with **"Next Round"** / **"Finish Game"**, or leaving to the Dashboard mid-session.
-  * **Multiplayer Mode**: Confirmation before locking in **"I'm Done"** or leaving an active multiplayer match.
-
-### 4. 👤 Player Profile & Career Stats Modal (`ProfileModal.jsx`)
-* Clicking on the user's avatar or username pill in the top navigation bar opens a comprehensive modal with two tabs:
-  * **Profile & Stats**: Displays username, email, member join date, high score, total games played, average score, and complete historical match breakdown with round details and doodle PNG exports.
-  * **Settings**: Quick theme switching (Light / Dark mode), interface preferences, and sound effect toggles.
-
-### 5. 🌓 Full Light & Dark Theme System
-* Built-in visual theme toggle on the top navigation bar and inside Profile Settings.
-* Persistent theme state saved in browser `localStorage`.
-* **Artboard Preservation**: Canvas drawing surface strictly remains `#ffffff` with black ink strokes so neural network preprocessing remains 100% accurate, while all backgrounds, panels, navigation bars, cards, and modals smoothly adapt between Light and Dark mode.
-
----
-
 ## 🚀 Game Modes
 
 ### 1. 🖌️ Normal Mode (Free Sandbox)
@@ -250,45 +212,4 @@ npm run dev
 
 ---
 
-## 📡 API & WebSocket Reference
 
-### Authentication
-* `POST /api/auth/register` — Create a new user account.
-* `POST /api/auth/login` — Authenticate and receive a JWT access token.
-* `GET /api/auth/me` — Retrieve current authenticated user profile and stats.
-
-### AI Inference
-* `POST /api/predict` — Send base64 canvas image, returns top 5 predicted categories and confidence scores (with combine rules applied and removed classes filtered out).
-
-### Single Player Game
-* `GET /api/game/prompts` — Generate 4 balanced game prompts (2 Easy, 1 Medium, 1 Hard) sampled strictly from active curated classes.
-* `POST /api/game/save` — Save complete match session and individual round doodles to SQLite.
-* `GET /api/game/history` — Fetch user's match history and stored doodles.
-
-### Multiplayer WebSockets
-* `ws://<host>:8000/ws/multiplayer/{room_code}`
-* **Incoming Client Actions**:
-  * `{"action": "join", "username": "Alice"}`
-  * `{"action": "toggle_ready"}`
-  * `{"action": "start_game"}`
-  * `{"action": "submit_attempt", "score": 92.4, "canvas_data": "data:image/png..."}`
-  * `{"action": "finish_round"}`
-  * `{"action": "play_again"}`
-* **Server Broadcast Events**:
-  * `room_update` — Player list, host designation, ready statuses.
-  * `game_start` / `round_started` — Prompt word, category difficulty, `round_end_timestamp` epoch.
-  * `score_update` — Live scores during the round.
-  * `match_over` — Final standings, full match scorecards, and player doodle snapshots.
-
----
-
-## 🔒 Version History
-
-* **V1.0**: Baseline release for Single Player Mode & Normal Mode with HTML5 Canvas and Keras CNN inference.
-* **V2.0**: Integrated real-time Multiplayer Team Mode with non-host ready checks, zero-drift epoch wall-clock sync, dynamic LAN multi-machine support, and mutual doodle inspection.
-* **V3.0 (Current)**:
-  * Curated classes V4 (130 ambiguous classes removed, including hurricane).
-  * Application-level class combination engine (27 normal groups + dynamic bird generic support).
-  * "Are you sure?" confirmation popups on round completion and game exit.
-  * User profile & career stats modal (accessible by clicking player name/avatar).
-  * Complete Light and Dark theme system with persistent storage.

@@ -1,13 +1,30 @@
 import React, { useRef, useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { Undo2, Redo2, Trash2, Download } from 'lucide-react';
 import { showToast } from './Toast';
+import { useTheme } from '../context/ThemeContext';
 
 export const DrawingCanvas = forwardRef(function DrawingCanvas(
-  { onStrokeEnd, disabled = false, showSaveButton = true },
+  {
+    onStrokeEnd,
+    onSingleStrokeComplete,
+    disabled = false,
+    showSaveButton = true,
+    singleStrokeMode = false,
+    lockedMessage = 'Canvas Locked',
+    traceGuide = null,
+    onClear = null
+  },
   ref
 ) {
+  const { isDark } = useTheme();
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
+  
+  // Dynamic theme colors for comfortable drawing:
+  // In dark mode, uses smooth drafting grey (#e2e8f0) with black brush so it doesn't glare white
+  const canvasBg = isDark ? '#e2e8f0' : '#ffffff';
+  const brushColor = '#000000';
+  const eraserColor = isDark ? '#e2e8f0' : '#ffffff';
   
   // Tool state
   const [tool, setTool] = useState('brush'); // 'brush' or 'eraser'
@@ -30,12 +47,21 @@ export const DrawingCanvas = forwardRef(function DrawingCanvas(
     canvas.height = CANVAS_INTERNAL_SIZE;
 
     const ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = canvasBg;
     ctx.fillRect(0, 0, CANVAS_INTERNAL_SIZE, CANVAS_INTERNAL_SIZE);
 
     // Initial undo snapshot
     saveCanvasState();
   }, []);
+
+  // Update canvas background on theme change if untouched
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || undoStack.length > 1) return;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = canvasBg;
+    ctx.fillRect(0, 0, CANVAS_INTERNAL_SIZE, CANVAS_INTERNAL_SIZE);
+  }, [isDark]);
 
   const saveCanvasState = () => {
     const canvas = canvasRef.current;
@@ -84,10 +110,10 @@ export const DrawingCanvas = forwardRef(function DrawingCanvas(
     ctx.lineJoin = 'round';
 
     if (tool === 'brush') {
-      ctx.strokeStyle = '#000000';
+      ctx.strokeStyle = brushColor;
       ctx.lineWidth = brushSize;
     } else {
-      ctx.strokeStyle = '#ffffff';
+      ctx.strokeStyle = eraserColor;
       ctx.lineWidth = brushSize * 2.2;
     }
 
@@ -122,6 +148,11 @@ export const DrawingCanvas = forwardRef(function DrawingCanvas(
     if (onStrokeEnd) {
       const base64 = getBase64Image();
       onStrokeEnd(base64);
+    }
+
+    if (singleStrokeMode && onSingleStrokeComplete) {
+      const base64 = getBase64Image();
+      onSingleStrokeComplete(base64);
     }
   };
 
@@ -168,12 +199,14 @@ export const DrawingCanvas = forwardRef(function DrawingCanvas(
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = canvasBg;
     ctx.fillRect(0, 0, CANVAS_INTERNAL_SIZE, CANVAS_INTERNAL_SIZE);
 
     saveCanvasState();
     setRedoStack([]);
     setStrokeCount(0);
+
+    if (onClear) onClear();
 
     if (onStrokeEnd) {
       const base64 = getBase64Image();
@@ -198,8 +231,24 @@ export const DrawingCanvas = forwardRef(function DrawingCanvas(
     showToast('Doodle saved to your computer!', 'success');
   };
 
+  const loadImageBase64 = (base64Str) => {
+    if (!base64Str) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    img.onload = () => {
+      ctx.fillStyle = canvasBg;
+      ctx.fillRect(0, 0, CANVAS_INTERNAL_SIZE, CANVAS_INTERNAL_SIZE);
+      ctx.drawImage(img, 0, 0, CANVAS_INTERNAL_SIZE, CANVAS_INTERNAL_SIZE);
+      saveCanvasState();
+    };
+    img.src = base64Str;
+  };
+
   useImperativeHandle(ref, () => ({
     getImageBase64: getBase64Image,
+    loadImageBase64,
     clearCanvas,
     saveLocally,
     getStrokeCount: () => strokeCount,
@@ -220,8 +269,10 @@ export const DrawingCanvas = forwardRef(function DrawingCanvas(
                 : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700'
             }`}
           >
-            {/* Black filled circle with white boundary indicator */}
-            <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-black border-2 border-white shrink-0"></span>
+            {/* Dynamic circle indicator */}
+            <span
+              className="w-4 h-4 sm:w-5 sm:h-5 rounded-full shrink-0 border-2 bg-black border-white"
+            />
             <span>Brush</span>
           </button>
 
@@ -234,8 +285,12 @@ export const DrawingCanvas = forwardRef(function DrawingCanvas(
                 : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700'
             }`}
           >
-            {/* White filled circle with black boundary indicator */}
-            <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white border-2 border-black shrink-0"></span>
+            {/* Dynamic eraser indicator */}
+            <span
+              className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full shrink-0 border-2 ${
+                isDark ? 'bg-[#e2e8f0] border-slate-400' : 'bg-white border-black'
+              }`}
+            />
             <span>Eraser</span>
           </button>
 
@@ -322,7 +377,32 @@ export const DrawingCanvas = forwardRef(function DrawingCanvas(
         className="flex-1 w-full h-full bg-slate-100/70 dark:bg-slate-950/70 p-4 sm:p-6 flex items-center justify-center relative overflow-hidden transition-colors"
       >
         {/* Centered Square Canvas Artboard */}
-        <div className="relative w-full max-w-[420px] aspect-square rounded-2xl shadow-lg border-2 border-slate-300 dark:border-slate-700 bg-white overflow-hidden group">
+        <div
+          className={`relative w-full max-w-[420px] aspect-square rounded-2xl shadow-xl border-2 transition-all overflow-hidden group ${
+            isDark ? 'border-slate-600 bg-[#e2e8f0]' : 'border-slate-300 bg-white'
+          }`}
+        >
+          {/* Dotted Trace Guide SVG Overlay (when provided) */}
+          {traceGuide && traceGuide.length > 0 && (
+            <svg
+              viewBox="0 0 400 400"
+              className="absolute inset-0 w-full h-full pointer-events-none select-none z-10 opacity-70 transition-opacity duration-300"
+            >
+              {traceGuide.map((d, idx) => (
+                <path
+                  key={idx}
+                  d={d}
+                  fill="none"
+                  stroke={isDark ? '#38bdf8' : '#4f46e5'}
+                  strokeWidth="3.5"
+                  strokeDasharray="6 6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              ))}
+            </svg>
+          )}
+
           <canvas
             ref={canvasRef}
             onMouseDown={startDrawing}
@@ -332,13 +412,17 @@ export const DrawingCanvas = forwardRef(function DrawingCanvas(
             onTouchStart={startDrawing}
             onTouchMove={draw}
             onTouchEnd={stopDrawing}
-            className="w-full h-full block cursor-crosshair touch-none"
+            className="w-full h-full block cursor-crosshair touch-none relative z-0"
           />
 
           {disabled && (
-            <div className="absolute inset-0 bg-white/70 backdrop-blur-[1px] flex items-center justify-center select-none">
-              <span className="bg-slate-900 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-lg">
-                Canvas Locked
+            <div
+              className={`absolute inset-0 z-20 backdrop-blur-[1px] flex items-center justify-center select-none ${
+                isDark ? 'bg-slate-950/70' : 'bg-white/70'
+              }`}
+            >
+              <span className="bg-slate-900 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-lg border border-slate-700">
+                {lockedMessage}
               </span>
             </div>
           )}

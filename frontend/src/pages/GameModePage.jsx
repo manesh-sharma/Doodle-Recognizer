@@ -4,6 +4,8 @@ import { RoundAnalysisModal } from '../components/RoundAnalysisModal';
 import { ConfirmModal } from '../components/ConfirmModal';
 import { api } from '../services/api';
 import { showToast } from '../components/Toast';
+import { getBlueprintForClass } from '../data/doodleBlueprints';
+import { unlockBadge } from '../utils/badgeManager';
 import {
   Clock,
   Send,
@@ -50,6 +52,10 @@ export function GameModePage({ setView }) {
   const [bestRoundScore, setBestRoundScore] = useState(0);
   const [bestRoundDoodle, setBestRoundDoodle] = useState(null);
   const [submittingAttempt, setSubmittingAttempt] = useState(false);
+
+  // Dotted Doodle Hint state
+  const [hintActive, setHintActive] = useState(false);
+  const [hintUsedInRound, setHintUsedInRound] = useState(false);
 
   // Completed rounds history
   const [completedRounds, setCompletedRounds] = useState([]);
@@ -193,18 +199,28 @@ export function GameModePage({ setView }) {
       }
     }
 
+    if (hintUsedInRound) {
+      finalScore = Math.max(0, finalScore - 20);
+      showToast('Hint penalty applied: -20 points on this round score', 'info');
+    }
+
     const roundRecord = {
       round_number: currentRoundIndex + 1,
       prompt: currentPrompt.prompt,
       difficulty: currentPrompt.difficulty,
       score: finalScore,
       doodle_image: finalDoodle,
+      hint_used: hintUsedInRound
     };
 
     const updatedCompleted = [...completedRounds, roundRecord];
     setCompletedRounds(updatedCompleted);
 
     const nextIdx = currentRoundIndex + 1;
+
+    // Reset hint for next round
+    setHintActive(false);
+    setHintUsedInRound(false);
 
     if (nextIdx < prompts.length) {
       // Advance to next round smoothly
@@ -237,14 +253,28 @@ export function GameModePage({ setView }) {
     }
   };
 
+  const toggleHint = () => {
+    if (!hintActive) {
+      setHintActive(true);
+      setHintUsedInRound(true);
+      showToast('💡 Hint Active: Dotted blueprint outline revealed! (-20 pts round penalty)', 'info', 4000);
+    } else {
+      setHintActive(false);
+    }
+  };
+
   const saveCompleteGame = async (roundsList) => {
     setSavingGame(true);
     const totalScore = roundsList.reduce((sum, r) => sum + r.score, 0);
     try {
       await api.saveGame(roundsList, totalScore);
-      showToast('Game session saved to your history!', 'success');
+      showToast('Full 4-round game saved to your profile history!', 'success');
+      unlockBadge('first_solo');
+      if (totalScore >= 300) {
+        unlockBadge('veteran_artist');
+      }
     } catch (err) {
-      console.error('Error saving game session:', err);
+      console.warn('Could not persist match session to database:', err);
     } finally {
       setSavingGame(false);
     }
@@ -512,8 +542,23 @@ export function GameModePage({ setView }) {
           </div>
         </div>
 
-        {/* Timer & Next Round Control */}
-        <div className="flex items-center gap-3">
+        {/* Timer, Hint & Next Round Controls */}
+        <div className="flex items-center gap-2.5">
+          {/* Need a Hint Button */}
+          <button
+            type="button"
+            onClick={toggleHint}
+            className={`flex items-center gap-1.5 px-3 py-2 rounded-2xl text-xs font-bold transition border shadow-sm ${
+              hintActive
+                ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200'
+                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700'
+            }`}
+            title="Reveal dotted outline guide (-20 pts penalty)"
+          >
+            <Lightbulb className={`w-4 h-4 ${hintActive ? 'text-amber-500 fill-amber-500' : 'text-amber-500'}`} />
+            <span>{hintActive ? 'Hide Hint' : '💡 Need a Hint?'}</span>
+          </button>
+
           {/* Animated Countdown Timer */}
           <div
             className={`flex items-center gap-2 px-4 py-2 rounded-2xl border font-black text-sm transition-colors ${
@@ -548,6 +593,7 @@ export function GameModePage({ setView }) {
             ref={canvasRef}
             disabled={isTransitioning || gameFinished || (timeLeft === 0 && !timerActive)}
             showSaveButton={true}
+            traceGuide={hintActive && currentPrompt ? getBlueprintForClass(currentPrompt.prompt)?.paths : null}
           />
         </div>
 

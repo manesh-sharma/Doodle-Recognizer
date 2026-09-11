@@ -7,13 +7,16 @@ import { LandingPage } from './pages/LandingPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { NormalModePage } from './pages/NormalModePage';
 import { GameModePage } from './pages/GameModePage';
+import { ExtremeChallengePage } from './pages/ExtremeChallengePage';
+import { LearningModePage } from './pages/LearningModePage';
+import { ContextoSoloPage } from './pages/ContextoSoloPage';
 import { MultiplayerLobbyPage } from './pages/MultiplayerLobbyPage';
 import { MultiplayerGamePage } from './pages/MultiplayerGamePage';
 import { api } from './services/api';
 
 function AppContent() {
   const { user, loading } = useAuth();
-  const [currentView, setView] = useState('dashboard'); // 'dashboard', 'normal', 'game', 'multiplayer_lobby', 'multiplayer_game'
+  const [currentView, setView] = useState('dashboard'); // 'dashboard', 'normal', 'game', 'extreme', 'learning', 'contexto_solo', 'multiplayer_lobby', 'multiplayer_game'
 
   // Multiplayer WebSocket & Room State
   const [roomState, setRoomState] = useState(null);
@@ -41,7 +44,6 @@ function AppContent() {
 
     ws.onopen = () => {
       setWsConnected(true);
-      // Authenticate with JWT token
       ws.send(JSON.stringify({ type: 'join', token, room_code: roomCode }));
     };
 
@@ -52,7 +54,16 @@ function AppContent() {
         if (data.type === 'room_state') {
           setRoomState(data.room);
           // Auto-transition views based on room status
-          if (data.room.status === 'in_round' || data.room.status === 'round_summary' || data.room.status === 'game_finished') {
+          if (
+            data.room.status === 'in_round' ||
+            data.room.status === 'round_summary' ||
+            data.room.status === 'imposter_drawing' ||
+            data.room.status === 'imposter_voting' ||
+            data.room.status === 'imposter_reveal' ||
+            data.room.status === 'contexto_race' ||
+            data.room.status === 'contexto_summary' ||
+            data.room.status === 'game_finished'
+          ) {
             setView('multiplayer_game');
           } else if (data.room.status === 'lobby') {
             setView('multiplayer_lobby');
@@ -77,6 +88,51 @@ function AppContent() {
           setRoomState(data.room);
           setView('multiplayer_game');
           showToast(`Round ${data.round} complete! Advancing shortly...`, 'info', 3000);
+        } else if (data.type === 'imposter_stroke_added') {
+          setRoomState((prev) => {
+            if (!prev) return prev;
+            return {
+              ...prev,
+              composite_canvas: data.composite_canvas,
+              top_prediction: data.top_prediction,
+              target_confidence: data.target_confidence,
+              turn_count: data.turn_count,
+            };
+          });
+        } else if (data.type === 'imposter_voting_started') {
+          const reasonText = data.reason === 'accuracy_reached'
+            ? `AI recognized sketch with ${data.target_confidence}% accuracy! Voting begins!`
+            : 'All turns complete! Voting begins to catch the Imposter!';
+          showToast(reasonText, 'warning', 4000);
+        } else if (data.type === 'imposter_vote_cast') {
+          setRoomState((prev) => {
+            if (!prev) return prev;
+            return {
+              ...prev,
+              votes_count: data.votes_count,
+            };
+          });
+        } else if (data.type === 'imposter_round_reveal') {
+          setRoomState((prev) => {
+            if (!prev) return prev;
+            return {
+              ...prev,
+              round_result: data.result,
+              players: data.players || prev.players,
+            };
+          });
+          const outcomeText = data.result.outcome === 'innocents_win'
+            ? `Innocents Win! The Imposter (${data.result.imposter_username}) was caught!`
+            : `Imposter Wins! ${data.result.imposter_username} fooled everyone!`;
+          showToast(outcomeText, data.result.outcome === 'innocents_win' ? 'success' : 'warning', 5000);
+        } else if (data.type === 'contexto_feed_update') {
+          if (data.is_match) {
+            showToast(`🎯 ${data.username} solved the secret word!`, 'success', 4000);
+          } else {
+            showToast(`${data.username} guessed: Rank #${data.rank} (${data.proximity})`, 'info', 2000);
+          }
+        } else if (data.type === 'contexto_round_ended') {
+          showToast(`Round finished! The mystery word was "${data.secret_word}"!`, 'info', 4000);
         } else if (data.type === 'game_finished') {
           setRoomState(data.room);
           setView('multiplayer_game');
@@ -117,6 +173,12 @@ function AppContent() {
     }
   };
 
+  const handleSetGameSettings = (gameMode, totalRounds) => {
+    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ type: 'set_game_settings', game_mode: gameMode, total_rounds: totalRounds }));
+    }
+  };
+
   const handleStartGame = () => {
     if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
       wsRef.current.send(JSON.stringify({ type: 'start_game' }));
@@ -132,6 +194,24 @@ function AppContent() {
   const handleFinishRound = () => {
     if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
       wsRef.current.send(JSON.stringify({ type: 'finish_round' }));
+    }
+  };
+
+  const handleSubmitImposterStroke = (compositeCanvas) => {
+    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ type: 'imposter_stroke', composite_canvas: compositeCanvas }));
+    }
+  };
+
+  const handleSubmitImposterVote = (suspectId) => {
+    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ type: 'imposter_vote', suspect_id: suspectId }));
+    }
+  };
+
+  const handleSubmitContextoGuess = (doodle) => {
+    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
+      wsRef.current.send(JSON.stringify({ type: 'contexto_guess', doodle }));
     }
   };
 
@@ -173,11 +253,14 @@ function AppContent() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-200">
-      <Navbar currentView={currentView} setView={setView} />
+      {currentView === 'dashboard' && <Navbar currentView={currentView} setView={setView} />}
       <main className="flex-1">
         {currentView === 'dashboard' && <DashboardPage setView={setView} />}
         {currentView === 'normal' && <NormalModePage setView={setView} />}
         {currentView === 'game' && <GameModePage setView={setView} />}
+        {currentView === 'extreme' && <ExtremeChallengePage setView={setView} />}
+        {currentView === 'learning' && <LearningModePage setView={setView} />}
+        {currentView === 'contexto_solo' && <ContextoSoloPage setView={setView} />}
         {currentView === 'multiplayer_lobby' && (
           <MultiplayerLobbyPage
             setView={setView}
@@ -186,6 +269,7 @@ function AppContent() {
             onCreateRoom={handleCreateRoom}
             onJoinRoom={handleJoinRoom}
             onToggleReady={handleToggleReady}
+            onSetGameSettings={handleSetGameSettings}
             onStartGame={handleStartGame}
             onLeaveRoom={handleLeaveRoom}
           />
@@ -197,6 +281,9 @@ function AppContent() {
             currentUserId={user?.id}
             onSubmitAttempt={handleSubmitAttempt}
             onFinishRound={handleFinishRound}
+            onSubmitImposterStroke={handleSubmitImposterStroke}
+            onSubmitImposterVote={handleSubmitImposterVote}
+            onSubmitContextoGuess={handleSubmitContextoGuess}
             onPlayAgain={handlePlayAgain}
             onLeaveRoom={handleLeaveRoom}
           />

@@ -76,6 +76,10 @@ class ApiService {
     });
   }
 
+  async predictDoodle(imageDataBase64, targetClass = null) {
+    return this.predict(imageDataBase64, targetClass);
+  }
+
   async getModelStatus() {
     return this.request('/api/model/status');
   }
@@ -101,6 +105,36 @@ class ApiService {
 
   async getLeaderboard() {
     return this.request('/api/game/leaderboard');
+  }
+
+  // Contexto Solo Mode
+  async getContextoTarget(difficulty = null) {
+    const query = difficulty ? `?difficulty=${difficulty}` : '';
+    return this.request(`/api/game/contexto/target${query}`);
+  }
+
+  async submitContextoGuess(sessionId, imageBase64 = null, manualGuess = null) {
+    return this.request('/api/game/contexto/guess', {
+      method: 'POST',
+      body: JSON.stringify({
+        session_id: sessionId,
+        image: imageBase64,
+        manual_guess: manualGuess,
+      }),
+    });
+  }
+
+  async getContextoHint(sessionId, level = 1) {
+    return this.request(`/api/game/contexto/hint?session_id=${sessionId}&level=${level}`);
+  }
+
+  async giveUpContexto(sessionId) {
+    return this.request('/api/game/contexto/give_up', {
+      method: 'POST',
+      body: JSON.stringify({
+        session_id: sessionId,
+      }),
+    });
   }
 
   // Multiplayer

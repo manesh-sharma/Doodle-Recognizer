@@ -16,16 +16,37 @@ import {
   Zap,
   Activity,
   Check,
+  Award,
+  Lock,
+  Sparkles,
 } from 'lucide-react';
 
 import { formatDate } from '../utils/date';
 import { ConfirmModal } from './ConfirmModal';
+import { getAllBadgesWithStatus, unlockBadge } from '../utils/badgeManager';
 
 export function ProfileModal({ isOpen, onClose }) {
   const { user, stats, logout } = useAuth();
   const { theme, setTheme, isDark } = useTheme();
-  const [activeTab, setActiveTab] = useState('profile'); // 'profile' | 'settings'
+  const [activeTab, setActiveTab] = useState('profile'); // 'profile' | 'badges' | 'settings'
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+
+  useEffect(() => {
+    if (stats?.total_games >= 10) {
+      unlockBadge('veteran_artist');
+    }
+    if (stats?.high_score >= 90) {
+      unlockBadge('perfectionist');
+    }
+    if (stats?.high_score >= 98) {
+      unlockBadge('century_club');
+    }
+  }, [stats]);
+
+  const badges = getAllBadgesWithStatus();
+  const unlockedCount = badges.filter((b) => b.isUnlocked).length;
+  const totalBadges = badges.length;
+  const progressPercent = Math.round((unlockedCount / totalBadges) * 100);
 
   if (!isOpen) return null;
 
@@ -39,7 +60,7 @@ export function ProfileModal({ isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl max-w-xl w-full overflow-hidden flex flex-col max-h-[85vh]">
+      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl max-w-2xl w-full overflow-hidden flex flex-col max-h-[85vh]">
         {/* Modal Top Header */}
         <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50/70 dark:bg-slate-800/40">
           <div className="flex items-center gap-3.5">
@@ -79,6 +100,19 @@ export function ProfileModal({ isOpen, onClose }) {
           >
             <User className="w-4 h-4" />
             <span>Profile & Stats</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('badges')}
+            className={`flex items-center gap-2 py-3.5 px-3 border-b-2 text-xs font-bold transition ${
+              activeTab === 'badges'
+                ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400'
+                : 'border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+            }`}
+          >
+            <Award className="w-4 h-4" />
+            <span>Badges ({unlockedCount}/{totalBadges})</span>
           </button>
 
           <button
@@ -155,6 +189,78 @@ export function ProfileModal({ isOpen, onClose }) {
                     </span>
                   </div>
                 </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB: Badges & Achievements */}
+          {activeTab === 'badges' && (
+            <div className="space-y-5">
+              {/* Badges Overview Progress */}
+              <div className="bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border border-indigo-200/60 dark:border-indigo-900/40 rounded-2xl p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <Award className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                    <span className="font-bold text-sm text-slate-800 dark:text-slate-200">
+                      Trophy Case
+                    </span>
+                  </div>
+                  <span className="text-xs font-black text-indigo-600 dark:text-indigo-400">
+                    {unlockedCount} / {totalBadges} Unlocked ({progressPercent}%)
+                  </span>
+                </div>
+                <div className="w-full bg-slate-200 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-indigo-600 to-violet-600 rounded-full transition-all duration-500"
+                    style={{ width: `${progressPercent}%` }}
+                  />
+                </div>
+              </div>
+
+              {/* Badges Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {badges.map((b) => (
+                  <div
+                    key={b.id}
+                    className={`p-3.5 rounded-2xl border transition-all flex items-start gap-3 ${
+                      b.isUnlocked
+                        ? 'bg-gradient-to-br from-indigo-50/70 to-violet-50/40 dark:from-indigo-950/30 dark:to-violet-950/20 border-indigo-200 dark:border-indigo-900/60 shadow-sm'
+                        : 'bg-slate-50/50 dark:bg-slate-800/30 border-slate-200/60 dark:border-slate-800/60 opacity-65'
+                    }`}
+                  >
+                    <div
+                      className={`w-11 h-11 rounded-2xl flex items-center justify-center text-xl shrink-0 ${
+                        b.isUnlocked
+                          ? 'bg-white dark:bg-slate-800 shadow-sm border border-indigo-100 dark:border-indigo-800'
+                          : 'bg-slate-200/70 dark:bg-slate-800/70 grayscale'
+                      }`}
+                    >
+                      {b.isUnlocked ? b.icon : <Lock className="w-4 h-4 text-slate-400" />}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-1.5 mb-1">
+                        <h4
+                          className={`text-xs font-black truncate ${
+                            b.isUnlocked ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-400'
+                          }`}
+                        >
+                          {b.title}
+                        </h4>
+                        <span className="text-[9px] uppercase font-extrabold px-1.5 py-0.5 rounded-md bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 shrink-0">
+                          {b.category}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
+                        {b.description}
+                      </p>
+                      {b.isUnlocked && b.unlockedAt && (
+                        <span className="text-[9px] text-indigo-600 dark:text-indigo-400 font-bold block mt-1.5">
+                          ✓ Unlocked {new Date(b.unlockedAt).toLocaleDateString()}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           )}

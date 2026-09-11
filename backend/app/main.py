@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 
 from app.database import init_db
 from app.model_service import model_service
-from app.routes import auth_routes, predict_routes, game_routes, multiplayer_routes
+from app.routes import auth_routes, predict_routes, game_routes, multiplayer_routes, contexto_routes
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -35,6 +35,7 @@ app.add_middleware(
 app.include_router(auth_routes.router)
 app.include_router(predict_routes.router)
 app.include_router(game_routes.router)
+app.include_router(contexto_routes.router)
 app.include_router(multiplayer_routes.router)
 app.include_router(multiplayer_routes.ws_router)
 

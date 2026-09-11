@@ -81,6 +81,23 @@ async def multiplayer_websocket(websocket: WebSocket, room_code: str):
             elif msg_type == "toggle_ready":
                 await multiplayer_manager.toggle_ready(code, user["id"])
 
+            elif msg_type == "set_game_settings":
+                game_mode = str(data.get("game_mode", "classic"))
+                total_rounds = int(data.get("total_rounds", 3))
+                await multiplayer_manager.set_game_settings(code, user["id"], game_mode, total_rounds)
+
+            elif msg_type == "imposter_stroke":
+                composite_canvas = data.get("composite_canvas", "")
+                await multiplayer_manager.submit_imposter_stroke(code, user["id"], composite_canvas)
+
+            elif msg_type == "imposter_vote":
+                suspect_id = int(data.get("suspect_id", 0))
+                await multiplayer_manager.submit_imposter_vote(code, user["id"], suspect_id)
+
+            elif msg_type == "contexto_guess":
+                doodle = data.get("doodle", "")
+                await multiplayer_manager.submit_contexto_guess(code, user["id"], doodle)
+
             elif msg_type == "play_again":
                 await multiplayer_manager.reset_to_lobby(code, user["id"])
 

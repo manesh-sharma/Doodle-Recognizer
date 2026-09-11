@@ -16,7 +16,12 @@ import {
   ChevronUp,
   ArrowRight,
   Users,
-  X
+  X,
+  HelpCircle,
+  Zap,
+  Eye,
+  BookOpen,
+  Target
 } from 'lucide-react';
 import { showToast } from '../components/Toast';
 import { formatDate, formatTime } from '../utils/date';
@@ -75,7 +80,7 @@ export function DashboardPage({ setView }) {
             Ready to Sketch?
           </h1>
           <p className="text-indigo-100 text-sm sm:text-base mt-2 max-w-xl">
-            Choose your mode: explore unlimited free-drawing in Normal Mode, or test your speed and accuracy in the 4-Round Game Mode.
+            Choose your mode: free-draw in Normal Mode, test your speed in Extreme Challenge, master 208 lessons in Learning Mode, solve Contexto, or compete in Multiplayer!
           </p>
         </div>
 
@@ -139,14 +144,14 @@ export function DashboardPage({ setView }) {
         </div>
       </div>
 
-      {/* Game Mode Options (Normal Mode vs Game Mode) */}
+      {/* Game Mode Options (6 Game Modes Grid) */}
       <div>
         <h2 className="text-lg font-extrabold text-slate-900 dark:text-white uppercase tracking-wider mb-4">
           Select Game Mode
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Normal Mode Card */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* 1. Normal Mode Card */}
           <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between group">
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -160,7 +165,7 @@ export function DashboardPage({ setView }) {
 
               <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">Normal Mode</h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                Unlimited drawing canvas with continuous AI stroke recognition. The neural network predicts your doodle in real time after every stroke.
+                Unlimited drawing canvas with continuous AI stroke recognition. Practice any object with the built-in Trace Guide overlay.
               </p>
 
               <div className="space-y-2 mb-6 text-xs text-slate-600 dark:text-slate-300">
@@ -174,7 +179,7 @@ export function DashboardPage({ setView }) {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400"></span>
-                  <span>Save doodles locally to your device</span>
+                  <span>Trace Guide dropdown for all classes</span>
                 </div>
               </div>
             </div>
@@ -188,7 +193,7 @@ export function DashboardPage({ setView }) {
             </button>
           </div>
 
-          {/* Single Player Game Mode Card */}
+          {/* 2. Single Player Arcade Challenge Card */}
           <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 border-2 border-amber-200/80 dark:border-amber-500/40 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between group relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-amber-100/50 dark:bg-amber-500/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
 
@@ -198,13 +203,13 @@ export function DashboardPage({ setView }) {
                   <Flame className="w-6 h-6" />
                 </div>
                 <span className="text-xs font-bold px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300">
-                  Solo Challenge
+                  Solo Arcade
                 </span>
               </div>
 
-              <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">Single Player Mode</h3>
+              <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">Arcade Challenge</h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                4 timed rounds: 2 Easy (50s), 1 Medium (100s), and 1 Hard (150s). Submit multiple doodles—highest confidence score counts!
+                4 timed rounds: 2 Easy (50s), 1 Medium (100s), and 1 Hard (150s). Use "Need a Hint?" for dotted trace guides (-20 pts).
               </p>
 
               <div className="space-y-2 mb-6 text-xs text-slate-600 dark:text-slate-300">
@@ -214,11 +219,11 @@ export function DashboardPage({ setView }) {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                  <span>Score = Model confidence % for target class</span>
+                  <span>Score = Target confidence % (Max 100/rd)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                  <span>Round analysis & doodle download</span>
+                  <span>Dotted trace hint & doodle exports</span>
                 </div>
               </div>
             </div>
@@ -232,7 +237,139 @@ export function DashboardPage({ setView }) {
             </button>
           </div>
 
-          {/* Multiplayer Game Mode Card */}
+          {/* 3. Extreme Challenge Card (NEW) */}
+          <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 border-2 border-rose-200/80 dark:border-rose-500/40 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-rose-100/50 dark:bg-rose-500/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
+
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 flex items-center justify-center border border-rose-200 dark:border-rose-800 group-hover:scale-105 transition">
+                  <Zap className="w-6 h-6" />
+                </div>
+                <span className="text-xs font-bold px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300">
+                  New • Speed Run
+                </span>
+              </div>
+
+              <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">Extreme Challenge</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                Fast-paced score attack! Maximize your score through stroke efficiency, high AI confidence, and rapid reflexes.
+              </p>
+
+              <div className="space-y-2 mb-6 text-xs text-slate-600 dark:text-slate-300">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                  <span>Formula: 100 + Conf% + Stroke Bonus - Time</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                  <span>Fewer strokes = Higher efficiency bonus</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+                  <span>High score records & speed badges</span>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setView('extreme')}
+              className="w-full py-3.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-rose-200 dark:shadow-none transition"
+            >
+              <span>Start Extreme Run</span>
+              <Zap className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* 4. Learning Mode Card (NEW) */}
+          <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 border-2 border-sky-200/80 dark:border-sky-500/40 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-sky-100/50 dark:bg-sky-500/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
+
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 flex items-center justify-center border border-sky-200 dark:border-sky-800 group-hover:scale-105 transition">
+                  <BookOpen className="w-6 h-6" />
+                </div>
+                <span className="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300">
+                  New • 208 Levels
+                </span>
+              </div>
+
+              <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">Learning Mode</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                Master sketching through 208 structured lessons. Trace dotted guide blueprints, hit 90%+ AI target goals, and earn 3 stars.
+              </p>
+
+              <div className="space-y-2 mb-6 text-xs text-slate-600 dark:text-slate-300">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+                  <span>208 curated lessons from Easy to Hard</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+                  <span>Dotted outline trace guide overlays</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+                  <span>Target 90%+ goal meter & star ratings</span>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setView('learning')}
+              className="w-full py-3.5 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-sky-200 dark:shadow-none transition"
+            >
+              <span>Open Drawing Lessons</span>
+              <BookOpen className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* 5. Contexto Mystery Word Solo Card */}
+          <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 border-2 border-emerald-200/80 dark:border-emerald-500/40 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-100/50 dark:bg-emerald-500/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
+
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-200 dark:border-emerald-800 group-hover:scale-105 transition">
+                  <HelpCircle className="w-6 h-6" />
+                </div>
+                <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300">
+                  Deduction Solo
+                </span>
+              </div>
+
+              <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">Contexto Solo</h3>
+              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                Guess the secret mystery word by sketching! The AI ranks each sketch by semantic proximity (Green, Yellow, Red) until you hit Rank #1!
+              </p>
+
+              <div className="space-y-2 mb-6 text-xs text-slate-600 dark:text-slate-300">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>Secret mystery word with category clues</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>Hot/Warm/Cold semantic distance ranks</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>Stopwatch timer & progressive hints</span>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setView('contexto_solo')}
+              className="w-full py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-emerald-200 dark:shadow-none transition"
+            >
+              <span>Play Contexto Solo</span>
+              <Sparkles className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* 6. Multiplayer Team Mode Card */}
           <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 border-2 border-purple-200/80 dark:border-purple-500/40 shadow-sm hover:shadow-lg transition-all duration-200 flex flex-col justify-between group relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-purple-100/50 dark:bg-purple-500/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
 
@@ -246,23 +383,23 @@ export function DashboardPage({ setView }) {
                 </span>
               </div>
 
-              <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">Multiplayer Mode</h3>
+              <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">Multiplayer Arena</h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                Create a team lobby or join with a code! Compete head-to-head across 4 synchronized rounds with live leaderboards and art exhibition!
+                Create a lobby and choose your mode: Classic Match, Finding Imposter (turn-based 1 stroke party game), or Contexto Word Race!
               </p>
 
               <div className="space-y-2 mb-6 text-xs text-slate-600 dark:text-slate-300">
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-purple-400"></span>
-                  <span>Team lobby with join codes (2 to 8 players)</span>
+                  <span>Finding Imposter (3–8 players, 1 stroke turns)</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-purple-400"></span>
-                  <span>Synchronized start & end for all players</span>
+                  <span>Contexto Word Race & Classic Match</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-purple-400"></span>
-                  <span>Live rankings & mutual doodle downloads</span>
+                  <span>Custom rounds (1 to 5) & synchronized play</span>
                 </div>
               </div>
             </div>

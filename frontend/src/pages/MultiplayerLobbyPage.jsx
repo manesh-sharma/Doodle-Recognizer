@@ -15,7 +15,12 @@ import {
   Sparkles,
   LogOut,
   CheckCircle2,
-  Hourglass
+  Hourglass,
+  Eye,
+  HelpCircle,
+  Zap,
+  Award,
+  Settings2
 } from 'lucide-react';
 
 export function MultiplayerLobbyPage({
@@ -25,6 +30,7 @@ export function MultiplayerLobbyPage({
   onCreateRoom,
   onJoinRoom,
   onToggleReady,
+  onSetGameSettings,
   onStartGame,
   onLeaveRoom,
 }) {
@@ -39,11 +45,19 @@ export function MultiplayerLobbyPage({
   const players = roomState?.players || [];
   const me = players.find((p) => p.user_id === user?.id);
 
+  // Game mode & rounds
+  const currentGameMode = roomState?.game_mode || 'classic';
+  const currentTotalRounds = roomState?.total_rounds || (currentGameMode === 'classic' ? 4 : 3);
+
   // Ready conditions
   const nonHosts = players.filter((p) => !p.is_host);
   const readyCount = nonHosts.filter((p) => p.is_ready).length;
   const allNonHostsReady = nonHosts.length > 0 && nonHosts.every((p) => p.is_ready);
-  const canStart = isHost && players.length >= 2 && allNonHostsReady;
+
+  // Player count requirement depends on mode (Imposter requires min 3; Classic/Contexto requires min 2)
+  const minPlayersNeeded = currentGameMode === 'imposter' ? 3 : 2;
+  const hasEnoughPlayers = players.length >= minPlayersNeeded;
+  const canStart = isHost && hasEnoughPlayers && allNonHostsReady;
 
   const handleCreate = async () => {
     setCreating(true);
@@ -81,6 +95,19 @@ export function MultiplayerLobbyPage({
     setCopied(true);
     showToast(`Team code ${roomState.code} copied!`, 'success', 2000);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleModeChange = (mode) => {
+    if (!isHost || !onSetGameSettings) return;
+    const defaultRounds = mode === 'classic' ? 4 : 3;
+    onSetGameSettings(mode, defaultRounds);
+    showToast(`Game mode set to ${mode.toUpperCase()}!`, 'info', 2000);
+  };
+
+  const handleRoundsChange = (rounds) => {
+    if (!isHost || !onSetGameSettings) return;
+    onSetGameSettings(currentGameMode, rounds);
+    showToast(`Match set to ${rounds} rounds!`, 'info', 2000);
   };
 
   return (
@@ -223,6 +250,146 @@ export function MultiplayerLobbyPage({
             </div>
           </div>
 
+          {/* Game Mode & Custom Rounds Selector Section */}
+          <div className="p-6 sm:p-8 border-b border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/30 space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="text-sm font-black uppercase tracking-wider text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                <Settings2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                <span>Select Game Mode</span>
+              </h3>
+              {!isHost && (
+                <span className="text-xs text-slate-500 font-bold">
+                  (Selected by Team Host)
+                </span>
+              )}
+            </div>
+
+            {/* Mode Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {/* Mode 1: Classic 4-Round Challenge */}
+              <div
+                onClick={() => isHost && handleModeChange('classic')}
+                className={`p-4 rounded-2xl border-2 transition cursor-pointer flex flex-col justify-between ${
+                  currentGameMode === 'classic'
+                    ? 'border-indigo-600 dark:border-indigo-400 bg-indigo-50/70 dark:bg-indigo-950/40 shadow-sm'
+                    : isHost
+                    ? 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-300'
+                    : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 opacity-60 cursor-default'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-black uppercase tracking-wider px-2 py-0.5 rounded-lg bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300">
+                      Classic
+                    </span>
+                    <span className="text-[11px] font-bold text-slate-500">2–8 Players</span>
+                  </div>
+                  <h4 className="text-sm font-black text-slate-900 dark:text-white">4-Round Challenge</h4>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-snug">
+                    Everyone sketches simultaneously. Model evaluates each attempt for target accuracy!
+                  </p>
+                </div>
+                {currentGameMode === 'classic' && (
+                  <div className="mt-3 flex items-center gap-1 text-xs font-black text-indigo-600 dark:text-indigo-400">
+                    <Check className="w-3.5 h-3.5" /> Selected
+                  </div>
+                )}
+              </div>
+
+              {/* Mode 2: Finding Imposter */}
+              <div
+                onClick={() => isHost && handleModeChange('imposter')}
+                className={`p-4 rounded-2xl border-2 transition cursor-pointer flex flex-col justify-between ${
+                  currentGameMode === 'imposter'
+                    ? 'border-purple-600 dark:border-purple-400 bg-purple-50/70 dark:bg-purple-950/40 shadow-sm'
+                    : isHost
+                    ? 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-300'
+                    : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 opacity-60 cursor-default'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-black uppercase tracking-wider px-2 py-0.5 rounded-lg bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 flex items-center gap-1">
+                      <Eye className="w-3 h-3" /> Party Mode
+                    </span>
+                    <span className="text-[11px] font-bold text-purple-600 dark:text-purple-400">3–8 Players</span>
+                  </div>
+                  <h4 className="text-sm font-black text-slate-900 dark:text-white">Finding Imposter</h4>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-snug">
+                    1 player is the Imposter! Take turns drawing 1 stroke at a time. AI recognizes sketch; vote out the imposter!
+                  </p>
+                </div>
+                {currentGameMode === 'imposter' && (
+                  <div className="mt-3 flex items-center gap-1 text-xs font-black text-purple-600 dark:text-purple-400">
+                    <Check className="w-3.5 h-3.5" /> Selected
+                  </div>
+                )}
+              </div>
+
+              {/* Mode 3: Contexto Word Race */}
+              <div
+                onClick={() => isHost && handleModeChange('contexto')}
+                className={`p-4 rounded-2xl border-2 transition cursor-pointer flex flex-col justify-between ${
+                  currentGameMode === 'contexto'
+                    ? 'border-emerald-600 dark:border-emerald-400 bg-emerald-50/70 dark:bg-emerald-950/40 shadow-sm'
+                    : isHost
+                    ? 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-300'
+                    : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 opacity-60 cursor-default'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-black uppercase tracking-wider px-2 py-0.5 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 flex items-center gap-1">
+                      <Zap className="w-3 h-3" /> Word Race
+                    </span>
+                    <span className="text-[11px] font-bold text-slate-500">2–8 Players</span>
+                  </div>
+                  <h4 className="text-sm font-black text-slate-900 dark:text-white">Contexto Word Race</h4>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-snug">
+                    Draw guesses to uncover the mystery word! First player to hit Rank #1 wins the round.
+                  </p>
+                </div>
+                {currentGameMode === 'contexto' && (
+                  <div className="mt-3 flex items-center gap-1 text-xs font-black text-emerald-600 dark:text-emerald-400">
+                    <Check className="w-3.5 h-3.5" /> Selected
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Custom Rounds Selector */}
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-slate-600 dark:text-slate-300">Custom Rounds:</span>
+                <div className="flex items-center gap-1.5">
+                  {[1, 2, 3, 4, 5].map((num) => (
+                    <button
+                      key={num}
+                      type="button"
+                      disabled={!isHost}
+                      onClick={() => handleRoundsChange(num)}
+                      className={`w-8 h-8 rounded-xl font-black text-xs transition ${
+                        currentTotalRounds === num
+                          ? 'bg-slate-900 dark:bg-indigo-600 text-white shadow-sm'
+                          : isHost
+                          ? 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100'
+                          : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-400 opacity-60 cursor-default'
+                      }`}
+                    >
+                      {num}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {currentGameMode === 'imposter' && players.length < 3 && (
+                <span className="text-xs font-bold text-purple-600 dark:text-purple-400 flex items-center gap-1">
+                  <Users className="w-3.5 h-3.5" /> Finding Imposter requires 3 to 8 players ({players.length}/3)
+                </span>
+              )}
+            </div>
+          </div>
+
           {/* Connected Players List */}
           <div className="p-6 sm:p-8 space-y-6">
             <div className="flex items-center justify-between">
@@ -231,10 +398,10 @@ export function MultiplayerLobbyPage({
                 <span>Connected Players ({players.length} / 8)</span>
               </h3>
               <span className="text-xs text-slate-500 dark:text-slate-400 font-bold">
-                {players.length < 2
-                  ? 'Need at least 2 players'
+                {!hasEnoughPlayers
+                  ? `Need at least ${minPlayersNeeded} players (${players.length}/${minPlayersNeeded})`
                   : allNonHostsReady
-                  ? 'All players ready! Host can start.'
+                  ? 'All players ready! Host can start match.'
                   : `Waiting for readiness (${readyCount}/${nonHosts.length} Ready)`}
               </span>
             </div>
@@ -304,10 +471,14 @@ export function MultiplayerLobbyPage({
               <div className="flex items-center gap-2">
                 <Shield className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
                 <span>
-                  4 Synchronized Rounds: 2 Easy (50s), 1 Medium (100s), 1 Hard (150s).
+                  {currentGameMode === 'imposter'
+                    ? `Finding Imposter: ${currentTotalRounds} Rounds. 1 stroke per turn. AI recognizes drawing. Voting to catch imposter!`
+                    : currentGameMode === 'contexto'
+                    ? `Contexto Word Race: ${currentTotalRounds} Rounds. First player to draw and guess the mystery word wins!`
+                    : `Classic Challenge: ${currentTotalRounds} Synchronized Rounds (Easy, Medium, Hard). Highest score wins!`}
                 </span>
               </div>
-              <span className="font-bold text-indigo-600 dark:text-indigo-400">Starts simultaneously for everyone</span>
+              <span className="font-bold text-indigo-600 dark:text-indigo-400">Synchronized Multiplayer</span>
             </div>
           </div>
 
@@ -358,8 +529,8 @@ export function MultiplayerLobbyPage({
                 >
                   <Play className="w-4 h-4 fill-current" />
                   <span>
-                    {players.length < 2
-                      ? 'Need 2+ Players to Start'
+                    {!hasEnoughPlayers
+                      ? `Need ${minPlayersNeeded}+ Players to Start`
                       : !allNonHostsReady
                       ? `Waiting for Players to Ready (${readyCount}/${nonHosts.length})`
                       : 'Start Match Now!'}

@@ -33,55 +33,6 @@ Players can practice freely in **Normal Mode**, race against time in **Single Pl
 
 ---
 
-## 🌐 Multiplayer: Playing Across Multiple Machines (LAN & Web)
-
-### Will Multiplayer work across different computers or phones?
-**Yes!** The application is fully built for multi-machine play.
-
-### How it works:
-1. **Only the Host needs to run the backend and frontend.**
-   * Other players **do NOT** need to install Python, Node.js, or run any code.
-   * Other players only need a modern web browser (Chrome, Firefox, Safari, Edge) on their PC, Mac, laptop, tablet, or smartphone.
-2. **Connecting over Local Wi-Fi / LAN**:
-   * When the host runs `npm run dev`, Vite binds to `0.0.0.0` and displays the local network IP address:
-     ```
-     ➜  Local:   http://localhost:5173/
-     ➜  Network: http://192.168.1.X:5173/   (or http://10.X.X.X:5173/)
-     ```
-   * Any player connected to the same Wi-Fi network opens `http://<HOST_LOCAL_IP>:5173` in their browser.
-   * The frontend dynamically binds API calls and WebSocket connections to `window.location.hostname:8000`, automatically connecting all clients to the host machine's FastAPI server.
-3. **Connecting over the Internet (Remote Players)**:
-   * To play with friends outside your local Wi-Fi without cloud hosting:
-     * Use a tunnel like [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) or [ngrok](https://ngrok.com/):
-       ```bash
-       ngrok http 5173
-       ```
-     * Or use virtual LAN tools like [Tailscale](https://tailscale.com/) where everyone joins your Tailnet and connects to your Tailscale IP.
-
----
-
-## 🧠 Machine Learning & Stroke Preprocessing Pipeline
-
-### Model Architecture
-* **CNN Topology**: Convolutional Neural Network trained on Google's Quick, Draw! dataset ($345$ classes).
-* **Input Shape**: $28 \times 28 \times 1$ grayscale bitmap normalized to $[0.0, 1.0]$.
-* **Output**: 345-dimensional softmax probability vector.
-
-### Adaptive Stroke Normalization (`backend/app/model_service.py`)
-Raw user sketches on an HTML5 canvas often suffer from two major discrepancies compared to QuickDraw training data:
-1. Drawing with a thin brush scales down to broken, disconnected sub-pixel noise on a $28 \times 28$ grid.
-2. Drawing a very small or very large sketch shifts stroke proportions.
-
-**Pipeline Steps**:
-1. **Extract Black Drawing Pixels**: Extract binary mask of user strokes from RGBA canvas data.
-2. **Tight Bounding Box Cropping**: Centers and frames the user's drawing regardless of where it was drawn on the canvas.
-3. **Preserve Aspect Ratio**: Resizes drawing to maximum $24 \times 24$ inside a $28 \times 28$ bitmap, maintaining natural proportions.
-4. **Mass Centering**: Aligns the center of mass to the center of the image.
-5. **Distance Transform & Morphological Dilation**: Dynamically dilates thin lines to ensure strokes achieve the optimal $1.8\text{px} - 2.2\text{px}$ line thickness in $28 \times 28$ space, mirroring QuickDraw standards.
-6. **Class Combination & Exclusion**: Applies normal combination groups, generic dynamic support groups, and filters out all 130 removed classes before returning top softmax predictions.
-
----
-
 ## 🛠️ Project Structure
 
 ```

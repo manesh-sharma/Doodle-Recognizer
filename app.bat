@@ -9,6 +9,16 @@ echo.
 
 set "ROOT_DIR=%~dp0"
 
+echo Pre-checking ports to ensure clean startup...
+for /f "tokens=5" %%a in ('netstat -aon ^| findstr :8000 ^| findstr LISTENING') do (
+    taskkill /F /T /PID %%a >nul 2>&1
+)
+for %%p in (5173 5174 5175) do (
+    for /f "tokens=5" %%a in ('netstat -aon ^| findstr :%%p ^| findstr LISTENING') do (
+        taskkill /F /T /PID %%a >nul 2>&1
+    )
+)
+
 echo [1/3] Starting FastAPI Backend on port 8000...
 start "Doodle Recognizer - Backend (FastAPI)" cmd /k "cd /d ""%ROOT_DIR%backend"" && (if exist venv\Scripts\activate.bat call venv\Scripts\activate.bat) && python run.py"
 
@@ -17,7 +27,7 @@ start "Doodle Recognizer - Frontend (Vite)" cmd /k "cd /d ""%ROOT_DIR%frontend""
 
 echo.
 echo [3/3] Waiting for servers to initialize...
-timeout /t 4 /nobreak >nul
+timeout /t 5 /nobreak >nul
 
 echo.
 echo Opening Doodle Recognizer in your default browser...

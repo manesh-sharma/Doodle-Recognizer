@@ -9,10 +9,10 @@
     "removed": "Problematic, unreliable, impractical, or redundant/ambiguous duplicate."
   },
   "counts": {
-    "easy": 82,
-    "medium": 99,
+    "easy": 80,
+    "medium": 96,
     "hard": 33,
-    "removed": 131
+    "removed": 136
   },
   "classes": [
     {
@@ -98,7 +98,7 @@
     {
       "id": 16,
       "class_name": "banana",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 17,
@@ -133,12 +133,12 @@
     {
       "id": 23,
       "class_name": "bat",
-      "label": "hard"
+      "label": "removed"
     },
     {
       "id": 24,
       "class_name": "bathtub",
-      "label": "removed"
+      "label": "medium"
     },
     {
       "id": 25,
@@ -153,7 +153,7 @@
     {
       "id": 27,
       "class_name": "beard",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 28,
@@ -203,7 +203,7 @@
     {
       "id": 37,
       "class_name": "blueberry",
-      "label": "hard"
+      "label": "removed"
     },
     {
       "id": 38,
@@ -218,7 +218,7 @@
     {
       "id": 40,
       "class_name": "bottlecap",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 41,
@@ -233,7 +233,7 @@
     {
       "id": 43,
       "class_name": "brain",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 44,
@@ -418,7 +418,7 @@
     {
       "id": 80,
       "class_name": "computer",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 81,
@@ -508,7 +508,7 @@
     {
       "id": 98,
       "class_name": "dragon",
-      "label": "hard"
+      "label": "removed"
     },
     {
       "id": 99,
@@ -543,7 +543,7 @@
     {
       "id": 105,
       "class_name": "elbow",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 106,
@@ -703,7 +703,7 @@
     {
       "id": 137,
       "class_name": "guitar",
-      "label": "removed"
+      "label": "medium"
     },
     {
       "id": 138,
@@ -938,7 +938,7 @@
     {
       "id": 184,
       "class_name": "matches",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 185,
@@ -948,7 +948,7 @@
     {
       "id": 186,
       "class_name": "mermaid",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 187,
@@ -973,7 +973,7 @@
     {
       "id": 191,
       "class_name": "mosquito",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 192,
@@ -1013,7 +1013,7 @@
     {
       "id": 199,
       "class_name": "nail",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 200,
@@ -1023,7 +1023,7 @@
     {
       "id": 201,
       "class_name": "nose",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 202,
@@ -1093,7 +1093,7 @@
     {
       "id": 215,
       "class_name": "parrot",
-      "label": "hard"
+      "label": "removed"
     },
     {
       "id": 216,
@@ -1173,7 +1173,7 @@
     {
       "id": 231,
       "class_name": "pond",
-      "label": "removed"
+      "label": "medium"
     },
     {
       "id": 232,
@@ -1258,7 +1258,7 @@
     {
       "id": 248,
       "class_name": "roller coaster",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 249,
@@ -1273,7 +1273,7 @@
     {
       "id": 251,
       "class_name": "sandwich",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 252,
@@ -1333,7 +1333,7 @@
     {
       "id": 263,
       "class_name": "shorts",
-      "label": "easy"
+      "label": "removed"
     },
     {
       "id": 264,
@@ -1438,7 +1438,7 @@
     {
       "id": 284,
       "class_name": "squirrel",
-      "label": "hard"
+      "label": "removed"
     },
     {
       "id": 285,
@@ -1553,12 +1553,12 @@
     {
       "id": 307,
       "class_name": "teddy-bear",
-      "label": "removed"
+      "label": "medium"
     },
     {
       "id": 308,
       "class_name": "telephone",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 309,
@@ -1738,7 +1738,7 @@
     {
       "id": 344,
       "class_name": "zigzag",
-      "label": "easy"
+      "label": "removed"
     }
   ]
 }

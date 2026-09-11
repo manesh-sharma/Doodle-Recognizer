@@ -15,7 +15,8 @@
       "target_class": "microwave",
       "member_classes": [
         "microwave",
-        "oven"
+        "oven",
+        "stove"
       ],
       "combine": "sum_member_probabilities"
     },
@@ -24,15 +25,6 @@
       "member_classes": [
         "hurricane",
         "tornado"
-      ],
-      "combine": "sum_member_probabilities"
-    },
-    {
-      "target_class": "ball",
-      "member_classes": [
-        "baseball",
-        "basketball",
-        "soccer ball"
       ],
       "combine": "sum_member_probabilities"
     },
@@ -63,8 +55,7 @@
     {
       "target_class": "bracelet",
       "member_classes": [
-        "bracelet",
-        "circle"
+        "bracelet"
       ],
       "combine": "sum_member_probabilities"
     },
@@ -154,8 +145,7 @@
     {
       "target_class": "fork",
       "member_classes": [
-        "fork",
-        "rake"
+        "fork"
       ],
       "combine": "sum_member_probabilities"
     },
@@ -227,7 +217,8 @@
       "target_class": "teddy-bear",
       "member_classes": [
         "teddy-bear",
-        "panda"
+        "panda",
+        "bear"
       ],
       "combine": "sum_member_probabilities"
     },
@@ -238,6 +229,115 @@
         "triangle"
       ],
       "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "guitar",
+      "member_classes": [
+        "guitar",
+        "violin",
+        "cello"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "laptop",
+      "member_classes": [
+        "laptop",
+        "computer"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "cell phone",
+      "member_classes": [
+        "cell phone",
+        "telephone"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "car",
+      "member_classes": [
+        "car",
+        "police car",
+        "van"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "trumpet",
+      "member_classes": [
+        "trumpet",
+        "trombone",
+        "clarinet"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "radio",
+      "member_classes": [
+        "radio",
+        "stereo"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "pants",
+      "member_classes": [
+        "pants",
+        "shorts",
+        "underwear"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "jacket",
+      "member_classes": [
+        "jacket",
+        "sweater",
+        "t-shirt"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "broom",
+      "member_classes": [
+        "broom",
+        "rake"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "bathtub",
+      "member_classes": [
+        "bathtub",
+        "hot tub"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "ambulance",
+      "member_classes": [
+        "ambulance",
+        "firetruck"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "beard",
+      "member_classes": [
+        "beard",
+        "goatee"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "pond",
+      "member_classes": [
+        "pond",
+        "pool"
+      ],
+      "combine": "sum_member_probabilities"
     }
   ],
   "dynamic_support_groups": [
@@ -246,7 +346,6 @@
       "support_class": "bird",
       "specific_classes": [
         "owl",
-        "parrot",
         "swan",
         "penguin",
         "flamingo"

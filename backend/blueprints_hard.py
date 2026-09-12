@@ -1,310 +1,415 @@
-# Dictionary of 32 Hard Difficulty Classes
-HARD_BLUEPRINTS = {'airplane': {'difficulty': 'hard',
-              'name': 'Airplane',
-              'paths': ['M 70 210 L 290 210 C 320 210 330 190 290 190 L 110 190 L 80 130 L 60 130 L 80 190 L 60 210 Z',
-                        'M 190 210 L 170 260 L 210 260 L 230 210',
-                        'M 190 190 L 170 140 L 210 140 L 230 190'],
-              'tips': '1. Draw long fuselage tube. 2. Add sweep-back main wings. 3. Add tail fin elevators.'},
- 'ant': {'difficulty': 'hard',
-         'name': 'Ant',
-         'paths': ['M 120 200 A 20 20 0 1 0 120 201',
-                   'M 170 200 A 18 18 0 1 0 170 201',
-                   'M 240 200 A 30 25 0 1 0 240 201',
-                   'M 120 180 L 100 140',
-                   'M 120 180 L 130 140',
-                   'M 170 218 L 150 270',
-                   'M 170 218 L 170 270',
-                   'M 170 218 L 190 270',
-                   'M 170 182 L 150 130',
-                   'M 170 182 L 170 130',
-                   'M 170 182 L 190 130'],
-         'tips': '1. Draw three distinct body segments (head, thorax, abdomen). 2. Add six jointed legs and antennae.'},
- 'bat': {'difficulty': 'hard',
-         'name': 'Bat',
-         'paths': ['M 185 170 L 185 250 C 185 270 215 270 215 250 L 215 170 Z',
-                   'M 190 170 L 180 130 L 195 150',
-                   'M 210 170 L 220 130 L 205 150',
-                   'M 185 180 C 140 120 90 140 60 170 C 80 200 110 200 130 230 C 150 220 170 230 185 240',
-                   'M 215 180 C 260 120 310 140 340 170 C 320 200 290 200 270 230 C 250 220 230 230 215 240'],
-         'tips': '1. Draw furry body with pointed ears. 2. Add scalloped webbed leathery wings spreading wide.'},
- 'beach': {'difficulty': 'hard',
-           'name': 'Beach',
-           'paths': ['M 60 270 Q 200 240 340 290',
-                     'M 60 230 Q 150 210 240 230',
-                     'M 260 270 Q 240 170 280 110',
-                     'M 280 110 C 240 80 210 120 220 130',
-                     'M 280 110 C 320 80 340 120 330 130',
-                     'M 280 110 C 280 70 290 60 290 60'],
-           'tips': '1. Draw sloped curved shoreline. 2. Add palm tree and waves.'},
- 'bee': {'difficulty': 'hard',
-         'name': 'Bee',
-         'paths': ['M 140 200 A 25 25 0 1 0 140 201',
-                   'M 220 200 C 270 200 290 200 310 200 L 280 230 C 240 250 180 240 160 200 C 180 160 240 150 280 170 '
-                   'Z',
-                   'M 200 160 L 200 240',
-                   'M 235 165 L 235 235',
-                   'M 265 175 L 265 225',
-                   'M 180 160 C 160 100 220 100 200 160',
-                   'M 210 160 C 200 100 250 100 225 160'],
-         'tips': '1. Draw striped oval abdomen with stinger. 2. Add head, antennae, and twin translucent wings.'},
- 'blackberry': {'difficulty': 'hard',
-                'name': 'Blackberry',
-                'paths': ['M 200 80 L 200 120',
-                          'M 200 120 L 165 105',
-                          'M 200 120 L 235 105',
-                          'M 175 145 A 15 15 0 1 0 175 146',
-                          'M 225 145 A 15 15 0 1 0 225 146',
-                          'M 155 180 A 15 15 0 1 0 155 181',
-                          'M 200 180 A 15 15 0 1 0 200 181',
-                          'M 245 180 A 15 15 0 1 0 245 181',
-                          'M 165 220 A 15 15 0 1 0 165 221',
-                          'M 210 220 A 15 15 0 1 0 210 221',
-                          'M 235 220 A 15 15 0 1 0 235 221',
-                          'M 185 260 A 15 15 0 1 0 185 261',
-                          'M 215 260 A 15 15 0 1 0 215 261'],
-                'tips': '1. Draw bunch of tightly packed circular drupelet bubbles. 2. Add stem and leafy sepals on '
-                        'top.'},
- 'boomerang': {'difficulty': 'hard',
-               'name': 'Boomerang',
-               'paths': ['M 100 260 L 200 120 L 300 260 L 280 280 L 200 160 L 120 280 Z'],
-               'tips': '1. Draw V-shaped aerodynamic curved throwing wing with rounded tips.'},
- 'bridge': {'difficulty': 'hard',
-            'name': 'Bridge',
-            'paths': ['M 50 250 L 350 250',
-                      'M 110 120 L 110 310',
-                      'M 290 120 L 290 310',
-                      'M 50 170 Q 110 250 200 250 Q 290 250 350 170',
-                      'M 110 120 Q 200 240 290 120'],
-            'tips': '1. Draw horizontal roadway span. 2. Add suspension towers and swooping cable arcs.'},
- 'broom': {'difficulty': 'hard',
-           'name': 'Broom',
-           'paths': ['M 195 60 L 205 60 L 205 240 L 195 240 Z',
-                     'M 180 240 L 220 240 L 240 340 L 160 340 Z',
-                     'M 175 270 L 225 270'],
-           'tips': '1. Draw long straight handle. 2. Add bound flared bristles at base with tie band.'},
- 'cat': {'difficulty': 'hard',
-         'name': 'Cat',
-         'paths': ['M 150 160 C 130 190 130 220 160 240 C 180 250 220 250 240 240 C 270 220 270 190 250 160 C 230 150 '
-                   '170 150 150 160 Z',
-                   'M 155 160 L 135 110 L 180 140',
-                   'M 245 160 L 265 110 L 220 140',
-                   'M 175 190 A 4 4 0 1 0 175 191',
-                   'M 225 190 A 4 4 0 1 0 225 191',
-                   'M 195 205 L 205 205 L 200 212 Z',
-                   'M 150 205 L 100 195',
-                   'M 150 215 L 100 225',
-                   'M 250 205 L 300 195',
-                   'M 250 215 L 300 225',
-                   'M 170 245 C 160 290 160 320 200 330 C 240 330 240 290 230 245'],
-         'tips': '1. Draw round head with pointed triangular ears. 2. Add eyes, nose, whiskers. 3. Add curved body and '
-                 'tail.'},
- 'crab': {'difficulty': 'hard',
-          'name': 'Crab',
-          'paths': ['M 130 210 C 130 160 270 160 270 210 C 270 260 130 260 130 210 Z',
-                    'M 150 170 L 110 130 C 90 130 90 160 110 160 Z',
-                    'M 250 170 L 290 130 C 310 130 310 160 290 160 Z',
-                    'M 140 230 L 100 260',
-                    'M 150 245 L 110 280',
-                    'M 160 255 L 130 300',
-                    'M 260 230 L 300 260',
-                    'M 250 245 L 290 280',
-                    'M 240 255 L 270 300'],
-          'tips': '1. Draw wide oval carapace shell. 2. Add twin front pincer claws and walking legs.'},
- 'dragon': {'difficulty': 'hard',
-            'name': 'Dragon',
-            'paths': ['M 250 100 L 290 100 L 270 130 L 230 140 L 210 220 L 140 260 L 90 290',
-                      'M 210 170 L 130 110 L 170 190',
-                      'M 130 110 L 90 160 L 150 180',
-                      'M 260 90 L 270 70 L 250 85',
-                      'M 160 260 L 160 320',
-                      'M 190 240 L 190 320'],
-            'tips': '1. Draw serpentine reptilian head and long neck. 2. Add large bat wings and long tail.'},
- 'elephant': {'difficulty': 'hard',
-              'name': 'Elephant',
-              'paths': ['M 240 200 C 240 130 130 130 130 200 L 130 310 L 160 310 L 160 250 L 200 250 L 200 310 L 230 '
-                        '310 L 230 200',
-                        'M 230 160 C 260 150 280 180 270 210 C 250 220 230 200 230 160',
-                        'M 270 170 C 290 170 310 200 300 250 C 300 270 320 270 320 250 C 325 190 290 150 265 150'],
-              'tips': '1. Draw massive body and thick pillar legs. 2. Add large floppy ear and curved trunk.'},
- 'flamingo': {'difficulty': 'hard',
-              'name': 'Flamingo',
-              'paths': ['M 230 90 C 210 70 190 110 210 150 L 200 220 C 160 220 140 250 160 270 C 190 280 220 260 220 '
-                        '230',
-                        'M 230 90 L 255 105 L 245 115',
-                        'M 180 270 L 180 350',
-                        'M 195 265 L 220 300 L 195 300'],
-              'tips': '1. Draw small head with hooked beak. 2. Add long S-curved neck, oval body, and thin legs (one '
-                      'bent).'},
- 'frog': {'difficulty': 'hard',
-          'name': 'Frog',
-          'paths': ['M 140 200 C 120 240 140 290 200 290 C 260 290 280 240 260 200 C 240 180 160 180 140 200 Z',
-                    'M 160 180 A 18 18 0 1 0 160 181',
-                    'M 240 180 A 18 18 0 1 0 240 181',
-                    'M 160 180 A 5 5 0 1 0 160 181',
-                    'M 240 180 A 5 5 0 1 0 240 181',
-                    'M 130 250 L 90 270 L 120 290',
-                    'M 270 250 L 310 270 L 280 290'],
-          'tips': '1. Draw squat body with twin protruding bulbous eyes on top. 2. Add folded Z-shaped hind jumping '
-                  'legs.'},
- 'garden': {'difficulty': 'hard',
-            'name': 'Garden',
-            'paths': ['M 80 240 L 320 240',
-                      'M 80 280 L 320 280',
-                      'M 110 210 L 125 190 L 140 210 L 140 310 L 110 310 Z',
-                      'M 185 210 L 200 190 L 215 210 L 215 310 L 185 310 Z',
-                      'M 260 210 L 275 190 L 290 210 L 290 310 L 260 310 Z',
-                      'M 155 160 A 12 12 0 1 0 155 161',
-                      'M 155 172 L 155 240',
-                      'M 235 150 A 12 12 0 1 0 235 151',
-                      'M 235 162 L 235 240'],
-            'tips': '1. Draw picket fence slats. 2. Add flowers and plants blooming behind and in front.'},
- 'horse': {'difficulty': 'hard',
-           'name': 'Horse',
-           'paths': ['M 240 140 L 290 160 L 265 185 L 235 175 L 210 220 L 110 220 L 90 320',
-                     'M 240 140 L 235 115 L 220 140',
-                     'M 120 220 L 120 320',
-                     'M 170 220 L 170 320',
-                     'M 195 220 L 200 320',
-                     'M 110 220 C 80 230 70 270 70 310',
-                     'M 220 140 L 195 210'],
-           'tips': '1. Draw long equine head and arched crested neck with mane. 2. Add strong body, four legs, and '
-                   'tail.'},
- 'lion': {'difficulty': 'hard',
-          'name': 'Lion',
-          'paths': ['M 160 150 C 120 120 120 200 140 230 C 110 270 170 310 200 280 C 230 310 290 270 260 230 C 280 200 '
-                    '280 120 240 150 C 220 110 180 110 160 150 Z',
-                    'M 180 180 A 25 25 0 1 0 220 180 A 25 25 0 1 0 180 180 Z'],
-          'tips': '1. Draw large circular bushy mane surrounding face. 2. Add feline nose, eyes, and muscular body.'},
- 'map': {'difficulty': 'hard',
-         'name': 'Map',
-         'paths': ['M 80 100 L 320 100 L 320 300 L 80 300 Z',
-                   'M 120 150 Q 150 250 220 180 Q 250 220 280 260',
-                   'M 265 245 L 295 275',
-                   'M 295 245 L 265 275'],
-         'tips': '1. Draw accordion-folded parchment sheet with zig-zag edge folds. 2. Add dashed path leading to X.'},
- 'monkey': {'difficulty': 'hard',
-            'name': 'Monkey',
-            'paths': ['M 200 120 A 40 40 0 1 0 200 200 A 40 40 0 1 0 200 120 Z',
-                      'M 155 150 A 18 18 0 1 0 155 151',
-                      'M 245 150 A 18 18 0 1 0 245 151',
-                      'M 180 170 Q 200 190 220 170',
-                      'M 170 200 L 170 290 L 230 290 L 230 200',
-                      'M 170 280 C 110 280 100 200 130 190'],
-            'tips': '1. Draw round head with protruding round ears. 2. Add muzzle and long curled tail.'},
- 'octopus': {'difficulty': 'hard',
-             'name': 'Octopus',
-             'paths': ['M 140 180 C 130 100 270 100 260 180 C 260 220 140 220 140 180 Z',
-                       'M 175 170 A 5 5 0 1 0 175 171',
-                       'M 225 170 A 5 5 0 1 0 225 171',
-                       'M 150 220 Q 130 290 100 310',
-                       'M 170 220 Q 160 290 140 320',
-                       'M 190 220 Q 190 300 180 330',
-                       'M 210 220 Q 210 300 220 330',
-                       'M 230 220 Q 240 290 260 320',
-                       'M 250 220 Q 270 290 300 310'],
-             'tips': '1. Draw large bulbous mantle head. 2. Add twin eyes. 3. Radiate eight wavy curling tentacles '
-                     'below.'},
- 'owl': {'difficulty': 'hard',
-         'name': 'Owl',
-         'paths': ['M 160 120 L 140 90 L 170 110 C 200 105 230 105 260 110 L 290 90 L 270 120 C 290 160 290 270 250 '
-                   '300 L 180 300 C 140 270 140 160 160 120 Z',
-                   'M 175 160 A 22 22 0 1 0 175 161',
-                   'M 235 160 A 22 22 0 1 0 235 161',
-                   'M 175 160 A 7 7 0 1 0 175 161',
-                   'M 235 160 A 7 7 0 1 0 235 161',
-                   'M 200 175 L 210 195 L 200 205 L 190 195 Z'],
-         'tips': '1. Draw oval body with twin tufted ear horns. 2. Add large round concentric eyes and sharp beak.'},
- 'parrot': {'difficulty': 'hard',
-            'name': 'Parrot',
-            'paths': ['M 210 110 C 190 90 160 110 170 140 L 170 260 L 150 340 L 175 340 L 195 270 C 220 250 220 180 '
-                      '210 110 Z',
-                      'M 200 115 C 240 120 250 150 220 165 C 205 165 200 140 200 115 Z',
-                      'M 185 125 A 4 4 0 1 0 185 126'],
-            'tips': '1. Draw round head with large curved hooked beak. 2. Add perch body with long tail feathers.'},
- 'penguin': {'difficulty': 'hard',
-             'name': 'Penguin',
-             'paths': ['M 200 90 C 160 90 150 140 150 200 C 140 240 150 310 200 310 C 250 310 260 240 250 200 C 250 '
-                       '140 240 90 200 90 Z',
-                       'M 170 200 C 170 290 230 290 230 200 C 230 150 170 150 170 200 Z',
-                       'M 190 120 L 210 120 L 200 135 Z',
-                       'M 150 180 C 130 210 130 250 145 270',
-                       'M 250 180 C 270 210 270 250 255 270',
-                       'M 170 310 L 160 330 L 190 330 Z',
-                       'M 230 310 L 240 330 L 210 330 Z'],
-             'tips': '1. Draw bowling-pin shaped body with white belly arch. 2. Add beak, flipper wings, and waddling '
-                     'feet.'},
- 'pickup truck': {'difficulty': 'hard',
-                  'name': 'Pickup Truck',
-                  'paths': ['M 70 230 L 70 180 L 190 180 L 190 130 L 280 130 L 320 180 L 320 230 Z',
-                            'M 190 180 L 190 230',
-                            'M 110 230 A 22 22 0 1 0 154 230',
-                            'M 240 230 A 22 22 0 1 0 284 230'],
-                  'tips': '1. Draw cab with windshield. 2. Add open rectangular cargo bed behind. 3. Add two wheels.'},
- 'purse': {'difficulty': 'hard',
-           'name': 'Purse',
-           'paths': ['M 120 170 L 280 170 L 295 300 L 105 300 Z',
-                     'M 120 170 L 200 230 L 280 170',
-                     'M 190 225 L 210 225 L 210 245 L 190 245 Z',
-                     'M 150 170 C 150 90 250 90 250 170'],
-           'tips': '1. Draw trapezoidal handbag pouch. 2. Add top flap with clasp. 3. Add arched strap loop.'},
- 'rabbit': {'difficulty': 'hard',
-            'name': 'Rabbit',
-            'paths': ['M 200 160 A 35 35 0 1 0 200 230 A 35 35 0 1 0 200 160 Z',
-                      'M 180 165 C 160 110 160 60 180 60 C 200 60 200 110 185 165',
-                      'M 215 165 C 200 110 200 60 220 60 C 240 60 240 110 220 165',
-                      'M 195 205 L 205 205 L 200 215 Z',
-                      'M 175 225 C 150 250 150 300 200 310 C 240 310 245 280 230 225',
-                      'M 145 290 A 10 10 0 1 0 145 291'],
-            'tips': '1. Draw round head with very tall upright oval ears. 2. Add twitchy nose and fluffy tail.'},
- 'sea turtle': {'difficulty': 'hard',
-                'name': 'Sea Turtle',
-                'paths': ['M 200 120 C 150 120 140 180 140 240 C 140 290 170 310 200 310 C 230 310 260 290 260 240 C '
-                          '260 180 250 120 200 120 Z',
-                          'M 200 120 C 190 80 210 80 200 120',
-                          'M 150 150 C 90 120 80 170 140 200',
-                          'M 250 150 C 310 120 320 170 260 200',
-                          'M 155 280 L 130 320',
-                          'M 245 280 L 270 320'],
-                'tips': '1. Draw large oval domed carapace shell. 2. Add long front paddle flippers and head.'},
- 'sheep': {'difficulty': 'hard',
-           'name': 'Sheep',
-           'paths': ['M 140 180 C 130 140 170 120 190 135 C 220 120 250 130 265 150 C 290 145 315 170 305 200 C 320 '
-                     '230 300 265 270 260 C 250 275 210 275 190 260 C 160 270 130 250 140 220 C 120 210 120 190 140 '
-                     '180 Z',
-                     'M 100 170 C 80 150 75 200 95 210 C 120 215 130 180 100 170 Z',
-                     'M 85 170 C 65 175 70 195 85 185',
-                     'M 110 170 C 130 175 125 195 110 185',
-                     'M 160 265 L 160 320',
-                     'M 185 265 L 185 320',
-                     'M 245 265 L 245 320',
-                     'M 270 265 L 270 320'],
-           'tips': '1. Draw cloud-like fluffy fleece body. 2. Add head with drooping ears. 3. Add four vertical legs.'},
- 'spider': {'difficulty': 'hard',
-            'name': 'Spider',
-            'paths': ['M 200 140 A 20 20 0 1 0 200 180 A 20 20 0 1 0 200 140 Z',
-                      'M 200 180 A 30 30 0 1 0 200 240 A 30 30 0 1 0 200 180 Z',
-                      'M 185 150 L 130 100 L 110 140',
-                      'M 185 160 L 120 150 L 100 190',
-                      'M 185 170 L 120 200 L 110 240',
-                      'M 185 180 L 130 230 L 120 280',
-                      'M 215 150 L 270 100 L 290 140',
-                      'M 215 160 L 280 150 L 300 190',
-                      'M 215 170 L 280 200 L 290 240',
-                      'M 215 180 L 270 230 L 280 280'],
-            'tips': '1. Draw small round cephalothorax and larger round abdomen. 2. Add eight bent arachnid legs.'},
- 'squirrel': {'difficulty': 'hard',
-              'name': 'Squirrel',
-              'paths': ['M 200 140 A 20 20 0 1 0 200 180 A 20 20 0 1 0 200 140 Z',
-                        'M 195 130 L 190 110 L 205 125',
-                        'M 180 180 C 160 220 160 270 190 290 C 220 290 230 250 220 200',
-                        'M 210 200 L 230 200',
-                        'M 180 290 C 130 280 110 160 140 100 C 160 70 190 80 180 120 C 165 150 155 220 190 260'],
-              'tips': '1. Draw rodent body sitting up holding nut. 2. Add huge bushy S-curled tail arched over back.'},
- 'submarine': {'difficulty': 'hard',
-               'name': 'Submarine',
-               'paths': ['M 80 200 C 80 160 300 160 330 200 C 300 240 80 240 80 200 Z',
-                         'M 180 160 L 180 120 L 220 120 L 220 160',
-                         'M 200 120 L 200 90 L 215 90',
-                         'M 80 200 L 60 180 L 60 220 Z'],
-               'tips': '1. Draw elongated cylindrical sub hull. 2. Add conning tower periscope on top. 3. Add '
-                       'propeller at rear.'}}
+# Curated blueprints for hard_blueprints
+
+HARD_BLUEPRINTS = {
+  "airplane": {
+    "difficulty": "hard",
+    "name": "Airplane",
+    "paths": [
+      "M 70 210 L 290 210 C 320 210 330 190 290 190 L 110 190 L 80 130 L 60 130 L 80 190 L 60 210 Z",
+      "M 190 210 L 170 260 L 210 260 L 230 210",
+      "M 190 190 L 170 140 L 210 140 L 230 190"
+    ],
+    "tips": "1. Draw long fuselage tube. 2. Add sweep-back main wings. 3. Add tail fin elevators."
+  },
+  "ant": {
+    "difficulty": "hard",
+    "name": "Ant",
+    "paths": [
+      "M 110.3 202.5 L 91.5 218.8 L 80.2 238.9 L 77.6 265.3 L 81.4 272.8",
+      "M 146.7 226.4 L 150.4 243.9 L 165.5 255.2",
+      "M 203.1 203.8 L 199.4 211.3 L 205.6 223.8 L 224.5 246.4 L 247.1 262.7",
+      "M 107.8 202.5 L 60.1 207.5 L 42.5 191.2 L 40.0 156.1 L 51.3 141.0 L 67.6 129.7 L 85.2 127.2 L 109.0 131.0 L 134.1 138.5 L 146.7 149.8 L 147.9 171.1 L 137.9 188.7 L 111.5 210.0 L 99.0 206.3",
+      "M 129.1 191.2 L 150.4 201.3 L 176.8 205.0 L 227.0 205.0 L 247.1 197.5 L 252.1 191.2 L 252.1 171.1 L 243.3 156.1 L 228.2 144.8 L 174.3 139.8 L 151.7 146.0 L 152.9 148.5",
+      "M 254.6 187.5 L 267.1 197.5 L 279.7 201.3 L 331.1 203.8 L 342.4 202.5 L 360.0 187.5"
+    ],
+    "tips": "Trace outline in 6 clean strokes for instant 90%+ AI recognition."
+  },
+  "bat": {
+    "difficulty": "hard",
+    "name": "Bat",
+    "paths": [
+      "M 185 170 L 185 250 C 185 270 215 270 215 250 L 215 170 Z",
+      "M 190 170 L 180 130 L 195 150",
+      "M 210 170 L 220 130 L 205 150",
+      "M 185 180 C 140 120 90 140 60 170 C 80 200 110 200 130 230 C 150 220 170 230 185 240",
+      "M 215 180 C 260 120 310 140 340 170 C 320 200 290 200 270 230 C 250 220 230 230 215 240"
+    ],
+    "tips": "1. Draw furry body with pointed ears. 2. Add scalloped webbed leathery wings spreading wide."
+  },
+  "beach": {
+    "difficulty": "hard",
+    "name": "Beach",
+    "paths": [
+      "M 105.3 212.5 L 131.6 190.0 L 154.2 203.8 L 184.3 198.7 L 204.4 211.3 L 222.0 213.8",
+      "M 203.1 177.4 L 234.5 174.9 L 255.8 191.2 L 289.7 190.0 L 297.3 193.7 L 311.1 190.0 L 319.8 179.9",
+      "M 80.2 156.1 L 96.5 158.6 L 120.3 148.5 L 140.4 161.1 L 166.7 158.6 L 180.5 162.4 L 203.1 161.1",
+      "M 191.8 122.2 L 201.9 129.7 L 215.7 133.5 L 248.3 127.2 L 265.9 139.8 L 284.7 147.3 L 336.2 143.5",
+      "M 40.0 233.9 L 114.0 218.8 L 181.8 213.8 L 301.0 238.9 L 360.0 246.4",
+      "M 95.2 267.8 L 94.0 247.7 L 96.5 257.7 L 99.0 259.0 L 114.0 250.2 L 106.5 261.5 L 114.0 277.8 L 104.0 272.8"
+    ],
+    "tips": "Trace outline in 6 clean strokes for instant 90%+ AI recognition."
+  },
+  "bee": {
+    "difficulty": "hard",
+    "name": "Bee",
+    "paths": [
+      "M 140 200 A 25 25 0 1 0 140 201",
+      "M 220 200 C 270 200 290 200 310 200 L 280 230 C 240 250 180 240 160 200 C 180 160 240 150 280 170 Z",
+      "M 200 160 L 200 240",
+      "M 235 165 L 235 235",
+      "M 265 175 L 265 225",
+      "M 180 160 C 160 100 220 100 200 160",
+      "M 210 160 C 200 100 250 100 225 160"
+    ],
+    "tips": "1. Draw striped oval abdomen with stinger. 2. Add head, antennae, and twin translucent wings."
+  },
+  "blackberry": {
+    "difficulty": "hard",
+    "name": "Blackberry",
+    "paths": [
+      "M 256.5 250.8 L 256.5 235.8 L 241.4 218.2 L 226.4 209.4 L 206.3 205.6 L 163.6 206.9 L 131.0 235.8 L 118.4 268.4 L 118.4 304.8 L 124.7 321.1 L 142.3 339.9 L 163.6 353.7 L 216.3 360.0 L 231.4 351.2 L 242.7 334.9 L 254.0 308.5 L 260.2 242.0 L 257.7 228.2 L 235.1 208.2 L 196.2 209.4 L 174.9 227.0 L 157.3 248.3 L 144.8 280.9 L 142.3 317.3 L 148.5 327.4 L 173.6 341.2 L 217.6 339.9 L 227.6 329.9 L 241.4 299.8 L 241.4 257.1 L 226.4 239.5 L 200.0 230.7 L 168.6 235.8 L 152.3 260.9 L 151.1 277.2 L 151.1 299.8 L 156.1 311.1 L 186.2 323.6 L 210.0 321.1 L 236.4 286.0 L 238.9 240.8 L 223.8 224.5 L 193.7 227.0 L 181.2 239.5 L 163.6 265.9 L 157.3 294.7 L 157.3 316.1 L 173.6 329.9 L 220.1 331.1 L 236.4 314.8 L 241.4 304.8 L 241.4 264.6 L 221.3 239.5 L 202.5 229.5 L 171.1 227.0 L 158.6 232.0 L 142.3 250.8 L 133.5 289.7 L 136.0 321.1 L 151.1 327.4 L 178.7 329.9 L 195.0 323.6 L 208.8 288.5 L 208.8 257.1 L 203.8 242.0 L 193.7 233.3 L 182.4 230.7 L 169.9 230.7 L 159.8 239.5 L 154.8 258.4 L 154.8 291.0 L 158.6 303.5 L 169.9 312.3 L 193.7 314.8 L 205.0 309.8 L 215.1 296.0 L 223.8 273.4 L 227.6 237.0 L 217.6 248.3 L 212.5 260.9 L 211.3 321.1 L 218.8 294.7 L 218.8 255.8 L 208.8 252.1 L 198.7 270.9 L 191.2 306.0 L 196.2 264.6 L 184.9 268.4 L 174.9 312.3 L 188.7 284.7 L 191.2 296.0 L 178.7 317.3 L 167.4 316.1 L 166.1 277.2 L 181.2 263.4 L 191.2 260.9 L 202.5 265.9 L 206.3 307.3 L 196.2 316.1 L 184.9 314.8 L 176.2 296.0 L 172.4 253.3 L 182.4 265.9 L 182.4 293.5 L 172.4 302.3 L 172.4 257.1 L 184.9 250.8 L 212.5 254.6 L 221.3 268.4 L 227.6 308.5 L 203.8 308.5 L 159.8 291.0 L 148.5 280.9 L 148.5 267.1 L 153.6 254.6 L 167.4 245.8 L 218.8 245.8 L 232.6 257.1 L 236.4 282.2 L 233.9 293.5 L 211.3 297.3 L 206.3 284.7 L 203.8 154.2 L 208.8 125.3 L 227.6 87.7 L 260.2 40.0",
+      "M 206.3 119.1 L 177.4 116.5 L 143.5 106.5 L 120.9 91.5 L 120.9 70.1 L 128.5 56.3 L 138.5 52.5 L 184.9 55.1 L 197.5 67.6 L 210.0 122.8 L 217.6 130.4",
+      "M 203.8 267.1 L 191.2 239.5 L 162.4 227.0 L 139.8 227.0 L 128.5 233.3 L 118.4 253.3 L 118.4 282.2 L 123.5 299.8 L 159.8 344.9 L 191.2 351.2 L 202.5 342.4 L 227.6 287.2 L 238.9 248.3 L 238.9 222.0 L 222.6 211.9 L 181.2 211.9 L 167.4 220.7 L 152.3 239.5 L 148.5 253.3 L 146.0 284.7 L 151.1 299.8 L 166.1 321.1 L 205.0 344.9 L 255.2 351.2 L 266.5 344.9 L 277.8 332.4 L 281.6 312.3 L 281.6 272.2 L 279.1 250.8 L 270.3 233.3 L 247.7 205.6 L 232.6 199.4 L 198.7 196.9 L 162.4 218.2 L 137.3 248.3 L 133.5 293.5 L 277.8 282.2 L 266.5 245.8 L 241.4 227.0 L 218.8 222.0 L 178.7 224.5 L 162.4 234.5 L 144.8 255.8 L 138.5 270.9 L 137.3 299.8 L 148.5 314.8 L 181.2 338.7 L 200.0 344.9 L 255.2 347.5 L 277.8 324.9 L 276.5 291.0 L 255.2 273.4 L 225.1 269.6 L 210.0 275.9 L 203.8 291.0 L 205.0 312.3 L 218.8 323.6 L 227.6 308.5 L 221.3 299.8"
+    ],
+    "tips": "Trace outline in 3 clean strokes for instant 90%+ AI recognition."
+  },
+  "boomerang": {
+    "difficulty": "hard",
+    "name": "Boomerang",
+    "paths": [
+      "M 46.3 283.5 L 46.3 268.4 L 95.2 124.1 L 105.3 106.5 L 130.4 80.2 L 165.5 70.1 L 280.9 73.9 L 348.7 92.7 L 356.2 99.0 L 360.0 135.4 L 351.2 141.6 L 317.3 145.4 L 278.4 145.4 L 204.4 132.9 L 163.0 135.4 L 147.9 163.0 L 115.3 247.1 L 94.0 283.5 L 58.8 321.1 L 42.5 329.9 L 40.0 292.2"
+    ],
+    "tips": "Trace aerodynamic curved throwing wing with rounded tips in one continuous stroke."
+  },
+  "bridge": {
+    "difficulty": "hard",
+    "name": "Bridge",
+    "paths": [
+      "M 78.9 261.5 L 78.9 246.4 L 85.2 230.1 L 116.5 196.2 L 146.7 172.4 L 185.6 153.6 L 216.9 143.5 L 254.6 146.0 L 291.0 163.6 L 321.1 212.5 L 327.4 254.0",
+      "M 40.0 138.5 L 298.5 141.0 L 360.0 149.8"
+    ],
+    "tips": "Trace outline in 2 clean strokes for instant 90%+ AI recognition."
+  },
+  "broom": {
+    "difficulty": "hard",
+    "name": "Broom",
+    "paths": [
+      "M 174.3 230.7 L 127.8 329.9 L 141.6 312.3 L 158.0 263.4 L 179.3 220.7 L 154.2 360.0 L 189.3 252.1 L 191.8 229.5 L 189.3 214.4 L 189.3 252.1 L 194.4 274.7 L 223.2 333.6 L 235.8 351.2 L 188.1 278.4 L 183.1 255.8 L 183.1 218.2 L 204.4 249.6 L 263.4 297.3 L 272.2 309.8 L 233.3 277.2 L 210.7 249.6 L 189.3 211.9 L 189.3 76.4 L 185.6 40.0"
+    ],
+    "tips": "Trace broom handle and flared straw bristles in one continuous stroke."
+  },
+  "cat": {
+    "difficulty": "hard",
+    "name": "Cat",
+    "paths": [
+      "M 273.4 190.6 L 255.8 171.8 L 214.4 149.2 L 164.2 147.9 L 149.2 154.2 L 122.8 179.3 L 102.7 219.5 L 85.2 274.7 L 86.4 309.8 L 95.2 328.6 L 119.1 347.5 L 169.3 360.0 L 201.9 357.5 L 296.0 323.6 L 314.8 303.5 L 316.1 267.1 L 297.3 224.5 L 277.2 201.9",
+      "M 263.4 174.3 L 264.6 163.0 L 294.7 104.0 L 316.1 40.0 L 313.6 160.5 L 306.0 222.0",
+      "M 140.4 163.0 L 120.3 120.3 L 91.5 78.9 L 83.9 214.4",
+      "M 163.0 204.4 L 164.2 208.2 L 168.0 208.2 L 166.7 203.1 L 159.2 201.9 L 158.0 214.4",
+      "M 230.7 196.9 L 230.7 206.9 L 235.8 209.4 L 235.8 195.6 L 229.5 194.4 L 227.0 200.6 L 233.3 201.9",
+      "M 201.9 259.6 L 200.6 269.6"
+    ],
+    "tips": "Trace outline in 6 clean strokes for instant 90%+ AI recognition."
+  },
+  "crab": {
+    "difficulty": "hard",
+    "name": "Crab",
+    "paths": [
+      "M 140 210 C 140 170 260 170 260 210 C 260 260 140 260 140 210 Z",
+      "M 150 180 L 110 130 C 90 100 140 100 130 130",
+      "M 110 130 C 80 150 130 160 130 140",
+      "M 250 180 L 290 130 C 310 100 260 100 270 130",
+      "M 290 130 C 320 150 270 160 270 140",
+      "M 140 220 L 90 240",
+      "M 140 240 L 90 270",
+      "M 260 220 L 310 240",
+      "M 260 240 L 310 270"
+    ],
+    "tips": "1. Draw oval shell body. 2. Add twin pinchers and crawling legs."
+  },
+  "dragon": {
+    "difficulty": "hard",
+    "name": "Dragon",
+    "paths": [
+      "M 250 100 L 290 100 L 270 130 L 230 140 L 210 220 L 140 260 L 90 290",
+      "M 210 170 L 130 110 L 170 190",
+      "M 130 110 L 90 160 L 150 180",
+      "M 260 90 L 270 70 L 250 85",
+      "M 160 260 L 160 320",
+      "M 190 240 L 190 320"
+    ],
+    "tips": "1. Draw serpentine reptilian head and long neck. 2. Add large bat wings and long tail."
+  },
+  "elephant": {
+    "difficulty": "hard",
+    "name": "Elephant",
+    "paths": [
+      "M 240 200 C 240 130 130 130 130 200 L 130 310 L 160 310 L 160 250 L 200 250 L 200 310 L 230 310 L 230 200",
+      "M 230 160 C 260 150 280 180 270 210 C 250 220 230 200 230 160",
+      "M 270 170 C 290 170 310 200 300 250 C 300 270 320 270 320 250 C 325 190 290 150 265 150"
+    ],
+    "tips": "1. Draw massive body and thick pillar legs. 2. Add large floppy ear and curved trunk."
+  },
+  "flamingo": {
+    "difficulty": "hard",
+    "name": "Flamingo",
+    "paths": [
+      "M 144.2 242.0 L 144.2 284.7 L 152.9 360.0 L 185.6 360.0",
+      "M 105.3 225.7 L 100.2 234.5 L 189.3 243.3 L 230.7 229.5 L 247.1 219.5 L 253.3 205.6 L 253.3 184.3 L 228.2 135.4 L 227.0 94.0 L 240.8 77.6 L 264.6 72.6 L 279.7 83.9 L 288.5 109.0 L 293.5 105.3 L 299.8 81.4 L 299.8 58.8 L 272.2 40.0"
+    ],
+    "tips": "Trace outline in 2 clean strokes for instant 90%+ AI recognition."
+  },
+  "frog": {
+    "difficulty": "hard",
+    "name": "Frog",
+    "paths": [
+      "M 140 160 A 25 25 0 1 0 140 110 A 25 25 0 1 0 140 160 Z",
+      "M 260 160 A 25 25 0 1 0 260 110 A 25 25 0 1 0 260 160 Z",
+      "M 110 160 C 90 190 90 250 120 270 C 160 290 240 290 280 270 C 310 250 310 190 290 160 C 250 150 150 150 110 160 Z",
+      "M 130 220 Q 200 260 270 220"
+    ],
+    "tips": "1. Draw twin bulging round eyes on top. 2. Add wide smiling frog head."
+  },
+  "garden": {
+    "difficulty": "hard",
+    "name": "Garden",
+    "paths": [
+      "M 60 300 L 340 300",
+      "M 100 300 L 100 210",
+      "M 100 190 A 20 20 0 1 0 100 150 A 20 20 0 1 0 100 190 Z",
+      "M 200 300 L 200 190",
+      "M 200 170 A 20 20 0 1 0 200 130 A 20 20 0 1 0 200 170 Z",
+      "M 300 300 L 300 210",
+      "M 300 190 A 20 20 0 1 0 300 150 A 20 20 0 1 0 300 190 Z"
+    ],
+    "tips": "1. Draw ground base line. 2. Add growing flower stems with circular blossoms."
+  },
+  "hand": {
+    "difficulty": "hard",
+    "name": "Hand",
+    "paths": [
+      "M 140 320 L 140 240 C 110 230 90 200 110 180 C 130 160 150 185 160 205 L 160 120 C 160 100 180 100 180 120 L 180 200 L 190 100 C 190 80 210 80 210 100 L 210 200 L 220 120 C 220 100 240 100 240 120 L 240 205 L 250 150 C 250 130 270 130 270 150 L 265 240 L 265 320 Z"
+    ],
+    "tips": "Trace the 5 fingers and palm in one continuous fluid stroke from wrist to fingers and back."
+  },
+  "horse": {
+    "difficulty": "hard",
+    "name": "Horse",
+    "paths": [
+      "M 99.0 115.3 L 85.2 116.5 L 73.9 122.8 L 45.0 151.7 L 40.0 185.6 L 50.0 198.1 L 71.4 193.1 L 94.0 180.5 L 112.8 152.9 L 120.3 171.8 L 120.3 199.4 L 134.1 215.7 L 134.1 227.0 L 111.5 255.8 L 106.5 275.9 L 126.6 282.2 L 151.7 254.6 L 156.7 243.3 L 163.0 243.3 L 200.6 265.9 L 267.1 268.4 L 262.1 291.0 L 267.1 293.5 L 313.6 293.5 L 321.1 220.7 L 312.3 201.9 L 279.7 188.1 L 239.5 179.3 L 164.2 178.0 L 155.5 151.7 L 145.4 139.1 L 126.6 125.3 L 107.8 120.3 L 120.3 90.2 L 105.3 92.7 L 94.0 116.5 L 72.6 127.8",
+      "M 41.3 184.3 L 46.3 186.8 L 58.8 185.6 L 70.1 164.2",
+      "M 68.9 140.4 L 73.9 132.9 L 72.6 139.1",
+      "M 321.1 210.7 L 333.6 273.4 L 337.4 227.0 L 314.8 214.4 L 314.8 210.7 L 319.8 215.7 L 329.9 272.2 L 333.6 280.9 L 337.4 278.4 L 344.9 253.3 L 347.5 220.7 L 317.3 245.8 L 304.8 260.9 L 292.2 284.7 L 308.5 259.6 L 329.9 238.3 L 356.2 220.7 L 360.0 225.7 L 360.0 258.4 L 356.2 268.4 L 352.5 270.9 L 343.7 240.8 L 339.9 239.5 L 327.4 269.6 L 327.4 206.9 L 331.1 280.9 L 346.2 260.9 L 357.5 227.0 L 346.2 309.8 L 343.7 274.7"
+    ],
+    "tips": "Trace outline in 4 clean strokes for instant 90%+ AI recognition."
+  },
+  "lion": {
+    "difficulty": "hard",
+    "name": "Lion",
+    "paths": [
+      "M 227.0 166.7 L 219.5 147.9 L 208.2 136.6 L 199.4 130.4 L 184.3 126.6 L 164.2 126.6 L 141.6 135.4 L 126.6 149.2 L 120.3 164.2 L 117.8 216.9 L 121.6 229.5 L 139.1 245.8 L 161.7 258.4 L 198.1 260.9 L 227.0 243.3 L 239.5 224.5 L 244.5 204.4 L 244.5 168.0 L 233.3 137.9",
+      "M 294.7 119.1 L 294.7 96.5 L 273.4 73.9 L 234.5 65.1 L 215.7 65.1 L 206.9 68.9 L 194.4 86.4 L 175.5 66.4 L 152.9 60.1 L 129.1 63.8 L 106.5 83.9 L 91.5 88.9 L 78.9 105.3 L 72.6 119.1 L 67.6 147.9 L 70.1 159.2 L 85.2 174.3 L 81.4 170.5 L 71.4 169.3 L 60.1 171.8 L 42.5 195.6 L 40.0 213.2 L 40.0 228.2 L 46.3 247.1 L 56.3 262.1 L 71.4 275.9 L 66.4 274.7 L 58.8 297.3 L 57.6 308.5 L 62.6 313.6 L 72.6 319.8 L 106.5 322.4 L 164.2 314.8 L 193.1 338.7 L 219.5 339.9 L 233.3 336.2 L 257.1 319.8 L 265.9 301.0 L 267.1 308.5 L 280.9 309.8 L 312.3 286.0 L 326.1 262.1 L 329.9 239.5 L 351.2 219.5 L 360.0 194.4 L 360.0 168.0 L 355.0 158.0 L 342.4 141.6 L 326.1 137.9 L 326.1 94.0 L 312.3 86.4 L 294.7 85.2"
+    ],
+    "tips": "Trace outline in 2 clean strokes for instant 90%+ AI recognition."
+  },
+  "map": {
+    "difficulty": "hard",
+    "name": "Map",
+    "paths": [
+      "M 48.8 99.0 L 41.3 165.5 L 42.5 299.8 L 173.0 306.0 L 283.5 329.9 L 331.1 334.9 L 353.7 327.4 L 360.0 282.2 L 360.0 189.3 L 350.0 65.1 L 313.6 76.4 L 238.3 87.7 L 73.9 86.4 L 42.5 87.7 L 40.0 90.2",
+      "M 46.3 130.4 L 71.4 131.6 L 100.2 141.6 L 150.4 184.3 L 174.3 208.2 L 183.1 222.0 L 198.1 289.7 L 206.9 294.7 L 219.5 293.5 L 230.7 284.7 L 243.3 257.1 L 249.6 237.0 L 250.8 211.9 L 228.2 170.5 L 220.7 146.7 L 171.8 97.7 L 171.8 86.4"
+    ],
+    "tips": "Trace outline in 2 clean strokes for instant 90%+ AI recognition."
+  },
+  "monkey": {
+    "difficulty": "hard",
+    "name": "Monkey",
+    "paths": [
+      "M 175.4 108.0 L 161.6 118.1 L 152.8 132.0 L 150.2 183.6 L 160.3 198.7 L 196.9 215.1 L 238.4 216.4 L 267.4 203.8 L 280.0 188.7 L 286.3 173.5 L 287.6 144.6 L 277.5 125.7 L 259.8 111.8 L 223.3 103.0 L 183.0 104.3 L 176.7 108.0 L 179.2 111.8",
+      "M 191.8 173.5 L 201.9 166.0",
+      "M 257.3 163.5 L 257.3 163.5",
+      "M 235.9 155.9 L 235.9 155.9",
+      "M 238.4 178.6 L 261.1 177.3 L 263.6 168.5 L 257.3 163.5",
+      "M 238.4 101.7 L 246.0 85.4 L 272.4 58.9 L 288.8 52.6 L 315.3 55.1 L 340.5 74.0 L 350.6 86.6 L 350.6 92.9 L 332.9 110.6 L 288.8 132.0",
+      "M 206.9 99.2 L 206.9 86.6 L 200.6 71.5 L 190.6 57.6 L 178.0 47.6 L 160.3 41.3 L 132.6 40.0 L 116.2 48.8 L 103.6 71.5 L 104.9 101.7 L 130.1 123.1 L 167.9 142.0",
+      "M 193.1 222.7 L 193.1 222.7",
+      "M 185.5 213.9 L 179.2 251.7 L 147.7 273.1 L 137.6 314.6 L 118.7 329.8 L 98.6 328.5 L 72.1 308.3 L 49.4 300.8 L 49.4 347.4 L 52.0 352.4 L 62.0 360.0 L 135.1 360.0 L 142.7 356.2"
+    ],
+    "tips": "Trace outline in 9 clean strokes for instant 90%+ AI recognition."
+  },
+  "octopus": {
+    "difficulty": "hard",
+    "name": "Octopus",
+    "paths": [
+      "M 140 180 C 130 100 270 100 260 180 C 260 220 140 220 140 180 Z",
+      "M 175 170 A 5 5 0 1 0 175 171",
+      "M 225 170 A 5 5 0 1 0 225 171",
+      "M 150 220 Q 130 290 100 310",
+      "M 170 220 Q 160 290 140 320",
+      "M 190 220 Q 190 300 180 330",
+      "M 210 220 Q 210 300 220 330",
+      "M 230 220 Q 240 290 260 320",
+      "M 250 220 Q 270 290 300 310"
+    ],
+    "tips": "1. Draw large bulbous mantle head. 2. Add twin eyes. 3. Radiate eight wavy curling tentacles below."
+  },
+  "owl": {
+    "difficulty": "hard",
+    "name": "Owl",
+    "paths": [
+      "M 130 130 L 140 80 L 170 110 L 230 110 L 260 80 L 270 130 C 290 200 280 290 250 320 L 150 320 C 120 290 110 200 130 130 Z",
+      "M 165 170 A 25 25 0 1 0 165 171",
+      "M 235 170 A 25 25 0 1 0 235 171",
+      "M 190 195 L 210 195 L 200 215 Z"
+    ],
+    "tips": "1. Draw tufted owl body outline. 2. Add big round ring eyes and triangular beak."
+  },
+  "parrot": {
+    "difficulty": "hard",
+    "name": "Parrot",
+    "paths": [
+      "M 210 110 C 190 90 160 110 170 140 L 170 260 L 150 340 L 175 340 L 195 270 C 220 250 220 180 210 110 Z",
+      "M 200 115 C 240 120 250 150 220 165 C 205 165 200 140 200 115 Z",
+      "M 185 125 A 4 4 0 1 0 185 126"
+    ],
+    "tips": "1. Draw round head with large curved hooked beak. 2. Add perch body with long tail feathers."
+  },
+  "penguin": {
+    "difficulty": "hard",
+    "name": "Penguin",
+    "paths": [
+      "M 200 90 C 160 90 150 140 150 200 C 140 240 150 310 200 310 C 250 310 260 240 250 200 C 250 140 240 90 200 90 Z",
+      "M 170 200 C 170 290 230 290 230 200 C 230 150 170 150 170 200 Z",
+      "M 190 120 L 210 120 L 200 135 Z",
+      "M 150 180 C 130 210 130 250 145 270",
+      "M 250 180 C 270 210 270 250 255 270",
+      "M 170 310 L 160 330 L 190 330 Z",
+      "M 230 310 L 240 330 L 210 330 Z"
+    ],
+    "tips": "1. Draw bowling-pin shaped body with white belly arch. 2. Add beak, flipper wings, and waddling feet."
+  },
+  "pickup truck": {
+    "difficulty": "hard",
+    "name": "Pickup Truck",
+    "paths": [
+      "M 70 230 L 70 180 L 190 180 L 190 130 L 280 130 L 320 180 L 320 230 Z",
+      "M 190 180 L 190 230",
+      "M 110 230 A 22 22 0 1 0 154 230",
+      "M 240 230 A 22 22 0 1 0 284 230"
+    ],
+    "tips": "1. Draw cab with windshield. 2. Add open rectangular cargo bed behind. 3. Add two wheels."
+  },
+  "purse": {
+    "difficulty": "hard",
+    "name": "Purse",
+    "paths": [
+      "M 120 170 L 280 170 L 295 300 L 105 300 Z",
+      "M 120 170 L 200 230 L 280 170",
+      "M 190 225 L 210 225 L 210 245 L 190 245 Z",
+      "M 150 170 C 150 90 250 90 250 170"
+    ],
+    "tips": "1. Draw trapezoidal handbag pouch. 2. Add top flap with clasp. 3. Add arched strap loop."
+  },
+  "rabbit": {
+    "difficulty": "hard",
+    "name": "Rabbit",
+    "paths": [
+      "M 200 160 A 35 35 0 1 0 200 230 A 35 35 0 1 0 200 160 Z",
+      "M 180 165 C 160 110 160 60 180 60 C 200 60 200 110 185 165",
+      "M 215 165 C 200 110 200 60 220 60 C 240 60 240 110 220 165",
+      "M 195 205 L 205 205 L 200 215 Z",
+      "M 175 225 C 150 250 150 300 200 310 C 240 310 245 280 230 225",
+      "M 145 290 A 10 10 0 1 0 145 291"
+    ],
+    "tips": "1. Draw round head with very tall upright oval ears. 2. Add twitchy nose and fluffy tail."
+  },
+  "sea turtle": {
+    "difficulty": "hard",
+    "name": "Sea Turtle",
+    "paths": [
+      "M 200 120 C 150 120 140 180 140 240 C 140 290 170 310 200 310 C 230 310 260 290 260 240 C 260 180 250 120 200 120 Z",
+      "M 200 120 C 190 80 210 80 200 120",
+      "M 150 150 C 90 120 80 170 140 200",
+      "M 250 150 C 310 120 320 170 260 200",
+      "M 155 280 L 130 320",
+      "M 245 280 L 270 320"
+    ],
+    "tips": "1. Draw oval shell. 2. Add head, large front swimming flippers, and rear flippers."
+  },
+  "sheep": {
+    "difficulty": "hard",
+    "name": "Sheep",
+    "paths": [
+      "M 140 180 C 130 140 170 120 190 135 C 220 120 250 130 265 150 C 290 145 315 170 305 200 C 320 230 300 265 270 260 C 250 275 210 275 190 260 C 160 270 130 250 140 220 C 120 210 120 190 140 180 Z",
+      "M 100 170 C 80 150 75 200 95 210 C 120 215 130 180 100 170 Z",
+      "M 85 170 C 65 175 70 195 85 185",
+      "M 110 170 C 130 175 125 195 110 185",
+      "M 160 265 L 160 320",
+      "M 185 265 L 185 320",
+      "M 245 265 L 245 320",
+      "M 270 265 L 270 320"
+    ],
+    "tips": "1. Draw cloud-like fluffy fleece body. 2. Add head with drooping ears. 3. Add four vertical legs."
+  },
+  "snail": {
+    "difficulty": "hard",
+    "name": "Snail",
+    "paths": [
+      "M 200 180 A 60 60 0 1 0 200 300 A 60 60 0 1 0 200 180 Z",
+      "M 200 210 A 30 30 0 1 0 200 270 A 30 30 0 1 0 200 210 Z",
+      "M 100 300 L 310 300 C 330 300 340 270 330 240 L 300 240",
+      "M 325 240 L 335 210",
+      "M 315 240 L 310 210"
+    ],
+    "tips": "1. Draw circular spiral shell. 2. Add crawling foot and eye stalks."
+  },
+  "spider": {
+    "difficulty": "hard",
+    "name": "Spider",
+    "paths": [
+      "M 200 150 A 45 45 0 1 0 200 240 A 45 45 0 1 0 200 150 Z",
+      "M 80 130 L 130 160 L 165 180",
+      "M 80 180 L 130 185 L 165 195",
+      "M 80 230 L 130 215 L 165 205",
+      "M 90 280 L 140 240 L 170 220",
+      "M 320 130 L 270 160 L 235 180",
+      "M 320 180 L 270 185 L 235 195",
+      "M 320 230 L 270 215 L 235 205",
+      "M 310 280 L 260 240 L 230 220"
+    ],
+    "tips": "1. Draw central round spider abdomen. 2. Add eight bent arachnid legs."
+  },
+  "squirrel": {
+    "difficulty": "hard",
+    "name": "Squirrel",
+    "paths": [
+      "M 200 140 A 20 20 0 1 0 200 180 A 20 20 0 1 0 200 140 Z",
+      "M 195 130 L 190 110 L 205 125",
+      "M 180 180 C 160 220 160 270 190 290 C 220 290 230 250 220 200",
+      "M 210 200 L 230 200",
+      "M 180 290 C 130 280 110 160 140 100 C 160 70 190 80 180 120 C 165 150 155 220 190 260"
+    ],
+    "tips": "1. Draw rodent body sitting up holding nut. 2. Add huge bushy S-curled tail arched over back."
+  },
+  "submarine": {
+    "difficulty": "hard",
+    "name": "Submarine",
+    "paths": [
+      "M 80 200 C 80 160 300 160 330 200 C 300 240 80 240 80 200 Z",
+      "M 180 160 L 180 120 L 220 120 L 220 160",
+      "M 200 120 L 200 90 L 215 90",
+      "M 80 200 L 60 180 L 60 220 Z"
+    ],
+    "tips": "1. Draw elongated cylindrical sub hull. 2. Add conning tower periscope on top. 3. Add propeller at rear."
+  },
+  "whale": {
+    "difficulty": "hard",
+    "name": "Whale",
+    "paths": [
+      "M 80 210 C 80 140 230 130 280 200 C 310 200 330 170 340 150 L 330 210 L 340 250 C 320 230 300 210 280 210 C 230 270 120 270 80 210 Z",
+      "M 160 135 C 160 90 140 80 130 90",
+      "M 160 135 C 160 90 180 80 190 90"
+    ],
+    "tips": "1. Draw large whale body with rear tail fluke. 2. Add water spout rising on top."
+  }
+}

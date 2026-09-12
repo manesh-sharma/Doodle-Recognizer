@@ -25,7 +25,7 @@ export function LearningModePage({ setView }) {
   const canvasRef = useRef(null);
   const lessons = getAllLearningLessons();
 
-  // Selected level state (1-indexed, level 1 to 208)
+  // Selected level state (1-indexed, level 1 to 197)
   const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
   const [isLevelDrawerOpen, setIsLevelDrawerOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -72,11 +72,6 @@ export function LearningModePage({ setView }) {
         setModelPrediction(res.predictions[0] || null);
         const conf = res.target_confidence || 0;
         setTargetConfidence(conf);
-
-        if (conf >= 90) {
-          unlockBadge('perfectionist');
-          handleLevelCompleted(conf);
-        }
       }
     } catch (err) {
       console.error('Learning mode prediction error:', err);
@@ -88,6 +83,7 @@ export function LearningModePage({ setView }) {
   const handleVerifyOrComplete = async () => {
     // If target confidence is already >= 50, claim/complete immediately
     if (targetConfidence >= 50) {
+      if (targetConfidence >= 90) unlockBadge('perfectionist');
       handleLevelCompleted(targetConfidence);
       return;
     }
@@ -160,7 +156,7 @@ export function LearningModePage({ setView }) {
     if (currentLevelIndex < lessons.length - 1) {
       setCurrentLevelIndex((prev) => prev + 1);
     } else {
-      showToast('🎉 Congratulations! You have completed all 208 lessons!', 'success', 4000);
+      showToast('🎉 Congratulations! You have completed all 197 lessons!', 'success', 4000);
       unlockBadge('learning_master');
     }
   };
@@ -306,10 +302,10 @@ export function LearningModePage({ setView }) {
               <div className="mt-2 text-[11px] text-slate-500 dark:text-slate-400 flex flex-col gap-1">
                 <span>
                   {targetConfidence >= 90
-                    ? '🎉 Fantastic! 90%+ reached!'
+                    ? '🎉 Fantastic! 90%+ reached! Click Submit Drawing when ready.'
                     : targetConfidence >= 50
-                    ? '✓ Passing accuracy! You can complete now.'
-                    : 'Trace along the dashed outline to verify.'}
+                    ? '✓ Passing accuracy! Click Submit Drawing when ready.'
+                    : 'Trace along the dashed outline, then click Submit Drawing.'}
                 </span>
                 {modelPrediction && (
                   <span className="font-medium text-slate-700 dark:text-slate-300">
@@ -330,7 +326,7 @@ export function LearningModePage({ setView }) {
             </div>
           </div>
 
-          {/* Action / Verify / Complete Button */}
+          {/* Action / Submit Drawing Button */}
           <button
             type="button"
             onClick={handleVerifyOrComplete}
@@ -346,22 +342,22 @@ export function LearningModePage({ setView }) {
             {isEvaluating ? (
               <>
                 <RotateCcw className="w-5 h-5 animate-spin" />
-                <span>Verifying Doodle...</span>
+                <span>Evaluating Doodle...</span>
               </>
             ) : targetConfidence >= 90 ? (
               <>
                 <CheckCircle2 className="w-5 h-5" />
-                <span>Claim Level Stars & Next</span>
+                <span>Submit Drawing ({targetConfidence.toFixed(0)}%)</span>
               </>
             ) : targetConfidence >= 50 ? (
               <>
                 <CheckCircle2 className="w-5 h-5" />
-                <span>Complete Level ({targetConfidence.toFixed(0)}%)</span>
+                <span>Submit Drawing ({targetConfidence.toFixed(0)}%)</span>
               </>
             ) : (
               <>
-                <Target className="w-5 h-5" />
-                <span>Verify Drawing</span>
+                <CheckCircle2 className="w-5 h-5" />
+                <span>Submit Drawing</span>
               </>
             )}
           </button>

@@ -1,0 +1,1381 @@
+[
+  {
+    "class": "The Eiffel Tower",
+    "label": "easy",
+    "top1": "The Eiffel Tower",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "The Mona Lisa",
+    "label": "easy",
+    "top1": "The Mona Lisa",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "alarm clock",
+    "label": "easy",
+    "top1": "alarm clock",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "anvil",
+    "label": "easy",
+    "top1": "anvil",
+    "target_conf": 99.6,
+    "is_top1": true
+  },
+  {
+    "class": "apple",
+    "label": "easy",
+    "top1": "apple",
+    "target_conf": 99.3,
+    "is_top1": true
+  },
+  {
+    "class": "axe",
+    "label": "easy",
+    "top1": "axe",
+    "target_conf": 99.0,
+    "is_top1": true
+  },
+  {
+    "class": "basket",
+    "label": "easy",
+    "top1": "basket",
+    "target_conf": 91.5,
+    "is_top1": true
+  },
+  {
+    "class": "book",
+    "label": "easy",
+    "top1": "book",
+    "target_conf": 90.2,
+    "is_top1": true
+  },
+  {
+    "class": "bowtie",
+    "label": "easy",
+    "top1": "bowtie",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "bucket",
+    "label": "easy",
+    "top1": "bucket",
+    "target_conf": 98.2,
+    "is_top1": true
+  },
+  {
+    "class": "cactus",
+    "label": "easy",
+    "top1": "cactus",
+    "target_conf": 99.7,
+    "is_top1": true
+  },
+  {
+    "class": "cake",
+    "label": "easy",
+    "top1": "cake",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "calculator",
+    "label": "easy",
+    "top1": "calculator",
+    "target_conf": 99.8,
+    "is_top1": true
+  },
+  {
+    "class": "camera",
+    "label": "easy",
+    "top1": "camera",
+    "target_conf": 96.5,
+    "is_top1": true
+  },
+  {
+    "class": "campfire",
+    "label": "easy",
+    "top1": "campfire",
+    "target_conf": 96.1,
+    "is_top1": true
+  },
+  {
+    "class": "car",
+    "label": "easy",
+    "top1": "car",
+    "target_conf": 99.6,
+    "is_top1": true
+  },
+  {
+    "class": "castle",
+    "label": "easy",
+    "top1": "castle",
+    "target_conf": 99.5,
+    "is_top1": true
+  },
+  {
+    "class": "cell phone",
+    "label": "easy",
+    "top1": "cell phone",
+    "target_conf": 97.6,
+    "is_top1": true
+  },
+  {
+    "class": "chair",
+    "label": "easy",
+    "top1": "chair",
+    "target_conf": 97.5,
+    "is_top1": true
+  },
+  {
+    "class": "circle",
+    "label": "easy",
+    "top1": "circle",
+    "target_conf": 90.4,
+    "is_top1": true
+  },
+  {
+    "class": "cloud",
+    "label": "easy",
+    "top1": "cloud",
+    "target_conf": 91.8,
+    "is_top1": true
+  },
+  {
+    "class": "crown",
+    "label": "easy",
+    "top1": "crown",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "cup",
+    "label": "easy",
+    "top1": "cup",
+    "target_conf": 91.0,
+    "is_top1": true
+  },
+  {
+    "class": "diamond",
+    "label": "easy",
+    "top1": "diamond",
+    "target_conf": 99.7,
+    "is_top1": true
+  },
+  {
+    "class": "door",
+    "label": "easy",
+    "top1": "door",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "drums",
+    "label": "easy",
+    "top1": "drums",
+    "target_conf": 95.7,
+    "is_top1": true
+  },
+  {
+    "class": "envelope",
+    "label": "easy",
+    "top1": "envelope",
+    "target_conf": 94.4,
+    "is_top1": true
+  },
+  {
+    "class": "eraser",
+    "label": "easy",
+    "top1": "eraser",
+    "target_conf": 91.0,
+    "is_top1": true
+  },
+  {
+    "class": "eye",
+    "label": "easy",
+    "top1": "eye",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "fire hydrant",
+    "label": "easy",
+    "top1": "fire hydrant",
+    "target_conf": 99.8,
+    "is_top1": true
+  },
+  {
+    "class": "fireplace",
+    "label": "easy",
+    "top1": "fireplace",
+    "target_conf": 99.7,
+    "is_top1": true
+  },
+  {
+    "class": "flashlight",
+    "label": "easy",
+    "top1": "flashlight",
+    "target_conf": 99.3,
+    "is_top1": true
+  },
+  {
+    "class": "flip flops",
+    "label": "easy",
+    "top1": "flip flops",
+    "target_conf": 98.5,
+    "is_top1": true
+  },
+  {
+    "class": "floor lamp",
+    "label": "easy",
+    "top1": "floor lamp",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "fork",
+    "label": "easy",
+    "top1": "fork",
+    "target_conf": 93.7,
+    "is_top1": true
+  },
+  {
+    "class": "frying pan",
+    "label": "easy",
+    "top1": "frying pan",
+    "target_conf": 99.4,
+    "is_top1": true
+  },
+  {
+    "class": "grass",
+    "label": "easy",
+    "top1": "grass",
+    "target_conf": 95.3,
+    "is_top1": true
+  },
+  {
+    "class": "harp",
+    "label": "easy",
+    "top1": "harp",
+    "target_conf": 99.8,
+    "is_top1": true
+  },
+  {
+    "class": "hat",
+    "label": "easy",
+    "top1": "hat",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "headphones",
+    "label": "easy",
+    "top1": "headphones",
+    "target_conf": 99.8,
+    "is_top1": true
+  },
+  {
+    "class": "hockey stick",
+    "label": "easy",
+    "top1": "hockey stick",
+    "target_conf": 99.4,
+    "is_top1": true
+  },
+  {
+    "class": "hourglass",
+    "label": "easy",
+    "top1": "hourglass",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "house",
+    "label": "easy",
+    "top1": "house",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "house plant",
+    "label": "easy",
+    "top1": "house plant",
+    "target_conf": 98.7,
+    "is_top1": true
+  },
+  {
+    "class": "hurricane",
+    "label": "easy",
+    "top1": "hurricane",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "ice cream",
+    "label": "easy",
+    "top1": "ice cream",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "jacket",
+    "label": "easy",
+    "top1": "jacket",
+    "target_conf": 99.8,
+    "is_top1": true
+  },
+  {
+    "class": "jail",
+    "label": "easy",
+    "top1": "jail",
+    "target_conf": 95.5,
+    "is_top1": true
+  },
+  {
+    "class": "ladder",
+    "label": "easy",
+    "top1": "ladder",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "light bulb",
+    "label": "easy",
+    "top1": "light bulb",
+    "target_conf": 90.1,
+    "is_top1": true
+  },
+  {
+    "class": "lightning",
+    "label": "easy",
+    "top1": "lightning",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "microwave",
+    "label": "easy",
+    "top1": "microwave",
+    "target_conf": 98.6,
+    "is_top1": true
+  },
+  {
+    "class": "necklace",
+    "label": "easy",
+    "top1": "necklace",
+    "target_conf": 99.2,
+    "is_top1": true
+  },
+  {
+    "class": "onion",
+    "label": "easy",
+    "top1": "onion",
+    "target_conf": 95.6,
+    "is_top1": true
+  },
+  {
+    "class": "palm tree",
+    "label": "easy",
+    "top1": "palm tree",
+    "target_conf": 95.6,
+    "is_top1": true
+  },
+  {
+    "class": "pants",
+    "label": "easy",
+    "top1": "pants",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "pencil",
+    "label": "easy",
+    "top1": "pencil",
+    "target_conf": 98.1,
+    "is_top1": true
+  },
+  {
+    "class": "picture frame",
+    "label": "easy",
+    "top1": "picture frame",
+    "target_conf": 98.8,
+    "is_top1": true
+  },
+  {
+    "class": "radio",
+    "label": "easy",
+    "top1": "radio",
+    "target_conf": 98.9,
+    "is_top1": true
+  },
+  {
+    "class": "rain",
+    "label": "easy",
+    "top1": "rain",
+    "target_conf": 97.0,
+    "is_top1": true
+  },
+  {
+    "class": "rainbow",
+    "label": "easy",
+    "top1": "rainbow",
+    "target_conf": 99.6,
+    "is_top1": true
+  },
+  {
+    "class": "rollerskates",
+    "label": "easy",
+    "top1": "rollerskates",
+    "target_conf": 98.9,
+    "is_top1": true
+  },
+  {
+    "class": "sailboat",
+    "label": "easy",
+    "top1": "sailboat",
+    "target_conf": 99.6,
+    "is_top1": true
+  },
+  {
+    "class": "scissors",
+    "label": "easy",
+    "top1": "scissors",
+    "target_conf": 99.8,
+    "is_top1": true
+  },
+  {
+    "class": "see saw",
+    "label": "easy",
+    "top1": "see saw",
+    "target_conf": 99.4,
+    "is_top1": true
+  },
+  {
+    "class": "skull",
+    "label": "easy",
+    "top1": "skull",
+    "target_conf": 99.7,
+    "is_top1": true
+  },
+  {
+    "class": "smiley face",
+    "label": "easy",
+    "top1": "smiley face",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "snail",
+    "label": "easy",
+    "top1": "snail",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "snowflake",
+    "label": "easy",
+    "top1": "snowflake",
+    "target_conf": 99.8,
+    "is_top1": true
+  },
+  {
+    "class": "snowman",
+    "label": "easy",
+    "top1": "snowman",
+    "target_conf": 99.6,
+    "is_top1": true
+  },
+  {
+    "class": "spreadsheet",
+    "label": "easy",
+    "top1": "spreadsheet",
+    "target_conf": 95.7,
+    "is_top1": true
+  },
+  {
+    "class": "stairs",
+    "label": "easy",
+    "top1": "stairs",
+    "target_conf": 99.1,
+    "is_top1": true
+  },
+  {
+    "class": "star",
+    "label": "easy",
+    "top1": "star",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "sun",
+    "label": "easy",
+    "top1": "sun",
+    "target_conf": 99.6,
+    "is_top1": true
+  },
+  {
+    "class": "swing set",
+    "label": "easy",
+    "top1": "swing set",
+    "target_conf": 92.1,
+    "is_top1": true
+  },
+  {
+    "class": "sword",
+    "label": "easy",
+    "top1": "sword",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "television",
+    "label": "easy",
+    "top1": "television",
+    "target_conf": 99.8,
+    "is_top1": true
+  },
+  {
+    "class": "tooth",
+    "label": "easy",
+    "top1": "tooth",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "tree",
+    "label": "easy",
+    "top1": "tree",
+    "target_conf": 99.8,
+    "is_top1": true
+  },
+  {
+    "class": "umbrella",
+    "label": "easy",
+    "top1": "umbrella",
+    "target_conf": 99.7,
+    "is_top1": true
+  },
+  {
+    "class": "ambulance",
+    "label": "medium",
+    "top1": "ambulance",
+    "target_conf": 95.5,
+    "is_top1": true
+  },
+  {
+    "class": "angel",
+    "label": "medium",
+    "top1": "angel",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "asparagus",
+    "label": "medium",
+    "top1": "asparagus",
+    "target_conf": 91.0,
+    "is_top1": true
+  },
+  {
+    "class": "backpack",
+    "label": "medium",
+    "top1": "backpack",
+    "target_conf": 97.7,
+    "is_top1": true
+  },
+  {
+    "class": "baseball",
+    "label": "medium",
+    "top1": "baseball",
+    "target_conf": 94.3,
+    "is_top1": true
+  },
+  {
+    "class": "basketball",
+    "label": "medium",
+    "top1": "basketball",
+    "target_conf": 99.0,
+    "is_top1": true
+  },
+  {
+    "class": "bathtub",
+    "label": "medium",
+    "top1": "bathtub",
+    "target_conf": 97.4,
+    "is_top1": true
+  },
+  {
+    "class": "bed",
+    "label": "medium",
+    "top1": "bed",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "bicycle",
+    "label": "medium",
+    "top1": "bicycle",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "binoculars",
+    "label": "medium",
+    "top1": "binoculars",
+    "target_conf": 97.8,
+    "is_top1": true
+  },
+  {
+    "class": "bracelet",
+    "label": "medium",
+    "top1": "bracelet",
+    "target_conf": 95.2,
+    "is_top1": true
+  },
+  {
+    "class": "bread",
+    "label": "medium",
+    "top1": "bread",
+    "target_conf": 99.3,
+    "is_top1": true
+  },
+  {
+    "class": "bus",
+    "label": "medium",
+    "top1": "bus",
+    "target_conf": 99.0,
+    "is_top1": true
+  },
+  {
+    "class": "bush",
+    "label": "medium",
+    "top1": "bush",
+    "target_conf": 92.0,
+    "is_top1": true
+  },
+  {
+    "class": "butterfly",
+    "label": "medium",
+    "top1": "butterfly",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "candle",
+    "label": "medium",
+    "top1": "candle",
+    "target_conf": 98.1,
+    "is_top1": true
+  },
+  {
+    "class": "carrot",
+    "label": "medium",
+    "top1": "carrot",
+    "target_conf": 93.5,
+    "is_top1": true
+  },
+  {
+    "class": "church",
+    "label": "medium",
+    "top1": "church",
+    "target_conf": 99.1,
+    "is_top1": true
+  },
+  {
+    "class": "compass",
+    "label": "medium",
+    "top1": "compass",
+    "target_conf": 99.6,
+    "is_top1": true
+  },
+  {
+    "class": "cookie",
+    "label": "medium",
+    "top1": "cookie",
+    "target_conf": 98.3,
+    "is_top1": true
+  },
+  {
+    "class": "cruise ship",
+    "label": "medium",
+    "top1": "cruise ship",
+    "target_conf": 93.9,
+    "is_top1": true
+  },
+  {
+    "class": "dresser",
+    "label": "medium",
+    "top1": "dresser",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "dumbbell",
+    "label": "medium",
+    "top1": "dumbbell",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "ear",
+    "label": "medium",
+    "top1": "ear",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "eyeglasses",
+    "label": "medium",
+    "top1": "eyeglasses",
+    "target_conf": 96.4,
+    "is_top1": true
+  },
+  {
+    "class": "fish",
+    "label": "medium",
+    "top1": "fish",
+    "target_conf": 98.3,
+    "is_top1": true
+  },
+  {
+    "class": "flower",
+    "label": "medium",
+    "top1": "flower",
+    "target_conf": 99.8,
+    "is_top1": true
+  },
+  {
+    "class": "flying saucer",
+    "label": "medium",
+    "top1": "flying saucer",
+    "target_conf": 99.5,
+    "is_top1": true
+  },
+  {
+    "class": "foot",
+    "label": "medium",
+    "top1": "foot",
+    "target_conf": 94.4,
+    "is_top1": true
+  },
+  {
+    "class": "giraffe",
+    "label": "medium",
+    "top1": "giraffe",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "grapes",
+    "label": "medium",
+    "top1": "grapes",
+    "target_conf": 94.0,
+    "is_top1": true
+  },
+  {
+    "class": "guitar",
+    "label": "medium",
+    "top1": "guitar",
+    "target_conf": 98.8,
+    "is_top1": true
+  },
+  {
+    "class": "hamburger",
+    "label": "medium",
+    "top1": "hamburger",
+    "target_conf": 98.7,
+    "is_top1": true
+  },
+  {
+    "class": "hammer",
+    "label": "medium",
+    "top1": "hammer",
+    "target_conf": 94.8,
+    "is_top1": true
+  },
+  {
+    "class": "hand",
+    "label": "medium",
+    "top1": "hand",
+    "target_conf": 98.5,
+    "is_top1": true
+  },
+  {
+    "class": "helicopter",
+    "label": "medium",
+    "top1": "helicopter",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "hockey puck",
+    "label": "medium",
+    "top1": "hockey puck",
+    "target_conf": 96.9,
+    "is_top1": true
+  },
+  {
+    "class": "hospital",
+    "label": "medium",
+    "top1": "hospital",
+    "target_conf": 96.7,
+    "is_top1": true
+  },
+  {
+    "class": "key",
+    "label": "medium",
+    "top1": "key",
+    "target_conf": 99.7,
+    "is_top1": true
+  },
+  {
+    "class": "knee",
+    "label": "medium",
+    "top1": "knee",
+    "target_conf": 90.4,
+    "is_top1": true
+  },
+  {
+    "class": "lantern",
+    "label": "medium",
+    "top1": "lantern",
+    "target_conf": 92.9,
+    "is_top1": true
+  },
+  {
+    "class": "laptop",
+    "label": "medium",
+    "top1": "laptop",
+    "target_conf": 99.3,
+    "is_top1": true
+  },
+  {
+    "class": "leaf",
+    "label": "medium",
+    "top1": "leaf",
+    "target_conf": 97.2,
+    "is_top1": true
+  },
+  {
+    "class": "lighter",
+    "label": "medium",
+    "top1": "lighter",
+    "target_conf": 99.4,
+    "is_top1": true
+  },
+  {
+    "class": "lollipop",
+    "label": "medium",
+    "top1": "lollipop",
+    "target_conf": 99.6,
+    "is_top1": true
+  },
+  {
+    "class": "mailbox",
+    "label": "medium",
+    "top1": "mailbox",
+    "target_conf": 98.9,
+    "is_top1": true
+  },
+  {
+    "class": "microphone",
+    "label": "medium",
+    "top1": "microphone",
+    "target_conf": 99.1,
+    "is_top1": true
+  },
+  {
+    "class": "moon",
+    "label": "medium",
+    "top1": "moon",
+    "target_conf": 94.1,
+    "is_top1": true
+  },
+  {
+    "class": "mouse",
+    "label": "medium",
+    "top1": "mouse",
+    "target_conf": 95.1,
+    "is_top1": true
+  },
+  {
+    "class": "mouth",
+    "label": "medium",
+    "top1": "mouth",
+    "target_conf": 99.7,
+    "is_top1": true
+  },
+  {
+    "class": "mushroom",
+    "label": "medium",
+    "top1": "mushroom",
+    "target_conf": 99.8,
+    "is_top1": true
+  },
+  {
+    "class": "paper clip",
+    "label": "medium",
+    "top1": "paper clip",
+    "target_conf": 99.1,
+    "is_top1": true
+  },
+  {
+    "class": "parachute",
+    "label": "medium",
+    "top1": "parachute",
+    "target_conf": 96.5,
+    "is_top1": true
+  },
+  {
+    "class": "peanut",
+    "label": "medium",
+    "top1": "peanut",
+    "target_conf": 99.2,
+    "is_top1": true
+  },
+  {
+    "class": "pear",
+    "label": "medium",
+    "top1": "pear",
+    "target_conf": 97.6,
+    "is_top1": true
+  },
+  {
+    "class": "peas",
+    "label": "medium",
+    "top1": "peas",
+    "target_conf": 96.2,
+    "is_top1": true
+  },
+  {
+    "class": "pineapple",
+    "label": "medium",
+    "top1": "pineapple",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "pizza",
+    "label": "medium",
+    "top1": "pizza",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "pond",
+    "label": "medium",
+    "top1": "pond",
+    "target_conf": 90.6,
+    "is_top1": true
+  },
+  {
+    "class": "popsicle",
+    "label": "medium",
+    "top1": "popsicle",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "power outlet",
+    "label": "medium",
+    "top1": "power outlet",
+    "target_conf": 99.6,
+    "is_top1": true
+  },
+  {
+    "class": "remote control",
+    "label": "medium",
+    "top1": "remote control",
+    "target_conf": 99.2,
+    "is_top1": true
+  },
+  {
+    "class": "saxophone",
+    "label": "medium",
+    "top1": "saxophone",
+    "target_conf": 98.6,
+    "is_top1": true
+  },
+  {
+    "class": "screwdriver",
+    "label": "medium",
+    "top1": "screwdriver",
+    "target_conf": 94.4,
+    "is_top1": true
+  },
+  {
+    "class": "shoe",
+    "label": "medium",
+    "top1": "shoe",
+    "target_conf": 98.6,
+    "is_top1": true
+  },
+  {
+    "class": "shovel",
+    "label": "medium",
+    "top1": "shovel",
+    "target_conf": 91.0,
+    "is_top1": true
+  },
+  {
+    "class": "sink",
+    "label": "medium",
+    "top1": "sink",
+    "target_conf": 94.7,
+    "is_top1": true
+  },
+  {
+    "class": "soccer ball",
+    "label": "medium",
+    "top1": "soccer ball",
+    "target_conf": 97.7,
+    "is_top1": true
+  },
+  {
+    "class": "sock",
+    "label": "medium",
+    "top1": "sock",
+    "target_conf": 95.5,
+    "is_top1": true
+  },
+  {
+    "class": "stethoscope",
+    "label": "medium",
+    "top1": "stethoscope",
+    "target_conf": 94.3,
+    "is_top1": true
+  },
+  {
+    "class": "stop sign",
+    "label": "medium",
+    "top1": "stop sign",
+    "target_conf": 92.2,
+    "is_top1": true
+  },
+  {
+    "class": "strawberry",
+    "label": "medium",
+    "top1": "strawberry",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "streetlight",
+    "label": "medium",
+    "top1": "streetlight",
+    "target_conf": 99.2,
+    "is_top1": true
+  },
+  {
+    "class": "suitcase",
+    "label": "medium",
+    "top1": "suitcase",
+    "target_conf": 97.9,
+    "is_top1": true
+  },
+  {
+    "class": "swan",
+    "label": "medium",
+    "top1": "swan",
+    "target_conf": 95.0,
+    "is_top1": true
+  },
+  {
+    "class": "syringe",
+    "label": "medium",
+    "top1": "syringe",
+    "target_conf": 95.7,
+    "is_top1": true
+  },
+  {
+    "class": "table",
+    "label": "medium",
+    "top1": "table",
+    "target_conf": 98.5,
+    "is_top1": true
+  },
+  {
+    "class": "teapot",
+    "label": "medium",
+    "top1": "teapot",
+    "target_conf": 99.7,
+    "is_top1": true
+  },
+  {
+    "class": "teddy-bear",
+    "label": "medium",
+    "top1": "teddy-bear",
+    "target_conf": 98.4,
+    "is_top1": true
+  },
+  {
+    "class": "tennis racquet",
+    "label": "medium",
+    "top1": "tennis racquet",
+    "target_conf": 90.8,
+    "is_top1": true
+  },
+  {
+    "class": "tent",
+    "label": "medium",
+    "top1": "tent",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "traffic light",
+    "label": "medium",
+    "top1": "traffic light",
+    "target_conf": 99.0,
+    "is_top1": true
+  },
+  {
+    "class": "trumpet",
+    "label": "medium",
+    "top1": "trumpet",
+    "target_conf": 100.0,
+    "is_top1": true
+  },
+  {
+    "class": "vase",
+    "label": "medium",
+    "top1": "vase",
+    "target_conf": 94.7,
+    "is_top1": true
+  },
+  {
+    "class": "watermelon",
+    "label": "medium",
+    "top1": "watermelon",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "whale",
+    "label": "medium",
+    "top1": "whale",
+    "target_conf": 99.5,
+    "is_top1": true
+  },
+  {
+    "class": "wine bottle",
+    "label": "medium",
+    "top1": "wine bottle",
+    "target_conf": 99.3,
+    "is_top1": true
+  },
+  {
+    "class": "wine glass",
+    "label": "medium",
+    "top1": "wine glass",
+    "target_conf": 99.8,
+    "is_top1": true
+  },
+  {
+    "class": "yoga",
+    "label": "medium",
+    "top1": "yoga",
+    "target_conf": 90.1,
+    "is_top1": true
+  },
+  {
+    "class": "airplane",
+    "label": "hard",
+    "top1": "airplane",
+    "target_conf": 93.1,
+    "is_top1": true
+  },
+  {
+    "class": "ant",
+    "label": "hard",
+    "top1": "ant",
+    "target_conf": 98.4,
+    "is_top1": true
+  },
+  {
+    "class": "beach",
+    "label": "hard",
+    "top1": "beach",
+    "target_conf": 90.4,
+    "is_top1": true
+  },
+  {
+    "class": "bee",
+    "label": "hard",
+    "top1": "bee",
+    "target_conf": 90.8,
+    "is_top1": true
+  },
+  {
+    "class": "blackberry",
+    "label": "hard",
+    "top1": "blackberry",
+    "target_conf": 92.9,
+    "is_top1": true
+  },
+  {
+    "class": "boomerang",
+    "label": "hard",
+    "top1": "boomerang",
+    "target_conf": 92.4,
+    "is_top1": true
+  },
+  {
+    "class": "bridge",
+    "label": "hard",
+    "top1": "bridge",
+    "target_conf": 93.7,
+    "is_top1": true
+  },
+  {
+    "class": "broom",
+    "label": "hard",
+    "top1": "broom",
+    "target_conf": 99.6,
+    "is_top1": true
+  },
+  {
+    "class": "cat",
+    "label": "hard",
+    "top1": "cat",
+    "target_conf": 98.6,
+    "is_top1": true
+  },
+  {
+    "class": "crab",
+    "label": "hard",
+    "top1": "crab",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "elephant",
+    "label": "hard",
+    "top1": "elephant",
+    "target_conf": 97.1,
+    "is_top1": true
+  },
+  {
+    "class": "flamingo",
+    "label": "hard",
+    "top1": "flamingo",
+    "target_conf": 91.3,
+    "is_top1": true
+  },
+  {
+    "class": "frog",
+    "label": "hard",
+    "top1": "frog",
+    "target_conf": 93.9,
+    "is_top1": true
+  },
+  {
+    "class": "garden",
+    "label": "hard",
+    "top1": "garden",
+    "target_conf": 99.2,
+    "is_top1": true
+  },
+  {
+    "class": "horse",
+    "label": "hard",
+    "top1": "horse",
+    "target_conf": 91.2,
+    "is_top1": true
+  },
+  {
+    "class": "lion",
+    "label": "hard",
+    "top1": "lion",
+    "target_conf": 97.6,
+    "is_top1": true
+  },
+  {
+    "class": "map",
+    "label": "hard",
+    "top1": "map",
+    "target_conf": 97.0,
+    "is_top1": true
+  },
+  {
+    "class": "monkey",
+    "label": "hard",
+    "top1": "monkey",
+    "target_conf": 93.5,
+    "is_top1": true
+  },
+  {
+    "class": "octopus",
+    "label": "hard",
+    "top1": "octopus",
+    "target_conf": 99.4,
+    "is_top1": true
+  },
+  {
+    "class": "owl",
+    "label": "hard",
+    "top1": "owl",
+    "target_conf": 99.7,
+    "is_top1": true
+  },
+  {
+    "class": "penguin",
+    "label": "hard",
+    "top1": "penguin",
+    "target_conf": 99.8,
+    "is_top1": true
+  },
+  {
+    "class": "pickup truck",
+    "label": "hard",
+    "top1": "pickup truck",
+    "target_conf": 96.0,
+    "is_top1": true
+  },
+  {
+    "class": "purse",
+    "label": "hard",
+    "top1": "purse",
+    "target_conf": 91.9,
+    "is_top1": true
+  },
+  {
+    "class": "rabbit",
+    "label": "hard",
+    "top1": "rabbit",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "sea turtle",
+    "label": "hard",
+    "top1": "sea turtle",
+    "target_conf": 99.3,
+    "is_top1": true
+  },
+  {
+    "class": "sheep",
+    "label": "hard",
+    "top1": "sheep",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "spider",
+    "label": "hard",
+    "top1": "spider",
+    "target_conf": 99.9,
+    "is_top1": true
+  },
+  {
+    "class": "submarine",
+    "label": "hard",
+    "top1": "submarine",
+    "target_conf": 98.0,
+    "is_top1": true
+  }
+]

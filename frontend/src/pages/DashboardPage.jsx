@@ -80,7 +80,7 @@ export function DashboardPage({ setView }) {
             Ready to Sketch?
           </h1>
           <p className="text-indigo-100 text-sm sm:text-base mt-2 max-w-xl">
-            Choose your mode: free-draw in Normal Mode, test your speed in Extreme Challenge, master 208 lessons in Learning Mode, solve Contexto, or compete in Multiplayer!
+            Choose your mode: free-draw in Normal Mode, test your speed in Extreme Challenge, master 197 lessons in Learning Mode, solve Contexto, or compete in Multiplayer!
           </p>
         </div>
 
@@ -291,19 +291,19 @@ export function DashboardPage({ setView }) {
                   <BookOpen className="w-6 h-6" />
                 </div>
                 <span className="text-xs font-bold px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-950/60 text-sky-800 dark:text-sky-300">
-                  New • 208 Levels
+                  New • 197 Levels
                 </span>
               </div>
 
               <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">Learning Mode</h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
-                Master sketching through 208 structured lessons. Trace dotted guide blueprints, hit 90%+ AI target goals, and earn 3 stars.
+                Master sketching through 197 structured lessons. Trace dotted guide blueprints, hit 90%+ AI target goals, and earn 3 stars.
               </p>
 
               <div className="space-y-2 mb-6 text-xs text-slate-600 dark:text-slate-300">
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
-                  <span>208 curated lessons from Easy to Hard</span>
+                  <span>197 curated lessons from Easy to Hard</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-sky-500"></span>

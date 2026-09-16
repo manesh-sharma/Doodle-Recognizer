@@ -53,13 +53,6 @@
       "combine": "sum_member_probabilities"
     },
     {
-      "target_class": "bracelet",
-      "member_classes": [
-        "bracelet"
-      ],
-      "combine": "sum_member_probabilities"
-    },
-    {
       "target_class": "tree",
       "member_classes": [
         "tree",
@@ -336,6 +329,14 @@
       "member_classes": [
         "pond",
         "pool"
+      ],
+      "combine": "sum_member_probabilities"
+    },
+    {
+      "target_class": "stick man",
+      "member_classes": [
+        "stick man",
+        "yoga"
       ],
       "combine": "sum_member_probabilities"
     }

@@ -10,9 +10,9 @@
   },
   "counts": {
     "easy": 80,
-    "medium": 96,
-    "hard": 33,
-    "removed": 136
+    "medium": 85,
+    "hard": 27,
+    "removed": 153
   },
   "classes": [
     {
@@ -83,7 +83,7 @@
     {
       "id": 13,
       "class_name": "asparagus",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 14,
@@ -143,7 +143,7 @@
     {
       "id": 25,
       "class_name": "beach",
-      "label": "hard"
+      "label": "removed"
     },
     {
       "id": 26,
@@ -228,7 +228,7 @@
     {
       "id": 42,
       "class_name": "bracelet",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 43,
@@ -693,7 +693,7 @@
     {
       "id": 135,
       "class_name": "grapes",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 136,
@@ -963,7 +963,7 @@
     {
       "id": 189,
       "class_name": "monkey",
-      "label": "hard"
+      "label": "removed"
     },
     {
       "id": 190,
@@ -1343,7 +1343,7 @@
     {
       "id": 265,
       "class_name": "sink",
-      "label": "medium"
+      "label": "removed"
     },
     {
       "id": 266,
@@ -1513,7 +1513,7 @@
     {
       "id": 299,
       "class_name": "swan",
-      "label": "medium"
+      "label": "hard"
     },
     {
       "id": 300,
@@ -1727,7 +1727,7 @@
     },
     {
       "id": 342,
-      "class_name": "yoga",
+      "class_name": "stick man",
       "label": "medium"
     },
     {

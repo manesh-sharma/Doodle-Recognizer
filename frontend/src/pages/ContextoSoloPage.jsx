@@ -218,7 +218,33 @@ export function ContextoSoloPage({ setView }) {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col h-[calc(100vh-5rem)]">
+    <>
+      {/* Page Background - Light Mode Only (Pixel Style, Green Shades) */}
+      <div className="fixed inset-x-0 top-20 bottom-0 z-0 overflow-hidden pointer-events-none dark:hidden bg-gradient-to-br from-green-200 via-emerald-200 to-green-300">
+        {/* Square pixels */}
+        <div className="absolute top-12 left-12 w-3 h-3 bg-white/50"></div>
+        <div className="absolute top-32 right-24 w-2 h-2 bg-white/50"></div>
+        <div className="absolute bottom-24 left-1/3 w-3 h-3 bg-white/40"></div>
+        <div className="absolute bottom-20 right-16 w-2 h-2 bg-white/50"></div>
+        <div className="absolute top-24 left-1/2 w-2 h-2 bg-green-500/40"></div>
+        <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-green-500/30"></div>
+        <div className="absolute bottom-1/3 left-20 w-2 h-2 bg-emerald-600/40"></div>
+        <div className="absolute top-2/3 right-12 w-3 h-3 bg-emerald-600/30"></div>
+
+        <div className="absolute -left-10 top-1/3 text-white/20 text-8xl rotate-12">
+          🔍
+        </div>
+
+        <div className="absolute right-0 top-48 text-white/20 text-7xl -rotate-12">
+          💭
+        </div>
+
+        <div className="absolute left-1/2 bottom-10 text-white/20 text-6xl">
+          ⭐
+        </div>
+      </div>
+
+    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col h-[calc(100vh-5rem)]">
       {/* Top Header */}
       <div className="flex flex-wrap items-center justify-between pb-4 gap-3">
         <div className="flex items-center gap-3">
@@ -231,17 +257,17 @@ export function ContextoSoloPage({ setView }) {
                 setView('dashboard');
               }
             }}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-green-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition shadow-sm"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Dashboard</span>
+            <span className="pixel-font dark:font-sans">Dashboard</span>
           </button>
 
           <div className="flex items-center gap-2">
-            <span className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-doodle">
+            <span className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white pixel-font dark:font-doodle">
               Contexto Word Guess
             </span>
-            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-black pixel-font dark:font-sans uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
               Solo Mode
             </span>
           </div>
@@ -250,15 +276,15 @@ export function ContextoSoloPage({ setView }) {
         {/* Status Pills */}
         <div className="flex items-center gap-2.5">
           {/* Timer */}
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-mono text-xs sm:text-sm font-black text-slate-800 dark:text-slate-200 shadow-sm">
-            <Clock className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-green-200 dark:border-slate-700 font-mono text-xs sm:text-sm font-black text-slate-800 dark:text-slate-200 shadow-sm">
+            <Clock className="w-3.5 h-3.5 text-green-600 dark:text-indigo-400" />
             <span>{formatTime(secondsElapsed)}</span>
           </div>
 
           {/* Guesses Count */}
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-black text-slate-800 dark:text-slate-200 shadow-sm">
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-green-200 dark:border-slate-700 text-xs sm:text-sm font-black text-slate-800 dark:text-slate-200 shadow-sm">
             <Target className="w-3.5 h-3.5 text-amber-500" />
-            <span>{guesses.length} Guesses</span>
+            <span className="pixel-font dark:font-sans">{guesses.length} Guesses</span>
           </div>
 
           {/* New Game Button */}
@@ -266,16 +292,16 @@ export function ContextoSoloPage({ setView }) {
             type="button"
             onClick={startNewGame}
             disabled={loading}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-green-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition shadow-sm"
           >
             <RotateCcw className="w-3.5 h-3.5" />
-            <span>New Word</span>
+            <span className="pixel-font dark:font-sans">New Word</span>
           </button>
         </div>
       </div>
 
       {/* 70/30 Split Layout */}
-      <div className="flex-1 flex flex-col lg:flex-row gap-5 min-h-0 pb-2">
+      <div className="flex-1 flex flex-col lg:flex-row gap-5 min-h-0 pb-2 mt-4">
         {/* 70% Drawing Canvas */}
         <div className="w-full lg:w-[70%] h-full flex flex-col min-h-[420px] relative">
           <DrawingCanvas
@@ -286,7 +312,7 @@ export function ContextoSoloPage({ setView }) {
           />
 
           {/* Bottom Submit Guess Banner */}
-          <div className="mt-3 p-3 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-wrap items-center justify-between gap-3">
+          <div className="mt-3 p-3 bg-white dark:bg-slate-800 rounded-2xl border border-green-200 dark:border-slate-700 shadow-sm flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-xs font-bold text-slate-600 dark:text-slate-300">
@@ -299,36 +325,36 @@ export function ContextoSoloPage({ setView }) {
                 type="button"
                 disabled={submitting || won || gaveUp || loading}
                 onClick={handleGuess}
-                className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs sm:text-sm shadow-md shadow-indigo-200 dark:shadow-none flex items-center gap-2 transition disabled:opacity-50"
+                className="px-6 py-2.5 rounded-xl bg-green-600 hover:bg-green-700 dark:bg-indigo-600 dark:hover:bg-indigo-700 text-white font-black text-xs sm:text-sm shadow-md shadow-green-300 dark:shadow-none flex items-center gap-2 transition disabled:opacity-50"
               >
                 <Send className="w-4 h-4" />
-                <span>{submitting ? 'Analyzing Doodle...' : 'Guess This Doodle!'}</span>
+                <span className="pixel-font dark:font-sans">{submitting ? 'Analyzing Doodle...' : 'Guess This Doodle!'}</span>
               </button>
             </div>
           </div>
         </div>
 
         {/* 30% Contexto Guess Feed & Proximity Sidebar */}
-        <div className="w-full lg:w-[30%] h-full flex flex-col min-h-[350px] bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
+        <div className="w-full lg:w-[30%] h-full flex flex-col min-h-[350px] bg-white dark:bg-slate-800 rounded-3xl border border-green-200 dark:border-slate-700 shadow-sm overflow-hidden">
           {/* Mystery Word Header Card */}
-          <div className="p-4 bg-slate-50 dark:bg-slate-900/60 border-b border-slate-200 dark:border-slate-700">
+          <div className="p-4 bg-green-50 dark:bg-slate-900/60 border-b border-green-200 dark:border-slate-700">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              <span className="text-xs font-black pixel-font dark:font-sans uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 Mystery Word
               </span>
-              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold pixel-font dark:font-sans uppercase bg-green-100 dark:bg-indigo-950/60 text-green-700 dark:text-indigo-300 border border-green-200 dark:border-indigo-800">
                 {categoryHint || 'Everyday Object'}
               </span>
             </div>
 
             <div className="flex items-center justify-between">
-              <div className="text-2xl font-black font-doodle text-slate-900 dark:text-white">
+              <div className="text-2xl font-black pixel-font dark:font-doodle text-slate-900 dark:text-white">
                 {won || gaveUp ? `"${secretWord}"` : '???'}
               </div>
 
               {bestRank < 999 && (
                 <div className="text-right">
-                  <span className="text-[10px] text-slate-400 block font-bold uppercase">Best Rank</span>
+                  <span className="text-[10px] text-slate-400 block font-bold uppercase pixel-font dark:font-sans">Best Rank</span>
                   <span className="text-sm font-black text-emerald-600 dark:text-emerald-400">
                     #{bestRank} / {totalWords}
                   </span>
@@ -338,34 +364,34 @@ export function ContextoSoloPage({ setView }) {
           </div>
 
           {/* Hint Actions Bar */}
-          <div className="p-3 border-b border-slate-100 dark:border-slate-800 bg-amber-50/40 dark:bg-amber-950/20 flex items-center justify-between gap-2">
+          <div className="p-3 border-b border-green-100 dark:border-slate-800 bg-green-50/60 dark:bg-amber-950/20 flex items-center justify-between gap-2">
             <button
               type="button"
               disabled={hintLevel >= 3 || won || gaveUp || loadingHint}
               onClick={handleGetHint}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-amber-300 dark:border-amber-800 bg-white dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-amber-900/40 text-amber-800 dark:text-amber-300 text-xs font-bold transition shadow-sm disabled:opacity-40"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-green-300 dark:border-amber-800 bg-white dark:bg-slate-800 hover:bg-green-100 dark:hover:bg-amber-900/40 text-green-800 dark:text-amber-300 text-xs font-bold transition shadow-sm disabled:opacity-40"
             >
               <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
-              <span>{loadingHint ? 'Loading...' : `Hint (${hintLevel}/3)`}</span>
+              <span className="pixel-font dark:font-sans">{loadingHint ? 'Loading...' : `Hint (${hintLevel}/3)`}</span>
             </button>
 
             <button
               type="button"
               disabled={won || gaveUp}
               onClick={() => setShowGiveUpConfirm(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-rose-50 dark:hover:bg-rose-950/30 text-slate-600 hover:text-rose-600 dark:text-slate-300 dark:hover:text-rose-400 text-xs font-bold transition shadow-sm disabled:opacity-40"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-green-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-rose-50 dark:hover:bg-rose-950/30 text-slate-600 hover:text-rose-600 dark:text-slate-300 dark:hover:text-rose-400 text-xs font-bold transition shadow-sm disabled:opacity-40"
             >
               <Flag className="w-3.5 h-3.5" />
-              <span>Give Up</span>
+              <span className="pixel-font dark:font-sans">Give Up</span>
             </button>
           </div>
 
           {/* Unlocked Hints Display */}
           {hints.length > 0 && (
-            <div className="p-3 bg-amber-50/60 dark:bg-amber-950/30 border-b border-amber-200 dark:border-amber-900/40 space-y-1">
+            <div className="p-3 bg-green-50/70 dark:bg-amber-950/30 border-b border-green-200 dark:border-amber-900/40 space-y-1">
               {hints.map((h, idx) => (
-                <div key={idx} className="text-xs font-bold text-amber-900 dark:text-amber-200 flex items-start gap-1.5">
-                  <span className="text-amber-500 font-extrabold">•</span>
+                <div key={idx} className="text-xs font-bold text-green-900 dark:text-amber-200 flex items-start gap-1.5">
+                  <span className="text-green-500 dark:text-amber-500 font-extrabold">•</span>
                   <span>{h}</span>
                 </div>
               ))}
@@ -373,7 +399,7 @@ export function ContextoSoloPage({ setView }) {
           )}
 
           {/* Temperature Legend */}
-          <div className="px-4 py-2 bg-slate-50 dark:bg-slate-900/40 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-bold text-slate-500">
+          <div className="px-4 py-2 bg-green-50/60 dark:bg-slate-900/40 border-b border-green-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-bold text-slate-500">
             <span className="flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-emerald-500" /> 1–20 Close
             </span>
@@ -389,8 +415,8 @@ export function ContextoSoloPage({ setView }) {
           <div className="flex-1 p-3 overflow-y-auto space-y-2">
             {guesses.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-6 text-slate-400">
-                <Target className="w-8 h-8 mb-2 opacity-40 text-indigo-500" />
-                <span className="text-xs font-bold">No guesses yet!</span>
+                <Target className="w-8 h-8 mb-2 opacity-40 text-green-600 dark:text-indigo-500" />
+                <span className="text-xs font-bold pixel-font dark:font-sans">No guesses yet!</span>
                 <p className="text-[11px] text-slate-400 mt-1 max-w-[200px]">
                   Draw any object you suspect. The model will recognize it and tell you how close you are!
                 </p>
@@ -418,7 +444,7 @@ export function ContextoSoloPage({ setView }) {
                     )}
 
                     <div className="min-w-0">
-                      <div className="text-sm font-black text-slate-900 dark:text-white capitalize truncate flex items-center gap-1.5">
+                      <div className="text-sm font-black pixel-font dark:font-sans text-slate-900 dark:text-white capitalize truncate flex items-center gap-1.5">
                         <span>{g.word}</span>
                         {g.isMatch && <span className="text-xs text-emerald-600 font-extrabold">✓ Match!</span>}
                       </div>
@@ -458,12 +484,12 @@ export function ContextoSoloPage({ setView }) {
       {/* Victory Celebration Modal */}
       {won && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl animate-in zoom-in-95 duration-200">
+          <div className="bg-white dark:bg-slate-900 border border-green-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl animate-in zoom-in-95 duration-200">
             <div className="w-16 h-16 rounded-3xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-4 border border-emerald-200 dark:border-emerald-800 shadow-md">
               <Trophy className="w-8 h-8" />
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-doodle">
+            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white pixel-font dark:font-doodle">
               Mystery Word Solved!
             </h3>
             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
@@ -472,12 +498,12 @@ export function ContextoSoloPage({ setView }) {
 
             <div className="grid grid-cols-2 gap-3 my-5">
               <div className="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700">
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Time Taken</span>
+                <span className="text-[10px] font-bold pixel-font dark:font-sans text-slate-400 uppercase tracking-wider block">Time Taken</span>
                 <span className="text-xl font-black text-slate-900 dark:text-white font-mono">{formatTime(secondsElapsed)}</span>
               </div>
               <div className="p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700">
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Total Guesses</span>
-                <span className="text-xl font-black text-indigo-600 dark:text-indigo-400">{guesses.length}</span>
+                <span className="text-[10px] font-bold pixel-font dark:font-sans text-slate-400 uppercase tracking-wider block">Total Guesses</span>
+                <span className="text-xl font-black text-green-600 dark:text-indigo-400">{guesses.length}</span>
               </div>
             </div>
 
@@ -485,7 +511,7 @@ export function ContextoSoloPage({ setView }) {
               <button
                 type="button"
                 onClick={() => setView('dashboard')}
-                className="flex-1 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm transition"
+                className="flex-1 py-3 rounded-2xl border border-green-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm transition"
               >
                 Dashboard
               </button>
@@ -495,7 +521,7 @@ export function ContextoSoloPage({ setView }) {
                 className="flex-1 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2"
               >
                 <Sparkles className="w-4 h-4" />
-                <span>Next Word</span>
+                <span className="pixel-font dark:font-sans">Next Word</span>
               </button>
             </div>
           </div>
@@ -529,5 +555,7 @@ export function ContextoSoloPage({ setView }) {
         onCancel={() => setShowLeaveConfirm(false)}
       />
     </div>
+    </>
   );
 }
+ 

@@ -1,0 +1,98 @@
+#cookie - 53% on first try , 87% on second try
+#ship cruise- 0.6 
+
+dresser-87.5%
+dumbell-94%
+ear-74%
+
+eyeglasses-98.2%( after 2-3 trails)
+#fish- 0.3 (two trials)
+#flower- > first try 11.3,24.7 on second try
+
+flying sauser-98.6%
+
+#foot- 67% on first try,34% on second try
+#girraf-0.1% on first try,17% on second try
+
+grapes-97%
+
+#guitar-0.2% on 2 tries
+
+hamburger-92%
+hammer-84%
+
+#hand-first try 34%, second try 0.2%, 24% on 3rd
+
+helicopter-89.6%
+hockeypuk- 80%
+hospital-81.1%
+key-95%
+knee- 70% on first try, 0.2 % on second
+lattern-63%
+laptop-98%
+#leaf-40%
+lighter-93%
+lollipop-89.9%
+mailbox-83%
+microphone-37%
+moon-50.3%
+mouse-11.6%
+mouth-97%
+mushroom-93%
+paperclip-96.5%
+
+#diamond-40%( tried 2 times)
+
+peanuts-60%
+pear-97%
+peas-82%
+pineapple-100%
+pizza-99%
+pond-88.9%
+popsicle-99%
+paper outlet 87%
+remote control-96.9%
+sexophone- 87.2%
+screwdriver-95%
+
+shoe-62%
+
+shovel-94.2%
+sink-92.2%
+
+soccorball-97% on second try
+
+sock-96.7%
+sthetoscope-99.2%
+stop sign-98.2%
+strawberry-97.2%
+streetlight-75%
+suitcase-74.2%
+swan-85%
+syringe-93%
+table-97%
+teaport-99%
+teadybear-92%
+tennis racket-94%
+tent-94%
+trafficlight-91%
+trumpet-99.8%
+vase-92%
+watermelon-97%
+whale-69%
+wine bottle-99%
+wine glass-99%
+yoga 93%
+plane-61%
+ants-27%
+beach-66.1%
+bee-86.9%
+blackberry-87%
+boomrang-2.1%
+
+#bridge-43%
+
+broom-72.4%
+cat-94%
+crab-85%
+elephant-97%

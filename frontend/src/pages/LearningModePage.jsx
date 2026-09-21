@@ -185,22 +185,58 @@ export function LearningModePage({ setView }) {
   const completedCount = Object.keys(progress).length;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6 space-y-6">
+    <>
+      {/* Page Background - Light Mode Only (Pixel Style, Blue Shades) */}
+      <div className="fixed inset-x-0 top-20 bottom-0 z-0 overflow-hidden pointer-events-none dark:hidden bg-gradient-to-br from-blue-200 via-sky-200 to-blue-300">
+        {/* Pixel grid */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.28) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.28) 2px, transparent 2px)",
+            backgroundSize: "28px 28px",
+          }}
+        ></div>
+
+        {/* Square pixels */}
+        <div className="absolute top-12 left-12 w-3 h-3 bg-white/50"></div>
+        <div className="absolute top-32 right-24 w-2 h-2 bg-white/50"></div>
+        <div className="absolute bottom-24 left-1/3 w-3 h-3 bg-white/40"></div>
+        <div className="absolute bottom-20 right-16 w-2 h-2 bg-white/50"></div>
+        <div className="absolute top-24 left-1/2 w-2 h-2 bg-blue-500/40"></div>
+        <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-blue-500/30"></div>
+        <div className="absolute bottom-1/3 left-20 w-2 h-2 bg-sky-600/40"></div>
+        <div className="absolute top-2/3 right-12 w-3 h-3 bg-sky-600/30"></div>
+
+        <div className="absolute -left-10 top-1/3 text-white/20 text-8xl rotate-12">
+          🎓
+        </div>
+
+        <div className="absolute right-0 top-48 text-white/20 text-7xl -rotate-12">
+          📚
+        </div>
+
+        <div className="absolute left-1/2 bottom-10 text-white/20 text-6xl">
+          ⭐
+        </div>
+      </div>
+
+    <div className="relative max-w-6xl mx-auto px-4 py-6 space-y-6">
       {/* Top Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-700 rounded-3xl p-6 text-white shadow-xl">
+      <div className="flex flex-wrap items-center justify-between gap-4 bg-gradient-to-r from-blue-500 via-blue-600 to-sky-700 dark:from-emerald-600 dark:via-teal-600 dark:to-cyan-700 rounded-3xl p-6 text-white shadow-xl">
         <div>
           <button
             type="button"
             onClick={() => setShowExitConfirm(true)}
-            className="inline-flex items-center gap-2 text-xs font-bold text-teal-100 hover:text-white bg-black/20 hover:bg-black/30 px-3 py-1.5 rounded-xl mb-3 transition"
+            className="inline-flex items-center gap-2 pixel-font dark:font-sans text-xs font-bold text-blue-100 dark:text-teal-100 hover:text-white bg-black/20 hover:bg-black/30 px-3 py-1.5 rounded-xl mb-3 transition"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Dashboard
           </button>
-          <h1 className="text-2xl sm:text-3xl font-black font-doodle flex items-center gap-2.5">
+          <h1 className="text-2xl sm:text-3xl font-black pixel-font dark:font-doodle flex items-center gap-2.5">
             <GraduationCap className="w-8 h-8 text-amber-300" />
             <span>Doodle Academy — Learning Mode</span>
           </h1>
-          <p className="text-teal-100 text-xs sm:text-sm mt-1 max-w-xl">
+          <p className="text-blue-100 dark:text-teal-100 text-xs sm:text-sm mt-1 max-w-xl">
             Learn to draw every object step-by-step! Trace the guided dotted outlines and hit 90%+ confidence with the AI model.
           </p>
         </div>
@@ -213,18 +249,18 @@ export function LearningModePage({ setView }) {
             className="px-4 py-3 bg-white/15 hover:bg-white/25 backdrop-blur-md rounded-2xl border border-white/20 text-white font-bold text-xs flex items-center gap-2 transition"
           >
             <BookOpen className="w-4 h-4 text-amber-300" />
-            <span>All Lessons ({completedCount}/{lessons.length})</span>
+            <span className="pixel-font dark:font-sans">All Lessons ({completedCount}/{lessons.length})</span>
           </button>
         </div>
       </div>
 
       {/* Lesson Navigation Bar */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-wrap items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-blue-200 dark:border-slate-700 shadow-sm flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <span className="text-xs font-black px-3 py-1 rounded-xl bg-teal-100 dark:bg-teal-950 text-teal-800 dark:text-teal-300">
+          <span className="text-xs font-black pixel-font dark:font-sans px-3 py-1 rounded-xl bg-blue-100 dark:bg-teal-950 text-blue-800 dark:text-teal-300">
             Level {currentLesson.level} of {lessons.length}
           </span>
-          <h2 className="text-xl font-black text-slate-900 dark:text-white capitalize">
+          <h2 className="text-xl font-black pixel-font dark:font-sans text-slate-900 dark:text-white capitalize">
             {currentLesson.displayName}
           </h2>
           <span
@@ -252,7 +288,7 @@ export function LearningModePage({ setView }) {
             type="button"
             disabled={currentLevelIndex <= 0}
             onClick={() => setCurrentLevelIndex((prev) => Math.max(0, prev - 1))}
-            className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed text-slate-700 dark:text-slate-200 transition"
+            className="p-2 rounded-xl border border-blue-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed text-slate-700 dark:text-slate-200 transition"
             title="Previous Lesson"
           >
             <ChevronLeft className="w-4 h-4" />
@@ -261,7 +297,7 @@ export function LearningModePage({ setView }) {
             type="button"
             disabled={currentLevelIndex >= lessons.length - 1}
             onClick={() => setCurrentLevelIndex((prev) => Math.min(lessons.length - 1, prev + 1))}
-            className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed text-slate-700 dark:text-slate-200 transition"
+            className="p-2 rounded-xl border border-blue-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed text-slate-700 dark:text-slate-200 transition"
             title="Next Lesson"
           >
             <ChevronRight className="w-4 h-4" />
@@ -288,12 +324,12 @@ export function LearningModePage({ setView }) {
         {/* Right Sidebar: Tips, Goal & AI Feedback */}
         <div className="lg:col-span-1 flex flex-col justify-between space-y-4">
           {/* Target Goal & Tips Box */}
-          <div className="bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+          <div className="bg-white dark:bg-slate-800 rounded-3xl p-5 border border-blue-200 dark:border-slate-700 shadow-sm space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                <Target className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" /> Target Accuracy
+              <h3 className="text-xs font-black pixel-font dark:font-sans uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                <Target className="w-3.5 h-3.5 text-blue-600 dark:text-teal-400" /> Target Accuracy
               </h3>
-              <span className="text-xs font-black text-teal-600 dark:text-teal-400">Goal: 90%+</span>
+              <span className="text-xs font-black pixel-font dark:font-sans text-blue-600 dark:text-teal-400">Goal: 90%+</span>
             </div>
 
             {/* AI Accuracy Meter */}
@@ -307,7 +343,7 @@ export function LearningModePage({ setView }) {
               <div className="w-full bg-slate-200 dark:bg-slate-700 h-3 rounded-full overflow-hidden relative">
                 <div
                   className={`h-full rounded-full transition-all duration-300 ${
-                    targetConfidence >= 90 ? 'bg-emerald-500' : targetConfidence >= 50 ? 'bg-teal-500' : 'bg-indigo-600'
+                    targetConfidence >= 90 ? 'bg-emerald-500' : targetConfidence >= 50 ? 'bg-blue-500 dark:bg-teal-500' : 'bg-indigo-600'
                   }`}
                   style={{ width: `${Math.min(100, targetConfidence)}%` }}
                 />
@@ -324,18 +360,18 @@ export function LearningModePage({ setView }) {
                 </span>
                 {modelPrediction && (
                   <span className="font-medium text-slate-700 dark:text-slate-300">
-                    AI Top Guess: <strong className="text-teal-600 dark:text-teal-400">{modelPrediction.class_name}</strong> ({modelPrediction.confidence.toFixed(1)}%)
+                    AI Top Guess: <strong className="text-blue-600 dark:text-teal-400">{modelPrediction.class_name}</strong> ({modelPrediction.confidence.toFixed(1)}%)
                   </span>
                 )}
               </div>
             </div>
 
             {/* Step-by-Step Drawing Tips */}
-            <div className="p-3.5 rounded-2xl bg-teal-50 dark:bg-teal-950/30 border border-teal-200 dark:border-teal-800/60 text-xs">
-              <div className="font-black text-teal-900 dark:text-teal-200 flex items-center gap-1.5 mb-1.5">
+            <div className="p-3.5 rounded-2xl bg-blue-50 dark:bg-teal-950/30 border border-blue-200 dark:border-teal-800/60 text-xs">
+              <div className="font-black pixel-font dark:font-sans text-blue-900 dark:text-teal-200 flex items-center gap-1.5 mb-1.5">
                 <Lightbulb className="w-3.5 h-3.5 text-amber-500" /> Drawing Guide
               </div>
-              <p className="text-teal-800 dark:text-teal-300 leading-relaxed">
+              <p className="text-blue-800 dark:text-teal-300 leading-relaxed">
                 {currentLesson.tips}
               </p>
             </div>
@@ -350,29 +386,29 @@ export function LearningModePage({ setView }) {
               targetConfidence >= 90
                 ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-500/25'
                 : targetConfidence >= 50
-                ? 'bg-teal-600 hover:bg-teal-700 text-white shadow-teal-500/25'
+                ? 'bg-blue-600 hover:bg-blue-700 dark:bg-teal-600 dark:hover:bg-teal-700 text-white shadow-blue-500/25 dark:shadow-teal-500/25'
                 : 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-indigo-500/25'
             }`}
           >
             {isEvaluating ? (
               <>
                 <RotateCcw className="w-5 h-5 animate-spin" />
-                <span>Evaluating Doodle...</span>
+                <span className="pixel-font dark:font-sans">Evaluating Doodle...</span>
               </>
             ) : targetConfidence >= 90 ? (
               <>
                 <CheckCircle2 className="w-5 h-5" />
-                <span>Submit Drawing ({targetConfidence.toFixed(0)}%)</span>
+                <span className="pixel-font dark:font-sans">Submit Drawing ({targetConfidence.toFixed(0)}%)</span>
               </>
             ) : targetConfidence >= 50 ? (
               <>
                 <CheckCircle2 className="w-5 h-5" />
-                <span>Submit Drawing ({targetConfidence.toFixed(0)}%)</span>
+                <span className="pixel-font dark:font-sans">Submit Drawing ({targetConfidence.toFixed(0)}%)</span>
               </>
             ) : (
               <>
                 <CheckCircle2 className="w-5 h-5" />
-                <span>Submit Drawing</span>
+                <span className="pixel-font dark:font-sans">Submit Drawing</span>
               </>
             )}
           </button>
@@ -382,11 +418,11 @@ export function LearningModePage({ setView }) {
       {/* Level Selection Drawer / Modal */}
       {isLevelDrawerOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-2xl w-full p-6 shadow-2xl space-y-4 max-h-[85vh] flex flex-col">
+          <div className="bg-white dark:bg-slate-900 border border-blue-200 dark:border-slate-800 rounded-3xl max-w-2xl w-full p-6 shadow-2xl space-y-4 max-h-[85vh] flex flex-col">
             <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
               <div>
-                <h3 className="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
-                  <BookOpen className="w-5 h-5 text-teal-600 dark:text-teal-400" />
+                <h3 className="text-lg font-black pixel-font dark:font-sans text-slate-900 dark:text-white flex items-center gap-2">
+                  <BookOpen className="w-5 h-5 text-blue-600 dark:text-teal-400" />
                   <span>Choose Lesson ({lessons.length} Total)</span>
                 </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
@@ -411,7 +447,7 @@ export function LearningModePage({ setView }) {
                   placeholder="Search doodle (e.g. apple, bicycle)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2 rounded-xl text-xs border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="w-full pl-9 pr-4 py-2 rounded-xl text-xs border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-teal-500"
                 />
               </div>
 
@@ -423,7 +459,7 @@ export function LearningModePage({ setView }) {
                     onClick={() => setFilterDiff(df)}
                     className={`px-3 py-1.5 rounded-xl text-xs font-bold uppercase transition ${
                       filterDiff === df
-                        ? 'bg-teal-600 text-white'
+                        ? 'bg-blue-600 dark:bg-teal-600 text-white'
                         : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
                     }`}
                   >
@@ -448,7 +484,7 @@ export function LearningModePage({ setView }) {
                     }}
                     className={`p-3 rounded-2xl border text-left flex flex-col justify-between transition ${
                       isCurrent
-                        ? 'border-teal-600 bg-teal-50/70 dark:bg-teal-950/40 ring-2 ring-teal-500/20'
+                        ? 'border-blue-600 dark:border-teal-600 bg-blue-50/70 dark:bg-teal-950/40 ring-2 ring-blue-500/20 dark:ring-teal-500/20'
                         : isDone
                         ? 'border-emerald-200 dark:border-emerald-900/50 bg-emerald-50/30 dark:bg-emerald-950/20 hover:border-emerald-300'
                         : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 hover:border-slate-300'
@@ -458,7 +494,7 @@ export function LearningModePage({ setView }) {
                       <span>Lvl {les.level}</span>
                       <span className="capitalize">{les.difficulty}</span>
                     </div>
-                    <div className="text-xs font-black text-slate-900 dark:text-white capitalize truncate">
+                    <div className="text-xs font-black pixel-font dark:font-sans text-slate-900 dark:text-white capitalize truncate">
                       {les.displayName}
                     </div>
                     <div className="mt-2 flex items-center justify-between text-[10px]">
@@ -482,15 +518,15 @@ export function LearningModePage({ setView }) {
       {isCompletedModalOpen && completionStats && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl space-y-6 text-center">
-            <div className="w-16 h-16 rounded-3xl bg-gradient-to-tr from-emerald-400 to-teal-600 text-white flex items-center justify-center mx-auto shadow-lg shadow-teal-500/30">
+            <div className="w-16 h-16 rounded-3xl bg-gradient-to-tr from-blue-400 to-blue-600 dark:from-emerald-400 dark:to-teal-600 text-white flex items-center justify-center mx-auto shadow-lg shadow-blue-500/30 dark:shadow-teal-500/30">
               <Trophy className="w-8 h-8" />
             </div>
 
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+              <span className="text-xs font-bold pixel-font dark:font-sans uppercase tracking-widest text-blue-600 dark:text-emerald-400">
                 Lesson Completed!
               </span>
-              <h2 className="text-2xl font-black text-slate-900 dark:text-white capitalize mt-1">
+              <h2 className="text-2xl font-black pixel-font dark:font-sans text-slate-900 dark:text-white capitalize mt-1">
                 Level {completionStats.level}: {completionStats.name}
               </h2>
             </div>
@@ -520,7 +556,7 @@ export function LearningModePage({ setView }) {
               <button
                 type="button"
                 onClick={advanceNextLesson}
-                className="flex-1 py-3.5 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-md"
+                className="flex-1 py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-700 dark:bg-teal-600 dark:hover:bg-teal-700 text-white font-black text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-md"
               >
                 <span>Next Lesson</span>
                 <ChevronRight className="w-4 h-4" />
@@ -552,5 +588,7 @@ export function LearningModePage({ setView }) {
         onCancel={() => setShowExitConfirm(false)}
       />
     </div>
+    </>
   );
 }
+ 

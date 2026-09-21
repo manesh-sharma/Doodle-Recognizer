@@ -113,7 +113,43 @@ export function MultiplayerLobbyPage({
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <>
+      {/* Page Background - Light Mode Only (Pixel Style, Violet/Purple Shades) */}
+      <div className="fixed inset-x-0 top-20 bottom-0 z-0 overflow-hidden pointer-events-none dark:hidden bg-gradient-to-br from-violet-200 via-purple-200 to-violet-300">
+        {/* Pixel grid */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.28) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.28) 2px, transparent 2px)",
+            backgroundSize: "28px 28px",
+          }}
+        ></div>
+
+        {/* Square pixels */}
+        <div className="absolute top-12 left-12 w-3 h-3 bg-white/50"></div>
+        <div className="absolute top-32 right-24 w-2 h-2 bg-white/50"></div>
+        <div className="absolute bottom-24 left-1/3 w-3 h-3 bg-white/40"></div>
+        <div className="absolute bottom-20 right-16 w-2 h-2 bg-white/50"></div>
+        <div className="absolute top-24 left-1/2 w-2 h-2 bg-violet-500/40"></div>
+        <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-violet-500/30"></div>
+        <div className="absolute bottom-1/3 left-20 w-2 h-2 bg-purple-600/40"></div>
+        <div className="absolute top-2/3 right-12 w-3 h-3 bg-purple-600/30"></div>
+
+        <div className="absolute -left-10 top-1/3 text-white/20 text-8xl rotate-12">
+          🎮
+        </div>
+
+        <div className="absolute right-0 top-48 text-white/20 text-7xl -rotate-12">
+          👾
+        </div>
+
+        <div className="absolute left-1/2 bottom-10 text-white/20 text-6xl">
+          ⭐
+        </div>
+      </div>
+
+    <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Top Navigation */}
       <div className="flex items-center justify-between pb-6">
         <button
@@ -125,15 +161,15 @@ export function MultiplayerLobbyPage({
               setView('dashboard');
             }
           }}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition shadow-sm"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-violet-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition shadow-sm"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>Dashboard</span>
+          <span className="pixel-font dark:font-sans">Dashboard</span>
         </button>
 
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="text-xs font-bold text-slate-600 dark:text-slate-300">Multiplayer Server Online</span>
+          <span className="text-xs font-bold pixel-font dark:font-sans text-slate-600 dark:text-slate-300">Multiplayer Server Online</span>
         </div>
       </div>
 
@@ -141,10 +177,10 @@ export function MultiplayerLobbyPage({
         /* Create or Join Team Selection View */
         <div className="space-y-8">
           <div className="text-center max-w-xl mx-auto">
-            <div className="w-14 h-14 bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-100 dark:border-indigo-800 rounded-3xl flex items-center justify-center mx-auto mb-4 text-indigo-600 dark:text-indigo-400 shadow-sm">
+            <div className="w-14 h-14 bg-violet-50 dark:bg-indigo-950/50 border border-violet-100 dark:border-indigo-800 rounded-3xl flex items-center justify-center mx-auto mb-4 text-violet-600 dark:text-indigo-400 shadow-sm">
               <Users className="w-7 h-7" />
             </div>
-            <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight font-doodle">
+            <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight pixel-font dark:font-doodle">
               Multiplayer Team Lobby
             </h1>
             <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-2">
@@ -154,12 +190,12 @@ export function MultiplayerLobbyPage({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Create Team Card */}
-            <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+            <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-violet-200 dark:border-slate-700 shadow-sm flex flex-col justify-between hover:shadow-md transition">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-4 border border-indigo-100 dark:border-indigo-800">
+                <div className="w-12 h-12 rounded-2xl bg-violet-50 dark:bg-indigo-950/50 text-violet-600 dark:text-indigo-400 flex items-center justify-center mb-4 border border-violet-100 dark:border-indigo-800">
                   <Plus className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">Create a Team</h3>
+                <h3 className="text-xl font-black pixel-font dark:font-sans text-slate-900 dark:text-white mb-2">Create a Team</h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
                   Start a new lobby as the Host. You will receive a 6-character room code to share with your friends (2 to 8 players).
                 </p>
@@ -169,27 +205,27 @@ export function MultiplayerLobbyPage({
                 type="button"
                 disabled={creating}
                 onClick={handleCreate}
-                className="w-full py-3.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md shadow-indigo-200 dark:shadow-none flex items-center justify-center gap-2 transition disabled:opacity-50"
+                className="w-full py-3.5 rounded-2xl bg-violet-600 hover:bg-violet-700 dark:bg-indigo-600 dark:hover:bg-indigo-700 text-white font-bold text-sm shadow-md shadow-violet-300 dark:shadow-none flex items-center justify-center gap-2 transition disabled:opacity-50"
               >
                 <Plus className="w-4 h-4" />
-                <span>{creating ? 'Creating Team...' : 'Create New Team'}</span>
+                <span className="pixel-font dark:font-sans">{creating ? 'Creating Team...' : 'Create New Team'}</span>
               </button>
             </div>
 
             {/* Join Team Card */}
-            <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between hover:shadow-md transition">
+            <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 border border-violet-200 dark:border-slate-700 shadow-sm flex flex-col justify-between hover:shadow-md transition">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4 border border-amber-200 dark:border-amber-800">
+                <div className="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-amber-950/50 text-purple-600 dark:text-amber-400 flex items-center justify-center mb-4 border border-purple-200 dark:border-amber-800">
                   <LogIn className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">Join a Team</h3>
+                <h3 className="text-xl font-black pixel-font dark:font-sans text-slate-900 dark:text-white mb-2">Join a Team</h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                   Enter the 6-character invite code provided by your team host.
                 </p>
 
                 <form onSubmit={handleJoin} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold pixel-font dark:font-sans text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                       Team Code
                     </label>
                     <input
@@ -198,17 +234,17 @@ export function MultiplayerLobbyPage({
                       placeholder="e.g. SKETCH"
                       value={joinCode}
                       onChange={(e) => setJoinCode(e.target.value.toUpperCase())}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-amber-500 font-mono text-center text-lg font-black tracking-widest uppercase text-slate-900 dark:text-white bg-slate-50 dark:bg-slate-900"
+                      className="w-full px-4 py-3 rounded-xl border border-violet-300 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-violet-500 dark:focus:ring-amber-500 font-mono text-center text-lg font-black tracking-widest uppercase text-slate-900 dark:text-white bg-slate-50 dark:bg-slate-900"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={joining || !joinCode.trim()}
-                    className="w-full py-3.5 rounded-2xl bg-slate-900 dark:bg-amber-500 hover:bg-slate-800 dark:hover:bg-amber-600 text-white dark:text-slate-950 font-bold text-sm shadow-md flex items-center justify-center gap-2 transition disabled:opacity-50"
+                    className="w-full py-3.5 rounded-2xl bg-violet-700 dark:bg-amber-500 hover:bg-violet-800 dark:hover:bg-amber-600 text-white dark:text-slate-950 font-bold text-sm shadow-md flex items-center justify-center gap-2 transition disabled:opacity-50"
                   >
                     <LogIn className="w-4 h-4" />
-                    <span>{joining ? 'Connecting...' : 'Join Team Lobby'}</span>
+                    <span className="pixel-font dark:font-sans">{joining ? 'Connecting...' : 'Join Team Lobby'}</span>
                   </button>
                 </form>
               </div>
@@ -217,19 +253,19 @@ export function MultiplayerLobbyPage({
         </div>
       ) : (
         /* Inside Active Team Lobby View */
-        <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-xl overflow-hidden animate-in fade-in duration-200 transition-colors">
+        <div className="bg-white dark:bg-slate-800 rounded-3xl border border-violet-200 dark:border-slate-700 shadow-xl overflow-hidden animate-in fade-in duration-200 transition-colors">
           {/* Lobby Banner */}
-          <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-800 text-white p-6 sm:p-8">
+          <div className="bg-gradient-to-r from-violet-500 via-purple-600 to-violet-800 dark:from-indigo-600 dark:via-purple-600 dark:to-indigo-800 text-white p-6 sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-xs font-bold text-indigo-100 mb-2 border border-white/10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-xs font-bold pixel-font dark:font-sans text-violet-100 dark:text-indigo-100 mb-2 border border-white/10">
                   <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                   <span>Team Lobby Active</span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-black tracking-tight font-doodle">
+                <h2 className="text-2xl sm:text-3xl font-black tracking-tight pixel-font dark:font-doodle">
                   Match Preparation
                 </h2>
-                <p className="text-indigo-100 text-xs sm:text-sm mt-1">
+                <p className="text-violet-100 dark:text-indigo-100 text-xs sm:text-sm mt-1">
                   Share the team code with players. All players must ready up before the match begins!
                 </p>
               </div>
@@ -237,7 +273,7 @@ export function MultiplayerLobbyPage({
               {/* Share Code Box */}
               <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/20 flex items-center gap-3">
                 <div>
-                  <span className="text-[10px] uppercase tracking-wider font-extrabold text-indigo-200 block">
+                  <span className="text-[10px] uppercase tracking-wider font-extrabold pixel-font dark:font-sans text-violet-200 dark:text-indigo-200 block">
                     Team Code
                   </span>
                   <span className="text-2xl font-black font-mono tracking-widest text-amber-300">
@@ -257,10 +293,10 @@ export function MultiplayerLobbyPage({
           </div>
 
           {/* Game Mode & Custom Rounds Selector Section */}
-          <div className="p-6 sm:p-8 border-b border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/30 space-y-4">
+          <div className="p-6 sm:p-8 border-b border-violet-200 dark:border-slate-700 bg-violet-50/60 dark:bg-slate-900/30 space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-black uppercase tracking-wider text-slate-700 dark:text-slate-200 flex items-center gap-2">
-                <Settings2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              <h3 className="text-sm font-black pixel-font dark:font-sans uppercase tracking-wider text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                <Settings2 className="w-4 h-4 text-violet-600 dark:text-indigo-400" />
                 <span>Select Game Mode</span>
               </h3>
               {!isHost && (
@@ -277,26 +313,26 @@ export function MultiplayerLobbyPage({
                 onClick={() => isHost && handleModeChange('classic')}
                 className={`p-4 rounded-2xl border-2 transition cursor-pointer flex flex-col justify-between ${
                   currentGameMode === 'classic'
-                    ? 'border-indigo-600 dark:border-indigo-400 bg-indigo-50/70 dark:bg-indigo-950/40 shadow-sm'
+                    ? 'border-violet-600 dark:border-indigo-400 bg-violet-50/70 dark:bg-indigo-950/40 shadow-sm'
                     : isHost
-                    ? 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-300'
-                    : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 opacity-60 cursor-default'
+                    ? 'border-violet-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-violet-300'
+                    : 'border-violet-200 dark:border-slate-700 bg-white dark:bg-slate-800 opacity-60 cursor-default'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-black uppercase tracking-wider px-2 py-0.5 rounded-lg bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300">
+                    <span className="text-xs font-black pixel-font dark:font-sans uppercase tracking-wider px-2 py-0.5 rounded-lg bg-violet-100 dark:bg-indigo-950 text-violet-700 dark:text-indigo-300">
                       Classic
                     </span>
                     <span className="text-[11px] font-bold text-slate-500">2–8 Players</span>
                   </div>
-                  <h4 className="text-sm font-black text-slate-900 dark:text-white">4-Round Challenge</h4>
+                  <h4 className="text-sm font-black pixel-font dark:font-sans text-slate-900 dark:text-white">4-Round Challenge</h4>
                   <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-snug">
                     Everyone sketches simultaneously. Model evaluates each attempt for target accuracy!
                   </p>
                 </div>
                 {currentGameMode === 'classic' && (
-                  <div className="mt-3 flex items-center gap-1 text-xs font-black text-indigo-600 dark:text-indigo-400">
+                  <div className="mt-3 flex items-center gap-1 text-xs font-black text-violet-600 dark:text-indigo-400">
                     <Check className="w-3.5 h-3.5" /> Selected
                   </div>
                 )}
@@ -309,18 +345,18 @@ export function MultiplayerLobbyPage({
                   currentGameMode === 'imposter'
                     ? 'border-purple-600 dark:border-purple-400 bg-purple-50/70 dark:bg-purple-950/40 shadow-sm'
                     : isHost
-                    ? 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-300'
-                    : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 opacity-60 cursor-default'
+                    ? 'border-violet-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-violet-300'
+                    : 'border-violet-200 dark:border-slate-700 bg-white dark:bg-slate-800 opacity-60 cursor-default'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-black uppercase tracking-wider px-2 py-0.5 rounded-lg bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 flex items-center gap-1">
+                    <span className="text-xs font-black pixel-font dark:font-sans uppercase tracking-wider px-2 py-0.5 rounded-lg bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 flex items-center gap-1">
                       <Eye className="w-3 h-3" /> Party Mode
                     </span>
                     <span className="text-[11px] font-bold text-purple-600 dark:text-purple-400">3–8 Players</span>
                   </div>
-                  <h4 className="text-sm font-black text-slate-900 dark:text-white">Finding Imposter</h4>
+                  <h4 className="text-sm font-black pixel-font dark:font-sans text-slate-900 dark:text-white">Finding Imposter</h4>
                   <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-snug">
                     1 player is the Imposter! Take turns drawing 1 stroke at a time. AI recognizes sketch; vote out the imposter!
                   </p>
@@ -337,26 +373,26 @@ export function MultiplayerLobbyPage({
                 onClick={() => isHost && handleModeChange('contexto')}
                 className={`p-4 rounded-2xl border-2 transition cursor-pointer flex flex-col justify-between ${
                   currentGameMode === 'contexto'
-                    ? 'border-emerald-600 dark:border-emerald-400 bg-emerald-50/70 dark:bg-emerald-950/40 shadow-sm'
+                    ? 'border-fuchsia-600 dark:border-emerald-400 bg-fuchsia-50/70 dark:bg-emerald-950/40 shadow-sm'
                     : isHost
-                    ? 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-300'
-                    : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 opacity-60 cursor-default'
+                    ? 'border-violet-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-violet-300'
+                    : 'border-violet-200 dark:border-slate-700 bg-white dark:bg-slate-800 opacity-60 cursor-default'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-black uppercase tracking-wider px-2 py-0.5 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 flex items-center gap-1">
+                    <span className="text-xs font-black pixel-font dark:font-sans uppercase tracking-wider px-2 py-0.5 rounded-lg bg-fuchsia-100 dark:bg-emerald-950 text-fuchsia-700 dark:text-emerald-300 flex items-center gap-1">
                       <Zap className="w-3 h-3" /> Word Race
                     </span>
                     <span className="text-[11px] font-bold text-slate-500">2–8 Players</span>
                   </div>
-                  <h4 className="text-sm font-black text-slate-900 dark:text-white">Contexto Word Race</h4>
+                  <h4 className="text-sm font-black pixel-font dark:font-sans text-slate-900 dark:text-white">Contexto Word Race</h4>
                   <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-snug">
                     Draw guesses to uncover the mystery word! First player to hit Rank #1 wins the round.
                   </p>
                 </div>
                 {currentGameMode === 'contexto' && (
-                  <div className="mt-3 flex items-center gap-1 text-xs font-black text-emerald-600 dark:text-emerald-400">
+                  <div className="mt-3 flex items-center gap-1 text-xs font-black text-fuchsia-600 dark:text-emerald-400">
                     <Check className="w-3.5 h-3.5" /> Selected
                   </div>
                 )}
@@ -366,7 +402,7 @@ export function MultiplayerLobbyPage({
             {/* Custom Rounds Selector */}
             <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-slate-600 dark:text-slate-300">Custom Rounds:</span>
+                <span className="text-xs font-bold pixel-font dark:font-sans text-slate-600 dark:text-slate-300">Custom Rounds:</span>
                 <div className="flex items-center gap-1.5">
                   {[1, 2, 3, 4, 5].map((num) => (
                     <button
@@ -374,12 +410,12 @@ export function MultiplayerLobbyPage({
                       type="button"
                       disabled={!isHost}
                       onClick={() => handleRoundsChange(num)}
-                      className={`w-8 h-8 rounded-xl font-black text-xs transition ${
+                      className={`w-8 h-8 rounded-xl font-black pixel-font dark:font-sans text-xs transition ${
                         currentTotalRounds === num
-                          ? 'bg-slate-900 dark:bg-indigo-600 text-white shadow-sm'
+                          ? 'bg-violet-700 dark:bg-indigo-600 text-white shadow-sm'
                           : isHost
-                          ? 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100'
-                          : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-400 opacity-60 cursor-default'
+                          ? 'bg-white dark:bg-slate-800 border border-violet-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100'
+                          : 'bg-white dark:bg-slate-800 border border-violet-200 dark:border-slate-700 text-slate-400 opacity-60 cursor-default'
                       }`}
                     >
                       {num}
@@ -399,8 +435,8 @@ export function MultiplayerLobbyPage({
           {/* Connected Players List */}
           <div className="p-6 sm:p-8 space-y-6">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-black uppercase tracking-wider text-slate-600 dark:text-slate-300 flex items-center gap-2">
-                <Users className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              <h3 className="text-sm font-black pixel-font dark:font-sans uppercase tracking-wider text-slate-600 dark:text-slate-300 flex items-center gap-2">
+                <Users className="w-4 h-4 text-violet-600 dark:text-indigo-400" />
                 <span>Connected Players ({players.length} / 8)</span>
               </h3>
               <span className="text-xs text-slate-500 dark:text-slate-400 font-bold">
@@ -421,11 +457,11 @@ export function MultiplayerLobbyPage({
                     key={p.user_id}
                     className={`p-4 rounded-2xl border flex items-center gap-3 transition ${
                       isMe
-                        ? 'border-indigo-300 dark:border-indigo-600 bg-indigo-50/60 dark:bg-indigo-950/40 shadow-sm'
-                        : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60'
+                        ? 'border-violet-300 dark:border-indigo-600 bg-violet-50/60 dark:bg-indigo-950/40 shadow-sm'
+                        : 'border-violet-200 dark:border-slate-700 bg-violet-50/40 dark:bg-slate-900/60'
                     }`}
                   >
-                    <div className="w-10 h-10 rounded-xl bg-slate-900 dark:bg-slate-700 text-white flex items-center justify-center font-black text-sm relative">
+                    <div className="w-10 h-10 rounded-xl bg-violet-700 dark:bg-slate-700 text-white flex items-center justify-center font-black pixel-font dark:font-sans text-sm relative">
                       {p.username?.slice(0, 2).toUpperCase()}
                       {p.is_host && (
                         <div className="absolute -top-1.5 -right-1.5 bg-amber-400 text-slate-950 rounded-full p-0.5 shadow">
@@ -435,9 +471,9 @@ export function MultiplayerLobbyPage({
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      <div className="text-sm font-black text-slate-900 dark:text-white truncate flex items-center gap-1.5">
+                      <div className="text-sm font-black pixel-font dark:font-sans text-slate-900 dark:text-white truncate flex items-center gap-1.5">
                         <span>{p.username}</span>
-                        {isMe && <span className="text-[10px] text-indigo-600 dark:text-indigo-400 font-bold">(You)</span>}
+                        {isMe && <span className="text-[10px] text-violet-600 dark:text-indigo-400 font-bold">(You)</span>}
                       </div>
 
                       {/* Player status badge */}
@@ -465,7 +501,7 @@ export function MultiplayerLobbyPage({
               {Array.from({ length: Math.max(0, 4 - players.length) }).map((_, idx) => (
                 <div
                   key={idx}
-                  className="p-4 rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-400 dark:text-slate-500 text-xs font-bold"
+                  className="p-4 rounded-2xl border-2 border-dashed border-violet-300 dark:border-slate-700 flex items-center justify-center text-slate-400 dark:text-slate-500 text-xs font-bold pixel-font dark:font-sans"
                 >
                   <span>Waiting for player...</span>
                 </div>
@@ -473,9 +509,9 @@ export function MultiplayerLobbyPage({
             </div>
 
             {/* Info Banner */}
-            <div className="bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 flex items-center justify-between text-xs text-slate-600 dark:text-slate-300">
+            <div className="bg-violet-50 dark:bg-slate-900/50 border border-violet-200 dark:border-slate-700 rounded-2xl p-4 flex items-center justify-between text-xs text-slate-600 dark:text-slate-300">
               <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
+                <Shield className="w-4 h-4 text-violet-600 dark:text-indigo-400 shrink-0" />
                 <span>
                   {currentGameMode === 'imposter'
                     ? `Finding Imposter: ${currentTotalRounds} Rounds. 1 stroke per turn. AI recognizes drawing. Voting to catch imposter!`
@@ -484,19 +520,19 @@ export function MultiplayerLobbyPage({
                     : `Classic Challenge: ${currentTotalRounds} Synchronized Rounds (Easy, Medium, Hard). Highest score wins!`}
                 </span>
               </div>
-              <span className="font-bold text-indigo-600 dark:text-indigo-400">Synchronized Multiplayer</span>
+              <span className="font-bold text-violet-600 dark:text-indigo-400">Synchronized Multiplayer</span>
             </div>
           </div>
 
           {/* Lobby Action Footer */}
-          <div className="p-4 sm:p-6 bg-slate-50 dark:bg-slate-900/80 border-t border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3">
+          <div className="p-4 sm:p-6 bg-violet-50 dark:bg-slate-900/80 border-t border-violet-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3">
             <button
               type="button"
               onClick={() => setShowLeaveConfirm(true)}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm transition shadow-sm"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-violet-300 dark:border-slate-600 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm transition shadow-sm"
             >
               <LogOut className="w-4 h-4 text-rose-500" />
-              <span>Leave Team</span>
+              <span className="pixel-font dark:font-sans">Leave Team</span>
             </button>
 
             <div className="flex items-center gap-3">
@@ -508,18 +544,18 @@ export function MultiplayerLobbyPage({
                   className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-black text-sm shadow-md transition ${
                     me?.is_ready
                       ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-200 dark:shadow-none'
-                      : 'bg-amber-500 hover:bg-amber-600 text-slate-950 shadow-amber-200 dark:shadow-none animate-bounce'
+                      : 'bg-violet-600 hover:bg-violet-700 dark:bg-amber-500 dark:hover:bg-amber-600 text-white dark:text-slate-950 shadow-violet-300 dark:shadow-none animate-bounce'
                   }`}
                 >
                   {me?.is_ready ? (
                     <>
                       <Check className="w-4 h-4" />
-                      <span>You Are Ready! (Click to Unready)</span>
+                      <span className="pixel-font dark:font-sans">You Are Ready! (Click to Unready)</span>
                     </>
                   ) : (
                     <>
                       <Sparkles className="w-4 h-4" />
-                      <span>Click to Ready Up!</span>
+                      <span className="pixel-font dark:font-sans">Click to Ready Up!</span>
                     </>
                   )}
                 </button>
@@ -531,10 +567,10 @@ export function MultiplayerLobbyPage({
                   type="button"
                   disabled={!canStart}
                   onClick={onStartGame}
-                  className="flex items-center gap-2 px-8 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-sm shadow-md shadow-amber-200 dark:shadow-none transition disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="flex items-center gap-2 px-8 py-3 rounded-xl bg-violet-600 hover:bg-violet-700 dark:bg-amber-500 dark:hover:bg-amber-600 text-white dark:text-slate-950 font-black text-sm shadow-md shadow-violet-300 dark:shadow-none transition disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   <Play className="w-4 h-4 fill-current" />
-                  <span>
+                  <span className="pixel-font dark:font-sans">
                     {!hasEnoughPlayers
                       ? `Need ${minPlayersNeeded}+ Players to Start`
                       : !allNonHostsReady
@@ -564,5 +600,7 @@ export function MultiplayerLobbyPage({
         onCancel={() => setShowLeaveConfirm(false)}
       />
     </div>
+    </>
   );
 }
+ 

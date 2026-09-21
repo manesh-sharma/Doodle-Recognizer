@@ -186,28 +186,64 @@ export function ExtremeChallengePage({ setView }) {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-6 space-y-6">
+    <>
+      {/* Page Background - Light Mode Only (Pixel Style, Red Shades) */}
+      <div className="fixed inset-x-0 top-20 bottom-0 z-0 overflow-hidden pointer-events-none dark:hidden bg-gradient-to-br from-red-200 via-rose-200 to-red-300">
+        {/* Pixel grid */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.28) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.28) 2px, transparent 2px)",
+            backgroundSize: "28px 28px",
+          }}
+        ></div>
+
+        {/* Square pixels */}
+        <div className="absolute top-12 left-12 w-3 h-3 bg-white/50"></div>
+        <div className="absolute top-32 right-24 w-2 h-2 bg-white/50"></div>
+        <div className="absolute bottom-24 left-1/3 w-3 h-3 bg-white/40"></div>
+        <div className="absolute bottom-20 right-16 w-2 h-2 bg-white/50"></div>
+        <div className="absolute top-24 left-1/2 w-2 h-2 bg-red-500/40"></div>
+        <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-red-500/30"></div>
+        <div className="absolute bottom-1/3 left-20 w-2 h-2 bg-rose-600/40"></div>
+        <div className="absolute top-2/3 right-12 w-3 h-3 bg-rose-600/30"></div>
+
+        <div className="absolute -left-10 top-1/3 text-white/20 text-8xl rotate-12">
+          ⚡
+        </div>
+
+        <div className="absolute right-0 top-48 text-white/20 text-7xl -rotate-12">
+          🔥
+        </div>
+
+        <div className="absolute left-1/2 bottom-10 text-white/20 text-6xl">
+          ⭐
+        </div>
+      </div>
+
+    <div className="relative max-w-6xl mx-auto px-4 py-6 space-y-6">
       {/* Top Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 bg-gradient-to-r from-amber-500 via-orange-600 to-red-600 rounded-3xl p-6 text-white shadow-xl">
+      <div className="flex flex-wrap items-center justify-between gap-4 bg-gradient-to-r from-red-500 via-red-600 to-rose-700 dark:from-amber-500 dark:via-orange-600 dark:to-red-600 rounded-3xl p-6 text-white shadow-xl">
         <div>
           <button
             type="button"
             onClick={() => setShowExitConfirm(true)}
-            className="inline-flex items-center gap-2 text-xs font-bold text-amber-100 hover:text-white bg-black/20 hover:bg-black/30 px-3 py-1.5 rounded-xl mb-3 transition"
+            className="inline-flex items-center gap-2 pixel-font dark:font-sans text-xs font-bold text-red-100 dark:text-amber-100 hover:text-white bg-black/20 hover:bg-black/30 px-3 py-1.5 rounded-xl mb-3 transition"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Dashboard
           </button>
-          <h1 className="text-2xl sm:text-3xl font-black font-doodle flex items-center gap-2">
+          <h1 className="text-2xl sm:text-3xl font-black pixel-font dark:font-doodle flex items-center gap-2">
             <Zap className="w-7 h-7 text-yellow-300" /> Extreme Challenge
           </h1>
-          <p className="text-amber-100 text-xs sm:text-sm mt-1 max-w-xl">
+          <p className="text-red-100 dark:text-amber-100 text-xs sm:text-sm mt-1 max-w-xl">
             Fast strokes. Lightning speed. High accuracy. Every second costs 1 point. Can you achieve the legendary 295+ score?
           </p>
         </div>
 
         {/* High Score Badge */}
         <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20 text-right shrink-0">
-          <div className="text-[11px] font-bold text-amber-200 uppercase tracking-wider">High Score</div>
+          <div className="text-[11px] font-bold pixel-font dark:font-sans text-red-200 dark:text-amber-200 uppercase tracking-wider">High Score</div>
           <div className="text-2xl sm:text-3xl font-black text-yellow-300 font-mono">
             {highScore} <span className="text-xs text-white font-bold">pts</span>
           </div>
@@ -217,13 +253,13 @@ export function ExtremeChallengePage({ setView }) {
       {/* Target Word & Live Metrics HUD */}
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
         {/* Target Prompt Box */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between sm:col-span-1">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-red-200 dark:border-slate-700 shadow-sm flex items-center justify-between sm:col-span-1">
           <div>
-            <div className="text-[10px] uppercase font-extrabold tracking-wider text-slate-400">Target Doodle</div>
-            <div className="text-xl font-black text-slate-900 dark:text-white capitalize mt-0.5">
+            <div className="text-[10px] pixel-font dark:font-sans uppercase font-extrabold tracking-wider text-slate-400">Target Doodle</div>
+            <div className="text-xl font-black pixel-font dark:font-sans text-slate-900 dark:text-white capitalize mt-0.5">
               {currentPrompt?.name || 'Loading...'}
             </div>
-            <span className="inline-block mt-1 text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 uppercase">
+            <span className="inline-block mt-1 text-[10px] font-bold px-2 py-0.5 rounded-md bg-red-100 dark:bg-amber-950/60 text-red-800 dark:text-amber-300 uppercase">
               {currentPrompt?.difficulty || 'medium'}
             </span>
           </div>
@@ -237,12 +273,12 @@ export function ExtremeChallengePage({ setView }) {
         </div>
 
         {/* Live Stopwatch */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm flex items-center gap-3.5">
-          <div className="w-10 h-10 rounded-xl bg-orange-50 dark:bg-orange-950/50 text-orange-600 dark:text-orange-400 flex items-center justify-center shrink-0 border border-orange-200 dark:border-orange-800">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-red-200 dark:border-slate-700 shadow-sm flex items-center gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-red-50 dark:bg-orange-950/50 text-red-600 dark:text-orange-400 flex items-center justify-center shrink-0 border border-red-200 dark:border-orange-800">
             <Clock className="w-5 h-5" />
           </div>
           <div>
-            <div className="text-[10px] uppercase font-extrabold tracking-wider text-slate-400">Time Used (-1/s)</div>
+            <div className="text-[10px] pixel-font dark:font-sans uppercase font-extrabold tracking-wider text-slate-400">Time Used (-1/s)</div>
             <div className="text-2xl font-black font-mono text-slate-900 dark:text-white">
               {timeElapsed.toFixed(1)}s
             </div>
@@ -250,12 +286,12 @@ export function ExtremeChallengePage({ setView }) {
         </div>
 
         {/* Strokes Counter */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm flex items-center gap-3.5">
-          <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 border border-purple-200 dark:border-purple-800">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-red-200 dark:border-slate-700 shadow-sm flex items-center gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-rose-50 dark:bg-purple-950/50 text-rose-600 dark:text-purple-400 flex items-center justify-center shrink-0 border border-rose-200 dark:border-purple-800">
             <Flame className="w-5 h-5" />
           </div>
           <div>
-            <div className="text-[10px] uppercase font-extrabold tracking-wider text-slate-400">Strokes Used</div>
+            <div className="text-[10px] pixel-font dark:font-sans uppercase font-extrabold tracking-wider text-slate-400">Strokes Used</div>
             <div className="text-2xl font-black font-mono text-slate-900 dark:text-white">
               {strokeCount} <span className="text-xs text-slate-400 font-bold">{strokeCount === 1 ? 'stroke' : 'strokes'}</span>
             </div>
@@ -263,12 +299,12 @@ export function ExtremeChallengePage({ setView }) {
         </div>
 
         {/* Model Live Accuracy */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm flex items-center gap-3.5">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-red-200 dark:border-slate-700 shadow-sm flex items-center gap-3.5">
           <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-200 dark:border-emerald-800">
             <TrendingUp className="w-5 h-5" />
           </div>
           <div>
-            <div className="text-[10px] uppercase font-extrabold tracking-wider text-slate-400">AI Accuracy</div>
+            <div className="text-[10px] pixel-font dark:font-sans uppercase font-extrabold tracking-wider text-slate-400">AI Accuracy</div>
             <div className="text-2xl font-black font-mono text-slate-900 dark:text-white">
               {targetConfidence.toFixed(0)}%
             </div>
@@ -290,9 +326,9 @@ export function ExtremeChallengePage({ setView }) {
 
         {/* Right Sidebar: Prediction HUD & Submit Button */}
         <div className="lg:col-span-1 flex flex-col justify-between space-y-4">
-          <div className="bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
-            <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" /> Live AI Insight
+          <div className="bg-white dark:bg-slate-800 rounded-3xl p-5 border border-red-200 dark:border-slate-700 shadow-sm space-y-4">
+            <h3 className="text-xs font-black pixel-font dark:font-sans uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-red-500 dark:text-amber-500" /> Live AI Insight
             </h3>
 
             {modelPrediction ? (
@@ -318,14 +354,14 @@ export function ExtremeChallengePage({ setView }) {
             )}
 
             {/* Target Confidence Meter */}
-            <div className="p-3 rounded-2xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60">
+            <div className="p-3 rounded-2xl bg-red-50 dark:bg-amber-950/30 border border-red-200 dark:border-amber-800/60">
               <div className="flex justify-between text-xs font-bold mb-1">
-                <span className="text-amber-800 dark:text-amber-300 capitalize">{currentPrompt?.name} Confidence:</span>
-                <span className="font-mono font-black text-amber-900 dark:text-amber-200">{targetConfidence.toFixed(1)}%</span>
+                <span className="text-red-800 dark:text-amber-300 capitalize">{currentPrompt?.name} Confidence:</span>
+                <span className="font-mono font-black text-red-900 dark:text-amber-200">{targetConfidence.toFixed(1)}%</span>
               </div>
-              <div className="w-full bg-amber-200/60 dark:bg-amber-950 h-2.5 rounded-full overflow-hidden">
+              <div className="w-full bg-red-200/60 dark:bg-amber-950 h-2.5 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-amber-500 rounded-full transition-all duration-300"
+                  className="h-full bg-red-500 dark:bg-amber-500 rounded-full transition-all duration-300"
                   style={{ width: `${Math.min(100, targetConfidence)}%` }}
                 />
               </div>
@@ -337,10 +373,10 @@ export function ExtremeChallengePage({ setView }) {
             type="button"
             onClick={handleFinishChallenge}
             disabled={!hasStartedDrawing}
-            className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-slate-950 font-black text-sm shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2 transition disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-full py-4 rounded-2xl bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-600 hover:to-rose-700 dark:from-amber-500 dark:to-orange-600 dark:hover:from-amber-600 dark:hover:to-orange-700 text-white dark:text-slate-950 font-black text-sm shadow-lg shadow-red-500/30 dark:shadow-orange-500/20 flex items-center justify-center gap-2 transition disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <CheckCircle2 className="w-5 h-5" />
-            <span>Lock In & Finish Challenge</span>
+            <span className="pixel-font dark:font-sans">Lock In & Finish Challenge</span>
           </button>
         </div>
       </div>
@@ -427,5 +463,7 @@ export function ExtremeChallengePage({ setView }) {
         onCancel={() => setShowExitConfirm(false)}
       />
     </div>
+    </>
   );
 }
+ 

@@ -238,25 +238,61 @@ export function MultiplayerGamePage({
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col h-[calc(100vh-5rem)]">
+    <>
+      {/* Page Background - Light Mode Only (Pixel Style, Violet/Purple Shades) */}
+      <div className="fixed inset-x-0 top-20 bottom-0 z-0 overflow-hidden pointer-events-none dark:hidden bg-gradient-to-br from-violet-200 via-purple-200 to-violet-300">
+        {/* Pixel grid */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.28) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.28) 2px, transparent 2px)",
+            backgroundSize: "28px 28px",
+          }}
+        ></div>
+
+        {/* Square pixels */}
+        <div className="absolute top-12 left-12 w-3 h-3 bg-white/50"></div>
+        <div className="absolute top-32 right-24 w-2 h-2 bg-white/50"></div>
+        <div className="absolute bottom-24 left-1/3 w-3 h-3 bg-white/40"></div>
+        <div className="absolute bottom-20 right-16 w-2 h-2 bg-white/50"></div>
+        <div className="absolute top-24 left-1/2 w-2 h-2 bg-violet-500/40"></div>
+        <div className="absolute top-1/2 right-1/3 w-3 h-3 bg-violet-500/30"></div>
+        <div className="absolute bottom-1/3 left-20 w-2 h-2 bg-purple-600/40"></div>
+        <div className="absolute top-2/3 right-12 w-3 h-3 bg-purple-600/30"></div>
+
+        <div className="absolute -left-10 top-1/3 text-white/20 text-8xl rotate-12">
+          🎮
+        </div>
+
+        <div className="absolute right-0 top-48 text-white/20 text-7xl -rotate-12">
+          👾
+        </div>
+
+        <div className="absolute left-1/2 bottom-10 text-white/20 text-6xl">
+          ⭐
+        </div>
+      </div>
+
+    <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col h-[calc(100vh-5rem)]">
       {/* Top Status Bar */}
       <div className="flex flex-wrap items-center justify-between pb-4 gap-3">
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => setShowLeaveConfirm(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-violet-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition shadow-sm"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Leave</span>
+            <span className="pixel-font dark:font-sans">Leave</span>
           </button>
 
           {/* Mode & Round Pill */}
           <div className="flex items-center gap-1.5">
-            <span className="bg-indigo-600 text-white px-3 py-1.5 rounded-xl text-xs font-black">
+            <span className="bg-violet-600 dark:bg-indigo-600 text-white px-3 py-1.5 rounded-xl text-xs font-black pixel-font dark:font-sans">
               Round {currentRound} / {totalRounds}
             </span>
-            <span className="px-2.5 py-1 rounded-xl text-[11px] font-black uppercase tracking-wider bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+            <span className="px-2.5 py-1 rounded-xl text-[11px] font-black pixel-font dark:font-sans uppercase tracking-wider bg-violet-100 dark:bg-slate-800 text-violet-700 dark:text-slate-300">
               {gameMode === 'imposter' ? 'Finding Imposter' : gameMode === 'contexto' ? 'Contexto Race' : 'Classic Match'}
             </span>
           </div>
@@ -265,8 +301,8 @@ export function MultiplayerGamePage({
           <div>
             {gameMode === 'classic' && (
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Draw Target:</span>
-                <span className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white capitalize font-doodle">
+                <span className="text-xs font-bold pixel-font dark:font-sans text-slate-500 uppercase tracking-wider">Draw Target:</span>
+                <span className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white capitalize pixel-font dark:font-doodle">
                   "{currentPrompt?.prompt}"
                 </span>
               </div>
@@ -281,8 +317,8 @@ export function MultiplayerGamePage({
                   </div>
                 ) : (
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-bold text-slate-500 uppercase">Secret Word:</span>
-                    <span className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white capitalize font-doodle">
+                    <span className="text-xs font-bold pixel-font dark:font-sans text-slate-500 uppercase">Secret Word:</span>
+                    <span className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white capitalize pixel-font dark:font-doodle">
                       "{currentPrompt?.prompt}"
                     </span>
                     <span className="px-2 py-0.5 rounded-full text-[10px] font-black uppercase bg-emerald-100 text-emerald-800">
@@ -295,11 +331,11 @@ export function MultiplayerGamePage({
 
             {gameMode === 'contexto' && (
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-slate-500 uppercase">Mystery Word:</span>
-                <span className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-doodle">
+                <span className="text-xs font-bold pixel-font dark:font-sans text-slate-500 uppercase">Mystery Word:</span>
+                <span className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white pixel-font dark:font-doodle">
                   {status === 'contexto_summary' ? `"${roomState?.contexto_winner?.secret_word}"` : '???'}
                 </span>
-                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                <span className="text-xs font-bold text-fuchsia-600 dark:text-emerald-400">
                   (First to Rank #1 wins!)
                 </span>
               </div>
@@ -314,7 +350,7 @@ export function MultiplayerGamePage({
             className={`flex items-center gap-2 px-4 py-2 rounded-2xl border font-black text-sm transition-colors ${
               localTimeLeft <= 10
                 ? 'bg-rose-50 dark:bg-rose-950/30 border-rose-300 dark:border-rose-900/40 text-rose-600 dark:text-rose-400 animate-pulse'
-                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 shadow-sm'
+                : 'bg-white dark:bg-slate-800 border-violet-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 shadow-sm'
             }`}
           >
             <Clock className="w-4 h-4" />
@@ -327,10 +363,10 @@ export function MultiplayerGamePage({
               type="button"
               disabled={me?.is_finished_round || status !== 'in_round'}
               onClick={() => setShowDoneConfirm(true)}
-              className={`px-4 py-2 rounded-2xl text-xs font-bold transition shadow-sm ${
+              className={`px-4 py-2 rounded-2xl text-xs font-bold pixel-font dark:font-sans transition shadow-sm ${
                 me?.is_finished_round
                   ? 'bg-emerald-100 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800'
-                  : 'bg-slate-900 hover:bg-slate-800 dark:bg-indigo-600 dark:hover:bg-indigo-700 text-white'
+                  : 'bg-violet-700 hover:bg-violet-800 dark:bg-indigo-600 dark:hover:bg-indigo-700 text-white'
               }`}
             >
               {me?.is_finished_round ? '✓ Finished & Ready' : "I'm Done"}
@@ -345,7 +381,7 @@ export function MultiplayerGamePage({
               className="px-4 py-2 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs shadow-md transition flex items-center gap-1.5"
             >
               <Check className="w-3.5 h-3.5" />
-              <span>Done My Stroke</span>
+              <span className="pixel-font dark:font-sans">Done My Stroke</span>
             </button>
           )}
         </div>
@@ -357,7 +393,7 @@ export function MultiplayerGamePage({
           className={`mb-3 p-3 rounded-2xl border flex flex-wrap items-center justify-between gap-2 shadow-sm transition ${
             isMyImposterTurn
               ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 ring-2 ring-emerald-400'
-              : 'bg-slate-100 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300'
+              : 'bg-violet-100 dark:bg-slate-800/80 border-violet-200 dark:border-slate-700 text-slate-700 dark:text-slate-300'
           }`}
         >
           <div className="flex items-center gap-2">
@@ -408,13 +444,13 @@ export function MultiplayerGamePage({
 
           {/* Imposter Mode AI Meter Below Canvas */}
           {gameMode === 'imposter' && status === 'imposter_drawing' && (
-            <div className="mt-2.5 p-3.5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-wrap items-center justify-between gap-3">
+            <div className="mt-2.5 p-3.5 bg-white dark:bg-slate-800 rounded-2xl border border-violet-200 dark:border-slate-700 shadow-sm flex flex-wrap items-center justify-between gap-3">
               <div>
-                <span className="text-[10px] uppercase font-black tracking-wider text-slate-400 block">
+                <span className="text-[10px] uppercase font-black pixel-font dark:font-sans tracking-wider text-slate-400 block">
                   AI Real-Time Recognition
                 </span>
                 <span className="text-sm font-black text-slate-900 dark:text-white capitalize">
-                  Top Guess: <strong className="text-indigo-600 dark:text-indigo-400">{topPrediction?.class_name || 'Analyzing sketch...'}</strong> ({topPrediction?.confidence || 0}%)
+                  Top Guess: <strong className="text-violet-600 dark:text-indigo-400">{topPrediction?.class_name || 'Analyzing sketch...'}</strong> ({topPrediction?.confidence || 0}%)
                 </span>
               </div>
 
@@ -422,14 +458,14 @@ export function MultiplayerGamePage({
               <div className="w-full sm:w-60">
                 <div className="flex items-center justify-between text-[11px] font-extrabold mb-1">
                   <span className="text-slate-500">Target Accuracy (Auto-Vote at 75%):</span>
-                  <span className={targetConfidence >= 75 ? 'text-emerald-600' : 'text-indigo-600'}>
+                  <span className={targetConfidence >= 75 ? 'text-emerald-600' : 'text-violet-600 dark:text-indigo-600'}>
                     {targetConfidence.toFixed(1)}% / 75%
                   </span>
                 </div>
                 <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
                   <div
                     className={`h-2 rounded-full transition-all duration-300 ${
-                      targetConfidence >= 75 ? 'bg-emerald-500' : 'bg-indigo-600'
+                      targetConfidence >= 75 ? 'bg-emerald-500' : 'bg-violet-600 dark:bg-indigo-600'
                     }`}
                     style={{ width: `${Math.min(100, (targetConfidence / 75) * 100)}%` }}
                   />
@@ -440,7 +476,7 @@ export function MultiplayerGamePage({
 
           {/* Contexto Mode Submit Button */}
           {gameMode === 'contexto' && status === 'contexto_race' && (
-            <div className="mt-2.5 p-3 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
+            <div className="mt-2.5 p-3 bg-white dark:bg-slate-800 rounded-2xl border border-violet-200 dark:border-slate-700 shadow-sm flex items-center justify-between">
               <span className="text-xs font-bold text-slate-500">
                 Draw your guess, then submit! Model will tell you how close you are.
               </span>
@@ -448,44 +484,44 @@ export function MultiplayerGamePage({
                 type="button"
                 disabled={submitting}
                 onClick={handleContextoGuess}
-                className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs sm:text-sm shadow-md transition flex items-center gap-2"
+                className="px-6 py-2.5 rounded-xl bg-fuchsia-600 hover:bg-fuchsia-700 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white font-black text-xs sm:text-sm shadow-md transition flex items-center gap-2"
               >
                 <Send className="w-4 h-4" />
-                <span>{submitting ? 'Analyzing...' : 'Submit Doodle Guess'}</span>
+                <span className="pixel-font dark:font-sans">{submitting ? 'Analyzing...' : 'Submit Doodle Guess'}</span>
               </button>
             </div>
           )}
         </div>
 
         {/* 30% Multiplayer Sidebar */}
-        <div className="w-full lg:w-[30%] h-full flex flex-col min-h-[350px] bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
+        <div className="w-full lg:w-[30%] h-full flex flex-col min-h-[350px] bg-white dark:bg-slate-800 rounded-3xl border border-violet-200 dark:border-slate-700 shadow-sm overflow-hidden">
           {/* Top Score Card for Classic Mode */}
           {gameMode === 'classic' && (
             <>
-              <div className="p-4 bg-slate-50 dark:bg-slate-900/60 border-b border-slate-200 dark:border-slate-700">
+              <div className="p-4 bg-violet-50 dark:bg-slate-900/60 border-b border-violet-200 dark:border-slate-700">
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">My Round Score</span>
-                  <span className="text-xs font-extrabold text-indigo-600">
+                  <span className="text-xs font-bold pixel-font dark:font-sans text-slate-500 uppercase tracking-wider">My Round Score</span>
+                  <span className="text-xs font-extrabold text-violet-600 dark:text-indigo-600">
                     {myBestScore.toFixed(1)} / 100 pts
                   </span>
                 </div>
-                <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+                <div className="w-full bg-violet-200 dark:bg-slate-200 rounded-full h-2 overflow-hidden">
                   <div
-                    className="bg-indigo-600 h-2 rounded-full transition-all duration-300 ease-out"
+                    className="bg-violet-600 dark:bg-indigo-600 h-2 rounded-full transition-all duration-300 ease-out"
                     style={{ width: `${Math.min(100, myBestScore)}%` }}
                   />
                 </div>
               </div>
 
-              <div className="p-3.5 border-b border-slate-100 dark:border-slate-800 bg-indigo-50/40 dark:bg-indigo-950/20">
+              <div className="p-3.5 border-b border-violet-100 dark:border-slate-800 bg-violet-50/60 dark:bg-indigo-950/20">
                 <button
                   type="button"
                   disabled={submitting || me?.is_finished_round || status !== 'in_round'}
                   onClick={handleSubmitAttempt}
-                  className="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800/90 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition disabled:opacity-40"
+                  className="w-full py-2.5 rounded-xl bg-violet-700 hover:bg-violet-800 dark:bg-slate-800/90 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition disabled:opacity-40"
                 >
                   <Send className="w-4 h-4" />
-                  <span>{submitting ? 'Analyzing...' : 'Submit Doodle Attempt'}</span>
+                  <span className="pixel-font dark:font-sans">{submitting ? 'Analyzing...' : 'Submit Doodle Attempt'}</span>
                 </button>
               </div>
             </>
@@ -506,9 +542,9 @@ export function MultiplayerGamePage({
 
           {/* Live In-Game Leaderboard / Players List */}
           <div className="flex-1 p-4 overflow-y-auto space-y-2">
-            <div className="flex items-center justify-between text-xs font-black uppercase tracking-wider text-slate-400 mb-2">
+            <div className="flex items-center justify-between text-xs font-black pixel-font dark:font-sans uppercase tracking-wider text-slate-400 mb-2">
               <span className="flex items-center gap-1.5">
-                <Users className="w-3.5 h-3.5 text-indigo-600" />
+                <Users className="w-3.5 h-3.5 text-violet-600 dark:text-indigo-600" />
                 <span>Teammates</span>
               </span>
               <span>Points</span>
@@ -526,18 +562,18 @@ export function MultiplayerGamePage({
                       isCurrentTurn
                         ? 'border-emerald-400 bg-emerald-50/60 dark:bg-emerald-950/40 shadow-sm ring-1 ring-emerald-400'
                         : isMe
-                        ? 'border-indigo-300 dark:border-indigo-700 bg-indigo-50/60 dark:bg-indigo-950/40'
-                        : 'border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50'
+                        ? 'border-violet-300 dark:border-indigo-700 bg-violet-50/60 dark:bg-indigo-950/40'
+                        : 'border-violet-100 dark:border-slate-700 bg-violet-50/40 dark:bg-slate-900/50'
                     }`}
                   >
                     <div className="flex items-center gap-2 min-w-0">
-                      <span className="w-5 h-5 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-extrabold flex items-center justify-center shrink-0">
+                      <span className="w-5 h-5 rounded-lg bg-violet-200 dark:bg-slate-700 text-violet-800 dark:text-slate-300 text-xs font-extrabold pixel-font dark:font-sans flex items-center justify-center shrink-0">
                         {index + 1}
                       </span>
                       <div className="min-w-0">
-                        <div className="text-xs font-black text-slate-900 dark:text-white truncate flex items-center gap-1">
+                        <div className="text-xs font-black pixel-font dark:font-sans text-slate-900 dark:text-white truncate flex items-center gap-1">
                           <span>{player.username}</span>
-                          {isMe && <span className="text-[9px] text-indigo-600 font-bold">(You)</span>}
+                          {isMe && <span className="text-[9px] text-violet-600 dark:text-indigo-600 font-bold">(You)</span>}
                         </div>
                         <div className="text-[10px] text-slate-500 flex items-center gap-1">
                           {gameMode === 'classic' && (
@@ -554,7 +590,7 @@ export function MultiplayerGamePage({
                     </div>
 
                     <div className="text-right shrink-0">
-                      <span className="text-xs font-black text-indigo-700 dark:text-indigo-300">
+                      <span className="text-xs font-black pixel-font dark:font-sans text-violet-700 dark:text-indigo-300">
                         {player.total_score.toFixed(0)} pts
                       </span>
                     </div>
@@ -565,7 +601,7 @@ export function MultiplayerGamePage({
           </div>
 
           {/* Sidebar Footer */}
-          <div className="p-3 bg-slate-50 dark:bg-slate-800/60 border-t border-slate-200 dark:border-slate-700 text-[11px] text-slate-500 flex items-center justify-between">
+          <div className="p-3 bg-violet-50 dark:bg-slate-800/60 border-t border-violet-200 dark:border-slate-700 text-[11px] text-slate-500 flex items-center justify-between">
             <span>Code: <strong className="font-mono text-slate-800 dark:text-slate-200">{roomState?.code}</strong></span>
             <span>{players.length} Players</span>
           </div>
@@ -577,12 +613,12 @@ export function MultiplayerGamePage({
       {/* Imposter Voting Modal Overlay */}
       {status === 'imposter_voting' && (
         <div className="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-lg w-full text-center shadow-2xl animate-in zoom-in-95 duration-200">
+          <div className="bg-white dark:bg-slate-900 border border-violet-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-lg w-full text-center shadow-2xl animate-in zoom-in-95 duration-200">
             <div className="w-14 h-14 rounded-2xl bg-purple-100 dark:bg-purple-950/60 text-purple-600 flex items-center justify-center mx-auto mb-3 shadow">
               <Vote className="w-7 h-7" />
             </div>
 
-            <h3 className="text-2xl font-black text-slate-900 dark:text-white font-doodle">
+            <h3 className="text-2xl font-black text-slate-900 dark:text-white pixel-font dark:font-doodle">
               Vote Out the Imposter! 🕵️
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -603,24 +639,24 @@ export function MultiplayerGamePage({
                     onClick={() => handleCastVote(p.user_id)}
                     className={`p-3.5 rounded-2xl border text-left flex items-center justify-between transition ${
                       isMe
-                        ? 'opacity-50 cursor-not-allowed border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900'
+                        ? 'opacity-50 cursor-not-allowed border-violet-200 dark:border-slate-800 bg-violet-50 dark:bg-slate-900'
                         : isSelected
                         ? 'border-purple-600 bg-purple-50 dark:bg-purple-950/60 ring-2 ring-purple-600'
-                        : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-purple-400 hover:shadow'
+                        : 'border-violet-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-purple-400 hover:shadow'
                     }`}
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="w-8 h-8 rounded-xl bg-slate-900 text-white flex items-center justify-center font-black text-xs">
+                      <div className="w-8 h-8 rounded-xl bg-violet-700 dark:bg-slate-900 text-white flex items-center justify-center font-black text-xs pixel-font dark:font-sans">
                         {p.username.slice(0, 2).toUpperCase()}
                       </div>
-                      <span className="text-xs font-black text-slate-900 dark:text-white truncate">
+                      <span className="text-xs font-black pixel-font dark:font-sans text-slate-900 dark:text-white truncate">
                         {p.username} {isMe && '(You)'}
                       </span>
                     </div>
 
                     {!isMe && (
                       <span className={`text-[11px] font-black px-2 py-1 rounded-xl ${
-                        isSelected ? 'bg-purple-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                        isSelected ? 'bg-purple-600 text-white' : 'bg-violet-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
                       }`}>
                         {isSelected ? '✓ Voted' : 'Vote'}
                       </span>
@@ -642,7 +678,7 @@ export function MultiplayerGamePage({
       {/* Imposter Round Reveal Overlay */}
       {status === 'imposter_reveal' && roundResult && (
         <div className="fixed inset-0 z-50 bg-slate-900/75 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl animate-in zoom-in-95 duration-200">
+          <div className="bg-white dark:bg-slate-900 border border-violet-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl animate-in zoom-in-95 duration-200">
             <div className={`w-16 h-16 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-lg ${
               roundResult.outcome === 'innocents_win'
                 ? 'bg-emerald-100 text-emerald-600'
@@ -655,13 +691,13 @@ export function MultiplayerGamePage({
               )}
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-doodle">
+            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white pixel-font dark:font-doodle">
               {roundResult.outcome === 'innocents_win'
                 ? 'Innocents Win! Imposter Caught!'
                 : 'Imposter Wins! Fooled Everyone!'}
             </h3>
 
-            <div className="my-5 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2 text-xs">
+            <div className="my-5 p-4 rounded-2xl bg-violet-50 dark:bg-slate-800/60 border border-violet-200 dark:border-slate-700 space-y-2 text-xs">
               <div className="flex items-center justify-between">
                 <span className="text-slate-500 font-bold">Secret Target Word:</span>
                 <span className="font-black text-slate-900 dark:text-white capitalize">
@@ -692,21 +728,21 @@ export function MultiplayerGamePage({
       {/* Contexto Summary Overlay */}
       {status === 'contexto_summary' && (
         <div className="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl animate-in zoom-in-95 duration-200">
-            <div className="w-16 h-16 rounded-3xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+          <div className="bg-white dark:bg-slate-900 border border-violet-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl animate-in zoom-in-95 duration-200">
+            <div className="w-16 h-16 rounded-3xl bg-fuchsia-100 dark:bg-emerald-100 text-fuchsia-600 dark:text-emerald-600 flex items-center justify-center mx-auto mb-4">
               <Zap className="w-8 h-8" />
             </div>
 
-            <h3 className="text-2xl font-black text-slate-900 dark:text-white font-doodle">
+            <h3 className="text-2xl font-black text-slate-900 dark:text-white pixel-font dark:font-doodle">
               {roomState?.contexto_winner?.user_id
                 ? `${roomState.contexto_winner.username} Won the Round! 🎯`
                 : 'Time Expired!'}
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-              The mystery word was <strong className="text-emerald-600 capitalize">"{roomState?.contexto_winner?.secret_word}"</strong>!
+              The mystery word was <strong className="text-fuchsia-600 dark:text-emerald-600 capitalize">"{roomState?.contexto_winner?.secret_word}"</strong>!
             </p>
 
-            <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 block mt-4 animate-pulse">
+            <span className="text-xs font-bold text-violet-600 dark:text-indigo-400 block mt-4 animate-pulse">
               Advancing to next round...
             </span>
           </div>
@@ -716,24 +752,24 @@ export function MultiplayerGamePage({
       {/* Classic Round Summary Intermission Overlay */}
       {status === 'round_summary' && gameMode === 'classic' && (
         <div className="fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl animate-in zoom-in-95 duration-200">
-            <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mx-auto mb-3">
+          <div className="bg-white dark:bg-slate-900 border border-violet-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center shadow-2xl animate-in zoom-in-95 duration-200">
+            <div className="w-12 h-12 rounded-2xl bg-violet-50 dark:bg-indigo-950/40 text-violet-600 dark:text-indigo-400 flex items-center justify-center mx-auto mb-3">
               <Sparkles className="w-6 h-6 animate-spin" />
             </div>
-            <h3 className="text-2xl font-black text-slate-900 dark:text-white font-doodle">
+            <h3 className="text-2xl font-black text-slate-900 dark:text-white pixel-font dark:font-doodle">
               Round {currentRound} Finished!
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
               Synchronizing scores and advancing all players together...
             </p>
 
-            <div className="my-4 bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-3 divide-y divide-slate-100 dark:divide-slate-800">
+            <div className="my-4 bg-violet-50 dark:bg-slate-800/60 rounded-2xl p-3 divide-y divide-violet-100 dark:divide-slate-800">
               {rankedPlayers.map((p, idx) => (
                 <div key={p.user_id} className="py-2 flex items-center justify-between text-xs font-bold">
                   <span className="text-slate-800 dark:text-slate-200">
                     {idx + 1}. {p.username}
                   </span>
-                  <span className="text-indigo-600 dark:text-indigo-400">
+                  <span className="text-violet-600 dark:text-indigo-400">
                     +{p.current_round_score.toFixed(1)} pts
                   </span>
                 </div>
@@ -792,5 +828,7 @@ export function MultiplayerGamePage({
         onBackToDashboard={() => setView('dashboard')}
       />
     </div>
+    </>
   );
 }
+ 

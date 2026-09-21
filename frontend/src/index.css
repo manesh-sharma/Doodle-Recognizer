@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Shantell+Sans:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -94,4 +95,22 @@
   background-image: 
     linear-gradient(to right, rgba(51, 65, 85, 0.35) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(51, 65, 85, 0.35) 1px, transparent 1px);
+
+}
+
+.dark .font-pixel{
+   font-family:'Plus Jakarta Sans',sans-serif !important;
+   font-weight:700;
+}
+
+.dark .font-pixelmono{
+   font-family:'Plus Jakarta Sans',sans-serif !important;
+   font-weight:500;
+}
+.pixel-font{
+    font-family: "Press Start 2P", cursive;
+}
+
+.dark .pixel-font{
+    font-family:"Poppins", sans-serif;
 }

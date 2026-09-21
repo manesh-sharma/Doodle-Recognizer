@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
+  darkMode: "class",
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -8,29 +8,57 @@ export default {
   theme: {
     extend: {
       colors: {
-        doodle: {
-          dark: '#1e293b',
-          canvas: '#fafafa',
-          accent: '#4f46e5',
-          warm: '#f59e0b',
-        }
+        pixel: {
+          bg: "#FFF8EE",
+          card: "#FFF2D9",
+          primary: "#FFB347",
+          accent: "#FF928B",
+          border: "#3B2F2F",
+          text: "#3B2F2F",
+        },
       },
+
+      fontFamily: {
+        pixel: ['"Press Start 2P"', "cursive"],
+        pixelmono: ['"VT323"', "monospace"],
+        doodle: ['"Shantell Sans"', "cursive"],
+      },
+
+      borderRadius: {
+        pixel: "0px",
+      },
+
+      boxShadow: {
+        pixel: "4px 4px 0 #3B2F2F",
+        "pixel-sm": "2px 2px 0 #3B2F2F",
+        "pixel-lg": "6px 6px 0 #3B2F2F",
+      },
+
       keyframes: {
         float: {
-          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-          '50%': { transform: 'translateY(-10px) rotate(3deg)' },
+          "0%,100%": {
+            transform: "translateY(0px) rotate(0deg)",
+          },
+          "50%": {
+            transform: "translateY(-10px) rotate(3deg)",
+          },
         },
+
         dash: {
           to: {
-            'stroke-dashoffset': '0',
-          }
-        }
+            strokeDashoffset: "0",
+          },
+        },
       },
+
       animation: {
-        float: 'float 4s ease-in-out infinite',
-        'float-slow': 'float 6s ease-in-out infinite',
-      }
+        float: "float 4s ease-in-out infinite",
+        "float-slow": "float 6s ease-in-out infinite",
+      },
     },
   },
   plugins: [],
+  
+  
 }
+
